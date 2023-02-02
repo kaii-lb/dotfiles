@@ -1,0 +1,30 @@
+#!/usr/bin/bash
+
+# variables
+config=$HOME/.config/hypr
+scripts=$config/scripts
+
+# notification daemon
+dunst &
+
+# waybar
+$scripts/launch_waybar &
+#$scripts/tools/dynamic &
+
+# wallpaper
+$scripts/wall /home/kai/Pictures/NewWallpapers/r34.jpg &
+
+# effects
+#$scripts/rgb &
+
+# other
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
+
+brightnessctl set 15%
+
+#to workaround g4music's dbus bug
+amberol ~/Music/Kai's\ Musik/
+playerctl next
+playerctl play-pause
+killall amberol

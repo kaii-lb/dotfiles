@@ -1,0 +1,53 @@
+[global]
+frame_color = "#89B4FA"
+separator_color= frame
+
+[urgency_low]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_normal]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+
+[urgency_critical]
+background = "#1E1E2E"
+foreground = "#CDD6F4"
+frame_color = "#FAB387"
+
+[global]
+# dynamic width from 0 to 300
+# width = (0, 300)
+# constant width of 300
+width = 300
+
+# The maximum height of a single notification, excluding the frame.
+height = 600
+
+### Progress bar ###
+
+# Turn on the progess bar. It appears when a progress hint is passed with
+# for example dunstify -h int:value:12
+progress_bar = true
+
+# Set the progress bar height. This includes the frame, so make sure
+# it's at least twice as big as the frame width.
+progress_bar_height = 50
+
+# Set the frame width of the progress bar
+progress_bar_frame_width = 20
+
+# Set the minimum width for the progress bar
+progress_bar_min_width = 150
+
+# Set the maximum width for the progress bar
+progress_bar_max_width = 300
+
+corner_radius = 10
+
+icon_theme = MoreWaita
+enable_recursive_icon_lookup = true
+
+font = "Product Sans Bold" 14
+
+offset = 30x35

@@ -1,0 +1,192 @@
+//-- Layout ----------------------------------
+{
+    "layer": "top",
+    "position": "top",
+    "output": ["DP-5", "eDP-1", "DP-8"], // Which Monitor waybar opens on
+    "height": 35,
+    "spacing": 4,
+    "margin-top": 5,
+    "margin-bottom":1,
+
+//-- Modules -----------------------------
+    "modules-left":[  "custom/launcher", "wlr/taskbar", "hyprland/window"],
+    "modules-right":["mpd",  "idle_inhibitor", "custom/weather", "bluetooth", "pulseaudio", "cpu", "memory", "disk", "temperature",  "battery", "tray", "clock", "custom/power"],
+
+//-- TaskBar ------------------------------
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 20,
+        "icon-theme": "Star",
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close",
+        "on-click-right": "activate"
+    },
+
+//-- Idle ---------------------------------
+    "idle_inhibitor": {
+        "format": "{icon} ",
+        "format-icons": {
+            "activated": "",
+            "deactivated": ""
+        }
+    },
+
+//-- Tray ---------------------------------
+    "tray": {
+        "icon-size": 20,
+        "spacing": 10
+    },
+
+//-- Clock --------------------------------
+    "clock": {
+        // "timezone": "America/New_York",
+        "tooltip-format": "<big>{:%B %Y}</big>\n<tt><small>{calendar}</small></tt>",
+        "format": " {:%I:%M %p}",
+        "format-alt": " {:%a %b %d, %G}"
+    },
+
+//-- CPU ---------------------------------
+    "cpu": {
+         "interval": 5,
+         "format": " {usage}%",
+    },
+
+//-- Mem ----------------------------------
+    "memory": {
+         "interval": 10,
+         "format": " {used:0.1f}G",
+    },
+
+//-- Blacklight --------------------------
+    "backlight": {
+        // "device": "acpi_video1",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", ""]
+    },
+
+//-- Battery -----------------------------
+    "battery": {
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{icon}  {capacity}%",
+        "format-charging": " {capacity}%",
+        "format-plugged": " {capacity}%",
+        "format-alt": "{icon} {time}",
+        // "format-good": "", // An empty format will hide the module
+        "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+
+//-- Disk ---------------------------------
+    "disk": {
+         "interval": 30,
+         "format": " {free}",
+    },
+
+//-- Network ------------------------------
+    "network": {
+        // "interface": "wlp2*", // (Optional) To force the use of this interface
+        "format-wifi": "{essid} ({signalStrength}%) ",
+        "format-ethernet": "Connected  ",
+        "tooltip-format": "{ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}: {ipaddr}/{cidr}",
+        "on-click-right": "bash ~/.config/rofi/wifi_menu/rofi_wifi_menu"
+    },
+
+//-- Pulseaudio ---------------------------
+    "pulseaudio": {
+        // "scroll-step": 1, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": "{icon} {volume}% ",
+        "format-bluetooth-muted": "{icon} {format_source}",
+        "format-muted": "{format_source}",
+        "format-source": "",
+        "format-source-muted": "",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+        "on-click": "pavucontrol"
+     },
+
+//-- MPD ---------------------------------
+      "mpd": {
+        "interval": 2,
+        "unknown-tag": "",
+
+        "format": "{stateIcon} {artist} - {title}",
+        "format-disconnected": " Disconnected",
+        "format-paused": "{stateIcon} {artist} - {title}",
+        "format-stopped": "Stopped ",
+        "state-icons": {
+            "paused": "",
+            "playing": ""
+        },
+        "tooltip-format": "MPD (connected)",
+        "tooltip-format-disconnected": "MPD (disconnected)",
+		// Commands to execute on events
+        "on-click": "mpc toggle",
+        "on-click-middle": "mpc prev",
+        "on-click-right": "mpc next",
+        "on-update": "",
+        "on-scroll-up": "mpc seek +00:00:01",
+        "on-scroll-down": "mpc seek -00:00:01",
+        "smooth-scrolling-threshold": 1,
+    },
+
+//-- Launcher -----------------------------
+    "custom/launcher":{
+        "format": " ",
+        "on-click": "/home/rjm/.config/eww/dashboard/launch_dashboard",
+        "on-click-right": "eww --config /home/rjm/.config/eww/dashboard/ kill"
+    },
+
+//-- Power --------------------------------
+    "custom/power":{
+        "format": " ",
+        "on-click": "/home/rjm/.config/hypr/scripts/powermenu.sh",
+        "on-click-right": "killall nwg-bar"
+    },
+
+//-- Weather -----------------------------
+    "custom/weather": {
+    "format": "{}",
+    "tooltip": true,
+    "interval": 3600,
+    "exec": "~/.config/hypr/scripts/waybar-wttr.py",
+    "return-type": "json"
+    },
+//-- Tempturature ------------------------
+      "temperature": {
+        // "thermal-zone": 2,
+        // "hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
+        "critical-threshold": 80,
+        // "format-critical": "{icon} {temperatureC}°C",
+        "format": "{icon} {temperatureC}°C",
+        "format-icons": ["", "", ""]
+    },
+
+//-- Bluetooth  ---------------------------
+    "bluetooth": {
+  	// "controller": "controller1", // specify the alias of the controller if there are more than 1 on the system
+  	"format": "  {status} ",
+  	"format-disabled": "", // an empty format will hide the module
+  	"format-connected": "  {num_connections} ",
+  	"tooltip-format": "{controller_alias}\t{controller_address}",
+  	"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{device_enumerate}",
+  	"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+    "on-click": "exec ~/.config/hypr/scripts/wofi_blue"
+    },
+
+}

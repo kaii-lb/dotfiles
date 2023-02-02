@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+datetime=$(date +"%Y-%m-%d %H-%M-%S")
+screenshot_name="Screenshot from"
+
+# echo $datetime
+
+if [[ $1 == "save" ]]; then
+	grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" ~/Pictures/Screenshots/"Screenshot from $datetime".png 
+elif [[ $1 == "copy" ]]; then
+	grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" - | wl-copy
+fi	
