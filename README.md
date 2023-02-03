@@ -22,6 +22,8 @@
 - Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
+- Screen Recorder (no audio): [wf-recorder](https://github.com/ammen99/wf-recorder) (you need slurp for area recordings) 
+- Screen ShotsL [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp)
 
 ### Copying Files
 
