@@ -1,4 +1,9 @@
 #!/usr/bin/bash
+
+export XDG_RUNTIME_DIR=/run/user/$(id -u)
+export WAYLAND_DISPLAY=wayland-1
+export SWAYSOCK=$XDG_RUNTIME_DIR/sway-ipc.$(id -u).$(pgrep -x sway).sock
+
 swaylockd \
 --screenshots \
 --indicator \
@@ -21,3 +26,7 @@ swaylockd \
 --inside-color 0011111b \
 --separator-color 00000000 \
 --fade-in 0.1 &
+
+echo "Locked Succesfully"
+
+echo "${XDG_RUNTIME_DIR}  ${WAYLAND_DISPLAY}  $SWAYSOCK"

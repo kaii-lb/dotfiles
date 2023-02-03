@@ -12,7 +12,7 @@ $scripts/launch_waybar &
 #$scripts/tools/dynamic &
 
 # wallpaper
-$scripts/wall /home/kai/Pictures/NewWallpapers/r34.jpg &
+$scripts/wall /home/$USER/Pictures/NewWallpapers/r34.jpg &
 
 # effects
 #$scripts/rgb &
@@ -22,9 +22,3 @@ $scripts/wall /home/kai/Pictures/NewWallpapers/r34.jpg &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
 brightnessctl set 15%
-
-#to workaround g4music's dbus bug
-amberol ~/Music/Kai's\ Musik/
-playerctl next
-playerctl play-pause
-killall amberol

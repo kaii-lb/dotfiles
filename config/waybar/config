@@ -15,6 +15,7 @@
 	"modules-right": [
 		"tray",
 		"custom/bluetooth-battery",
+		"custom/recording",
 		"cpu",
 		"temperature",
 		"network",
@@ -94,7 +95,7 @@
 			"critical": 10
 		},
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>{icon}</span> <span font_weight='bold'>{capacity}%</span>",
-		"format-icons": ["&#xe0b1;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
+		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
 		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='0pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
 		"tooltip": false
 	},
@@ -113,16 +114,17 @@
     "custom/bluetooth-battery": {
 	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-1pt'>&#xf025; </span><span font_weight='bold' rise='1pt'>{}</span>",
 	    "return-type": "json",
-	    "interval": 5,
-	    "exec": "~/.config/waybar/modules/bluetooth-battery-waybar-module.sh",
-	    "exec-if": "bluetooth_battery_status.sh >/dev/null 2>&1",
+	    "interval": 1,
+	    "exec": "~/.config/waybar/scripts/bluetooth-battery.sh",
+	    /* "exec": "~/.config/waybar/modules/bluetooth-battery-waybar-module.sh", 
+	    "exec-if": "bluetooth_battery_status.sh >/dev/null 2>&1", */
 	    "signal": 9,
-	    "on-click": "blueberry"
+	    "on-click": "blueman-applet && blueman-manager"
   	},
   	"custom/power-menu": {
   		"format": "<span font='Font Awesome 6 Pro' size='x-large' font_weight='bold' rise='-3pt'>&#xf011;</span>",
   		"tooltip": false,
-  		"on-click": "wlogout"
+  		"on-click": "sh ~/.config/rofi/bin/powermenu"
   	},
   	"custom/mpris-media":{ 
   		"format": "<span font='Font Awesome 6 Pro' size='x-large' font_weight='bold' rise='-2pt'>{icon}</span> {}",
@@ -132,13 +134,13 @@
 	    	"firefox": "&#xf269; ",
 	    	"Clapper": "&#xf401; ",
 	    	"spotify": "&#xf1bc; ",
-	    	"g4music": "&#xf8d9; ",
-	    	"io": "&#xf8d9; ",
+	    	"g4music": "&#xf8d; ",
+	    	"io": "&#xf8e4; ",
 			"com": "&#xf8d9; ",
 	    },
-	    "exec": "playerctl --player=com,spotify,firefox,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}' -F",
+	    "exec": "playerctl --player=io,com,spotify,firefox,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}' -F",
 	    "tooltip": true,
-	    "on-click": ""
+	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
   	},
   	"custom/song-next": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-3pt'>{icon}</span>",
@@ -172,5 +174,16 @@
 		},
 		"exec": "playerctl --player=com,spotify,firefox,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",		
   		"on-click": "playerctl play-pause"
+  	},
+  	"custom/recording": {
+  		"format": "{icon}",
+		"return-type": "json",
+		"tooltip": false,
+		"format-icons": {
+		        "Running": "<span font='Font Awesome 6 Pro' rise='-2pt' size='large' font_weight='bold'>&#xe132;</span>",
+		},
+		"interval": 1,
+		"exec": "~/.config/waybar/scripts/recording.sh",		
+  		"on-click": "~/.config/waybar/scripts/stop-recording.sh"
   	}
 }

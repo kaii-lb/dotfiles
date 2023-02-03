@@ -1,0 +1,26 @@
+@import "colors.rasi"
+@import "font.rasi"
+
+* {
+    background-color:       transparent;
+    text-color:             @FG;
+    font:					"Product Sans 16";
+}
+
+window {
+    width:      	        225px;
+    padding:                20px;
+    border:		            0px 0px 2px 0px;
+    border-radius:          8px;
+    border-color:           @BDR;
+    location:               0;
+    x-offset:               0;
+    y-offset:               -4%;
+}
+
+entry {
+    expand: 		        true;
+    width: 		            150px;
+    text-color:		        @BDR;
+    font:					"Product Sans 16";
+}
