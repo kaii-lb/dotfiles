@@ -4,6 +4,7 @@
 ## What it looks like (shit)
 
 ![Screenshot](/assets/images/screenshot.png)
+![Utilities](/assets/images/utilities.png)
 
 ## Installing
 
