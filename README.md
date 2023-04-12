@@ -32,5 +32,5 @@
 ### Copying Files
 
 - Copy files in `config` to `/home/$USER/.config/` or simply `~/.config/` (theyre the same place but yk fancier)
-- Import catppuccin-mocha-clear.json from presets/user to gradience and apply for gtk3 and gtk4
+- Import `catppuccin-mocha-clear.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Reboot
