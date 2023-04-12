@@ -1,0 +1,69 @@
+#!/bin/sh
+
+ddir="$HOME/.config/rofi/config"
+
+# Ask for confirmation
+rdialog () {
+rofi -dmenu\
+    -i\
+    -no-fixed-num-lines\
+    -p "Are You Sure? : "\
+    -theme "$ddir/confirm.rasi"
+}
+
+
+# Display Help
+show_msg() {
+	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
+}
+
+if [[ $1 -eq 1 ]]; then
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		systemctl poweroff
+	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		exit
+    else
+		exit
+    fi
+elif [[ $1 -eq 2 ]]; then
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		systemctl reboot
+	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		exit
+    else
+		exit
+    fi
+elif [[ $1 -eq 3 ]]; then
+	sh $HOME/.config/hypr/scripts/lock
+elif [[ $1 -eq 4 ]]; then 
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		playerctl pause
+		pamixer --mute
+		sh $HOME/.config/hypr/scripts
+		systemctl suspend
+	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		exit
+    else
+		exit
+    fi
+elif [[ $1 -eq 5 ]]; then
+	ans=$(rdialog &)
+	if [[ $ans == "yes" ]] || [[ $ans == "YES" ]] || [[ $ans == "y" ]]; then
+		hyprctl dispatch exit 0
+	elif [[ $ans == "no" ]] || [[ $ans == "NO" ]] || [[ $ans == "n" ]]; then
+		exit
+       else
+		exit
+       fi
+else
+	echo "Please provide an option of 1 -> 5"
+	echo "1 is shutdown"
+	echo "2 is reboot"	
+	echo "3 is lock"
+	echo "4 is suspend"
+	echo "5 is logout"
+	exit
+fi

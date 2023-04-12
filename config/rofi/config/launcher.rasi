@@ -14,7 +14,7 @@ window {
     transparency:                   "real";
     background-color:               @BG;
     text-color:                     @FG;
-    border:                         2px;
+    border:                         4px;
     border-color:                   @BDR;
     border-radius:                  18px;
     width:                          500px;
@@ -48,7 +48,7 @@ entry {
     horizontal-align:               0;
     placeholder:                    "Search...";
     blink:                          true;
-    border:                  	    2px 2px 2px 2px;
+    border:                  	    4px 4px 4px 4px;
     border-color:                   @BDR;
     border-radius:                  16px;
     padding:                        8px;

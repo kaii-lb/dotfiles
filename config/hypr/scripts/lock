@@ -1,4 +1,5 @@
 #!/usr/bin/bash
+sudo intelpwm 300
 
 export XDG_RUNTIME_DIR=/run/user/$(id -u)
 export WAYLAND_DISPLAY=wayland-1
@@ -30,3 +31,8 @@ swaylockd \
 echo "Locked Succesfully"
 
 echo "${XDG_RUNTIME_DIR}  ${WAYLAND_DISPLAY}  $SWAYSOCK"
+
+unset XDG_RUNTIME_DIR
+
+#hyprctl dispatch cyclenext
+

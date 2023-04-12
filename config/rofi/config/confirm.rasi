@@ -10,8 +10,8 @@
 window {
     width:      	        225px;
     padding:                20px;
-    border:		            0px 0px 2px 0px;
-    border-radius:          8px;
+    border:		            4px;
+    border-radius:          16px;
     border-color:           @BDR;
     location:               0;
     x-offset:               0;
@@ -23,4 +23,5 @@ entry {
     width: 		            150px;
     text-color:		        @BDR;
     font:					"Product Sans 16";
+    border-radius:			8px;
 }

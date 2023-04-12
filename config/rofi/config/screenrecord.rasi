@@ -17,7 +17,7 @@ window {
     transparency:                   "real";
     background-color:               transparent;
     text-color:                     @FG;
-    border:                         2px;
+    border:                         4px;
     border-color:                   @BDR;
     border-radius:                  18px;
     width:                          300px;
@@ -32,7 +32,7 @@ prompt {
     padding: 			            10px;
     background-color: 		        transparent;
     text-color: 		            @FG;
-    border:                  	    2px 2px 2px 2px;
+    border:                  	    4px;
     border-color:                   @BDR;
     border-radius:                  16px;
     font:							"Product Sans Bold 14";

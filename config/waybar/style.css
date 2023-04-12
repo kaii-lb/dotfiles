@@ -79,7 +79,7 @@ window#waybar.hidden {
 window > box {
 	/*border-bottom-width: 2px;*/ 
 	border-color: @crust; 
-	border-radius: 4px;
+	border-radius: 16px;
 	/*margin: 0 10px;*/
 	border-style: solid; 
 	background-color: transparent;	/* Keep transparent to blur */
@@ -91,9 +91,9 @@ window > box {
 	margin: 0 3px;
 	color: @text;
 	border-radius: 16px;
-	border-width: 0 2px 2px 0;
+	border-width: 4px 4px 4px 4px;
 	border-style: solid;
-	border-color: @crust;
+	border-color: @lavender;
 	background-color: @surface0;
 }
 
@@ -102,9 +102,9 @@ window > box {
 	margin: 0 3px;
 	color: @text;
 	border-radius: 16px;
-	border-width: 0 2px 2px 0;
+	border-width: 4px 4px 4px 4px;
 	border-style: solid;
-	border-color: @crust;
+	border-color: @lavender;
 	background-color: @surface0;
 }
 
@@ -113,9 +113,9 @@ window > box {
 	margin: 0px 3px;
 	color: @text;
 	border-radius: 16px;
-	border-width: 0 2px 2px 0;
+	border-width: 4px 4px 4px 4px;
 	border-style: solid;
-	border-color: @crust;
+	border-color: @lavender;
 	background-color: @surface0;
 }
 
@@ -130,7 +130,7 @@ window > box {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	color: #ff79c6;
+	color: @red;
 }
 
 #workspaces button.active {

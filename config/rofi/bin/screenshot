@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus"
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus "
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
 dir="/home/$USER/Pictures/Screenshots"
@@ -8,6 +8,7 @@ dir="/home/$USER/Pictures/Screenshots"
 # Icons
 icon1="/home/$USER/.config/rofi/camera-viewfinder.svg"
 icon2="/home/$USER/.config/rofi/timer.svg"
+
 
 # Buttons
 layout=`cat ~/.config/rofi/config/screenshot.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
@@ -46,36 +47,55 @@ countdown () {
 
 # take shots
 shotnow () {
-	sleep 0.5 && grim -g "0,0 1920x1080" $dir/"Screenshot from ${datetime}".png
+	sleep 0.5 && hyprpicker -r -z -n &
+	grim -g "0,0 1920x1080" $dir/"Screenshot from ${datetime}".png
 	wl-copy < $dir/"Screenshot from ${datetime}".png
+	killall hyprpicker
 	notify_view
 }
 
 shot5 () {
 	countdown '5'
-	sleep 1 &&  grim -g "0,0 1920x1080" $dir/"Screenshot from ${datetime}".png
+	sleep 1 && hyprpicker -r -z -n &
+	grim -g "${geometry}" $dir/"Screenshot from ${datetime}".png
 	wl-copy < $dir/"Screenshot from ${datetime}".png
+	killall hyprpicker
 	notify_view
 }
 
 shot5area () {
+	geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
 	countdown '5'
-	sleep 1 &&  grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" $dir/"Screenshot from ${datetime}".png
+	sleep 1 && hyprpicker -r -z -n &
+	grim -g "${geometry}" $dir/"Screenshot from ${datetime}".png
 	wl-copy < $dir/"Screenshot from ${datetime}".png
+	killall hyprpicker
 	notify_view
 }
 
 shotwin () {
+	sleep 1 && hyprpicker -r -z -n &
 	grim -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" $dir/"Screenshot from ${datetime}".png
 	wl-copy < $dir/"Screenshot from ${datetime}".png
+	#killall hyprpicker
 	notify_view
 }
 
 shotarea () {
-	grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" $dir/"Screenshot from ${datetime}".png
+	sleep 0.8 && hyprpicker -r -z -n &
+	sleep 1 && grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" ~/Pictures/Screenshots/"Screenshot from $datetime".png 
 	wl-copy < $dir/"Screenshot from ${datetime}".png
+	killall hyprpicker
 	notify_view
 }
+
+if [[ $1 == "copy" ]]; then
+	shotarea
+	exit 0
+else 
+	:
+fi
+	
 
 if [[ ! -d "$dir" ]]; then
 	mkdir -p "$dir"
@@ -84,7 +104,7 @@ fi
 # Variable passed to rofi
 options="$screen\n$area\n$window\n$infivearea\n$infive"
 
-chosen="$(echo -e "$options"| $rofi_command -p 'Take A Shot' -dmenu -selected-row 0)"
+chosen="$(echo -e "$options"| $rofi_command -p 'Take A Shot' -dmenu -selected-row 0)" 
 case $chosen in
     $screen)
 		shotnow

@@ -83,8 +83,8 @@
 	"backlight": {
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>{icon}</span> <span font_weight='bold'>{percent}%</span>",
 		"format-icons": ["&#xf740;", "&#xf746;", "&#xf185;"],
-		"on-click": "brightnessctl set 15%",
-		"on-click-right": "brightnessctl set 50%",
+		"on-click": "brightnessctl set 1%",
+		"on-click-right": "brightnessctl set 100%",
 		"on-scroll-up": "brightnessctl set +5%",
 		"on-scroll-down": "brightnessctl set 5%-",
 		"smooth-scrolling-threshold": 5
@@ -112,7 +112,7 @@
         "return-type" : "json"
     },*/
     "custom/bluetooth-battery": {
-	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-1pt'>&#xf025; </span><span font_weight='bold' rise='1pt'>{}</span>",
+	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='0pt'>&#xf025; </span><span font_weight='bold' rise='2pt'>{}</span>",
 	    "return-type": "json",
 	    "interval": 1,
 	    "exec": "~/.config/waybar/scripts/bluetooth-battery.sh",
@@ -138,42 +138,42 @@
 	    	"io": "&#xf8e4; ",
 			"com": "&#xf8d9; ",
 	    },
-	    "exec": "playerctl --player=io,com,spotify,firefox,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}' -F",
+	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
 	    "tooltip": true,
 	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
   	},
   	"custom/song-next": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-3pt'>{icon}</span>",
-  		"on-click": "playerctl next",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any next",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04e;",
   			"Paused": "&#xf04e;",	
   		},
-  		"exec": "playerctl --player=com,spotify,firefox,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+  		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
   		"return-type": "json"
   	},
   	"custom/song-previous": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-3pt'>{icon}</span>",
-  		"on-click": "playerctl previous",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any previous",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04a;",
   			"Paused": "&#xf04a;",
   		},
-  		"exec": "playerctl --player=com,spotify,firefox,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+  		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
 		"return-type": "json"
   	},
   	"custom/song-toggle": {
   		"format": "{icon}",
-		"return-type": "json",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any play-pause",
 		"tooltip": false,
 		"format-icons": {
 		        "Paused": "<span font='Font Awesome 6 Pro' rise='-2pt' font_weight='bold'>&#x2009;&#xf04b;</span>",
 		        "Playing": "<span font='Font Awesome 6 Pro' rise='-2pt' size='large' font_weight='bold'>&#x2009;&#xf04c;</span>",
 		},
-		"exec": "playerctl --player=com,spotify,firefox,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",		
-  		"on-click": "playerctl play-pause"
+		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
+		"return-type": "json"
   	},
   	"custom/recording": {
   		"format": "{icon}",

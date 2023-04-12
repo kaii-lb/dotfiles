@@ -1,5 +1,8 @@
 #!/usr/bin/bash
 
+#plugins
+#hyprctl plugin load /home/$USER/.config/hypr/plugins/csgo-vulkan-fix.so
+
 # variables
 config=$HOME/.config/hypr
 scripts=$config/scripts
@@ -12,7 +15,10 @@ $scripts/launch_waybar &
 #$scripts/tools/dynamic &
 
 # wallpaper
-$scripts/wall /home/$USER/Pictures/NewWallpapers/r34.jpg &
+#$scripts/wall /home/$USER/Pictures/NewWallpapers/r32.png &
+hyprpaper 
+hyprctl hyprpaper unload all
+/home/kai/.local/bin/wallpaper.sh
 
 # effects
 #$scripts/rgb &
@@ -22,3 +28,9 @@ $scripts/wall /home/$USER/Pictures/NewWallpapers/r34.jpg &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
 brightnessctl set 15%
+
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
+rfkill unblock all
+
+sudo intelpwm 300
