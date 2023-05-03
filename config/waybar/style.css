@@ -8,8 +8,10 @@
 */
 
 *{
-	font-family: "Product Sans", "Font Awesome 6 Duotone";
-	font-size: 14px;
+	font-family: Product Sans;
+	/* font-family: "Product Sans"; "Font Awesome 6 Duotone";*/
+	/* font-size: 15px; */
+	font-weight: bold;
 }
 
 @define-color base   #1e1e2e;
@@ -46,11 +48,18 @@
 @keyframes blink_critical {
 	to {
 		color: #ffffff;
+		background-color: @rosewater
+	}
+}
+
+@keyframes blink_warning {
+	to {
+		color: #ffffff;
 		background-color: @lavender;
 	}
 }
 
-.warning, .critical {
+.warning {
 	animation-name: blink_critical;
 	animation-duration: 1s;
 	animation-timing-function: linear;
@@ -59,14 +68,26 @@
 }
 
 .critical {
+	animation-name: blink_critical;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: infinite;
+	animation-direction: alternate;
+}
+
+.critical {
+	animation-duration: 0.69s;
+}
+
+.warning {
 	animation-duration: 1s;
 }
 
-* {
-	font-family: Product Sans Regular;
+/* * { */
+	/* font-family: Product Sans Regular; */
 	/* font-size: 15px; */
-	font-weight: bold;
-}
+	/* font-weight: bold; */
+/* } */
 
 window#waybar {
 	background-color: transparent;	/* Keep transparent to blur */
@@ -123,7 +144,7 @@ window > box {
 	transition: none;
 	color: #ffffff;
 	background: transparent;
-	font-size: 16px;
+	font-size: 15px;
 }
 
 #workspaces button:hover {

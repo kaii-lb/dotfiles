@@ -54,9 +54,9 @@ progress_bar_max_width = 300
 
 corner_radius = 10
 
-icon_theme = MoreWaita
+icon_theme = Adwaita
 enable_recursive_icon_lookup = true
 
-font = "Product Sans Bold" 14
+font = "Product Sans 15" 
 
 offset = 30x35

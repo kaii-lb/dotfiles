@@ -1,3 +1,4 @@
+
 #!/usr/bin/bash
 
 #plugins
@@ -17,20 +18,22 @@ $scripts/launch_waybar &
 # wallpaper
 #$scripts/wall /home/$USER/Pictures/NewWallpapers/r32.png &
 hyprpaper 
-hyprctl hyprpaper unload all
-/home/kai/.local/bin/wallpaper.sh
+#hyprctl hyprpaper unload all
+#/home/kai/.local/bin/wallpaper.sh
 
 # effects
 #$scripts/rgb &
 
 # other
-/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-kde-authentication-agent-1 &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
-brightnessctl set 15%
+#brightnessctl set 15%
 
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 
 rfkill unblock all
 
-sudo intelpwm 300
+#sudo intelpwm 300
+
+hyprctl setcursor Bibata-Modern-Classic 24

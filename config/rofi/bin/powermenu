@@ -65,10 +65,10 @@ case $chosen in
         sh $HOME/.config/rofi/bin/powermenu-options 3
         ;;
     $suspend)
-        sh $HOME/.config/rofi/bin/powermenu-options	4
+        sh $HOME/.config/rofi/bin/powermenu-options 4
         ;;
     $logout)
-        sh $HOME/.config/rofi/bin/powermenu-options	5	
+        sh $HOME/.config/rofi/bin/powermenu-options 5	
         ;;
 esac
 
