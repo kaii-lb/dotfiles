@@ -2,11 +2,11 @@
 	"layer": "top",
 	"modules-left": [
 		"wlr/workspaces"
-		//"custom/mpris-media",
-		//"custom/song-previous",
-		//"custom/song-toggle",
-		//"custom/song-next"
-		//"hyprland/window"
+		"custom/mpris-media",
+		"custom/song-previous",
+		"custom/song-toggle",
+		"custom/song-next"
+		/"hyprland/window"
 	],
 	"modules-center": [
 		"clock"
@@ -14,8 +14,8 @@
 	],
 	"modules-right": [
 		"tray",
-		//"custom/bluetooth-battery",
-		//"custom/recording",
+		"custom/bluetooth-battery",
+		"custom/recording",
 		"cpu",
 		"temperature",
 		"network",
