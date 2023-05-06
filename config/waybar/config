@@ -1,12 +1,20 @@
 {
 	"layer": "top",
 	"modules-left": [
+<<<<<<< HEAD
 		"wlr/workspaces",
+=======
+		"wlr/workspaces"
+>>>>>>> 9c25f5bc64e8d0e16f80a5af0692e5741a16076f
 		"custom/mpris-media",
 		"custom/song-previous",
 		"custom/song-toggle",
 		"custom/song-next"
+<<<<<<< HEAD
 		//"hyprland/window"
+=======
+		/"hyprland/window"
+>>>>>>> 9c25f5bc64e8d0e16f80a5af0692e5741a16076f
 	],
 	"modules-center": [
 		"clock"

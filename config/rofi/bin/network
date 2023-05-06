@@ -1,0 +1,31 @@
+#!/bin/sh
+
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/network.rasi -steal-focus "
+rofi_password_command="rofi -dmenu -markup -markup-rows -theme $HOME/.config/rofi/config/network-password.rasi -steal-focus "
+
+options=$(nmcli device wifi list  | tail +2 | sed 's/Infra.*//' -E | rev | sed 's/:.*//' -E | rev | cut -c 5-)
+
+chosen=$(echo -e "$options"| $rofi_command -p 'Networks' -dmenu -selected-row 0) 
+
+echo $chosen
+
+if [[ $chosen == "" ]]; then
+	exit 1
+fi
+
+active=$(nmcli -f GENERAL.STATE connection show $chosen)
+
+chosen=$(echo $chosen | sed 's/:.*//')
+
+
+if [[ $active != "" ]]; then
+	nmcli connection down $chosen
+else
+	nmcli connection up "${chosen}"
+	if [[ $? != 0 ]]; then
+		password=$(echo -e "$options"| $rofi_password_command)
+		nmcli device wifi connect "${chosen}" password "${password}"
+	fi
+fi
+
+#nmcli connection 

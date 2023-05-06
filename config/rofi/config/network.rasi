@@ -1,6 +1,6 @@
 configuration {
     show-icons:                     false;
-    display-drun: 		            "";
+    display-drun: 		            "networks";
     drun-display-format:            "{icon} {name}";
     disable-history:                false;
     click-to-exit: 		            true;
@@ -10,13 +10,16 @@ configuration {
 @import "font.rasi"
 @import "colors.rasi"
 
+/* Line Responsible For Button Layouts */
+/* BUTTON = TRUE */
+
 window {
     transparency:                   "real";
-    background-color:               @BG;
+    background-color:               transparent;
     text-color:                     @FG;
-    border:                         2px;
+    border:                         4px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  18px;
     width:                          300px;
     anchor:                         center;
     x-offset:                       0;
@@ -25,27 +28,28 @@ window {
 
 prompt {
     enabled: 			            true;
-    margin: 			            0px 0px 0px 8px;
-    padding: 			            8px;
-    background-color: 		        @BG;
+    margin: 			            0px 0px 0px 14px;
+    padding: 			            12px;
+    background-color: 		        transparent;
     text-color: 		            @FG;
-    border:                  	    0px 0px 2px 0px;
+    border:                  	    4px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
+    font:							"Product Sans Bold 14";
 }
 
 textbox-prompt-colon {
     expand: 			            false;
-    str: 			                "";
+    str: 			                "";
     border-radius:                  100%;
-    background-color:               @BG;
+    background-color:               transparent;
     text-color:                     @FG;
-    padding:                        8px 12px 8px 12px;
-    font:			                "Iosevka Nerd Font 10";
+    padding:                        12px 12px 8px 12px;
+    font:			                "Font Awesome 6 Pro Bold 24";
 }
 
 entry {
-    background-color:               @BG;
+    background-color:               transparent;
     text-color:                     @FG;
     placeholder-color:              @FG;
     expand:                         true;
@@ -54,18 +58,18 @@ entry {
     blink:                          true;
     border:                  	    0px 0px 2px 0px;
     border-color:                   @BDR;
-    border-radius:                  10px;
+    border-radius:                  16px;
     padding:                        8px;
 }
 
 inputbar {
-    children: 			             [textbox-prompt-colon, prompt ];
-    background-color:               @BG;
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               transparent;
     text-color:                     @FG;
     expand:                         false;
-    border:                  	    0px 0px 0px 0px;
-    border-radius:                  0px;
-    border-color:                   @BDR;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  16px;
+    border-color:                  	@BDR;
     margin:                         0px 0px 0px 0px;
     padding:                        0px;
     position:                       center;
@@ -79,9 +83,9 @@ case-indicator {
 
 
 listview {
-    background-color:               @BG;
+    background-color:               transparent;
     columns:                        1;
-    lines:			                4;
+    lines:							5;
     spacing:                        4px;
     cycle:                          true;
     dynamic:                        true;
@@ -91,40 +95,46 @@ listview {
 mainbox {
     background-color:               @BG;
     children:                       [ inputbar, listview ];
-    spacing:                        15px;
+    spacing:                       	15px;
     padding:                        15px;
 }
 
 element {
-    background-color:               @BG;
+    background-color:               transparent;
     text-color:                     @FG;
     orientation:                    horizontal;
     border-radius:                  10px;
     padding:                        6px 6px 6px 6px;
+    horizontal-align: 0.5; 
+
 }
 
 element-icon {
-    background-color: 		        inherit;
-    text-color:       		        inherit;
+    background-color: 				inherit;
+    text-color:       				inherit;
     size:                           0px;
     border:                         0px;
+    font:							"Font Awesome 6 Pro Bold 16";
 }
 
 element-text {
-    background-color: 		        inherit;
-    text-color:       		        inherit;
+    background-color: 				inherit;
+    text-color:       				inherit;
     expand:                         true;
     horizontal-align:               0;
     vertical-align:                 0.5;
     margin:                         2px 0px 2px 6px;
+    font: 							"Product Sans Bold 13";
+    horizontal-align:               0.5;
+    vertical-align:                 0;
 }
 
 element selected {
-    background-color:               @IMG;
-    text-color:                     @BG;
-    border:                  	    0px 0px 0px 0px;
+    background-color:               @BGA;
+    text-color:                     @SEL;
+    border:                  		0px 0px 0px 0px;
     border-radius:                  10px;
-    border-color:                   @BDR;
+    border-color:                  	@BDR;
 }
 
 element.active,
