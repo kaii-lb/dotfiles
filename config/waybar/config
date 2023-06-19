@@ -1,20 +1,12 @@
 {
 	"layer": "top",
 	"modules-left": [
-<<<<<<< HEAD
 		"wlr/workspaces",
-=======
-		"wlr/workspaces"
->>>>>>> 9c25f5bc64e8d0e16f80a5af0692e5741a16076f
 		"custom/mpris-media",
 		"custom/song-previous",
 		"custom/song-toggle",
 		"custom/song-next"
-<<<<<<< HEAD
 		//"hyprland/window"
-=======
-		/"hyprland/window"
->>>>>>> 9c25f5bc64e8d0e16f80a5af0692e5741a16076f
 	],
 	"modules-center": [
 		"clock"
@@ -69,7 +61,8 @@
 		"format-linked": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>&#xf0c1;</span> {essid} (No IP)",
 		"format-disconnected": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>&#xf7a9;</span> No Internet",
 		"format-disabled": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>&#xf7a9;</span> Networking Off",
-		"on-click": "sh .config/waybar/scripts/toggle_network_state.sh",
+		"on-click": "sh ~/.config/waybar/scripts/toggle_network_state.sh",
+		"on-click-right": "sh ~/.config/rofi/bin/network",
 		"max-length": 28,
 		"tooltip": false
 	},
@@ -93,8 +86,8 @@
 		"format-icons": ["&#xf740;", "&#xf746;", "&#xf185;"],
 		"on-click": "brightnessctl set 1%",
 		"on-click-right": "brightnessctl set 100%",
-		"on-scroll-up": "brightnessctl set +5%",
-		"on-scroll-down": "brightnessctl set 5%-",
+		"on-scroll-up": "brightnessctl set +1%",
+		"on-scroll-down": "brightnessctl set 1%-",
 		"smooth-scrolling-threshold": 5
 	},
 	"battery": {
@@ -105,7 +98,8 @@
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>{icon}</span> <span font_weight='bold'>{capacity}%</span>",
 		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
 		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='0pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
-		"tooltip": false
+		"tooltip": false,
+		"on-critical": "notify-send 'Battery Level Critical' -u critical"
 	},
 	"tray": {
 	        "icon-size": 22,
@@ -177,8 +171,8 @@
   		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any play-pause",
 		"tooltip": false,
 		"format-icons": {
-		        "Paused": "<span font='Font Awesome 6 Pro' rise='-2pt' font_weight='bold'>&#x2009;&#xf04b;</span>",
-		        "Playing": "<span font='Font Awesome 6 Pro' rise='-2pt' size='large' font_weight='bold'>&#x2009;&#xf04c;</span>",
+		        "Paused": "<span font='Font Awesome 6 Pro' rise='-2pt' font_weight='bold'>&#xf04b;</span>",
+		        "Playing": "<span font='Font Awesome 6 Pro' rise='-2pt' size='large' font_weight='bold'>&#xf04c;</span>",
 		},
 		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
 		"return-type": "json"

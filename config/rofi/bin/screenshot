@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+
 rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus "
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
@@ -47,45 +48,46 @@ countdown () {
 
 # take shots
 shotnow () {
-	sleep 0.5 && hyprpicker -r -z -n &
-	grim -g "0,0 1920x1080" $dir/"Screenshot from ${datetime}".png
-	wl-copy < $dir/"Screenshot from ${datetime}".png
-	killall hyprpicker
+	#sleep 0.5 && hyprpicker -r -z -n &
+	sleep 0.5 && $HOME/.local/bin/grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
+	#wl-copy < $dir/"Screenshot from ${datetime}".png
+	#killall hyprpicker
 	notify_view
 }
 
 shot5 () {
 	countdown '5'
-	sleep 1 && hyprpicker -r -z -n &
-	grim -g "${geometry}" $dir/"Screenshot from ${datetime}".png
-	wl-copy < $dir/"Screenshot from ${datetime}".png
-	killall hyprpicker
+	#sleep 1 && hyprpicker -r -z -n &
+	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
+	#wl-copy < $dir/"Screenshot from ${datetime}".png
+	#killall hyprpicker
 	notify_view
 }
 
 shot5area () {
-	geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
+	#geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
 	countdown '5'
-	sleep 1 && hyprpicker -r -z -n &
-	grim -g "${geometry}" $dir/"Screenshot from ${datetime}".png
-	wl-copy < $dir/"Screenshot from ${datetime}".png
-	killall hyprpicker
+	#sleep 1 && hyprpicker -r -z -n &
+	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
+	#wl-copy < $dir/"Screenshot from ${datetime}".png
+	#killall hyprpicker
 	notify_view
 }
 
 shotwin () {
-	sleep 1 && hyprpicker -r -z -n &
-	grim -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" $dir/"Screenshot from ${datetime}".png
-	wl-copy < $dir/"Screenshot from ${datetime}".png
+	#sleep 1 && hyprpicker -r -z -n &
+	#grim -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" $dir/"Screenshot from ${datetime}".png
+	$HOME/.local/bin/grimblast --freeze copysave active  $dir/"Screenshot from ${datetime}".png
+	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view
 }
 
 shotarea () {
-	sleep 0.8 && hyprpicker -r -z -n &
-	sleep 1 && grim -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" ~/Pictures/Screenshots/"Screenshot from $datetime".png 
-	wl-copy < $dir/"Screenshot from ${datetime}".png
-	killall hyprpicker
+	#sleep 0.8 && hyprpicker -r -z -n &
+	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png 
+	#wl-copy < $dir/"Screenshot from ${datetime}".png
+	#killall hyprpicker
 	notify_view
 }
 
