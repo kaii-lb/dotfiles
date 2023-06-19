@@ -49,3 +49,27 @@
 - Import `catppuccin-mocha-clear.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Reboot
 - Profit
+
+### Using the apps and tricks and shit
+- Left click on some stuff in waybar to get cool things
+- Right click on some stuff in waybar to get cool things
+- Scroll some stuff in waybar to get cool things
+- Shift + PrintScreen is instant area screenshot
+- Super + Enter is app launcher 
+- Super + L is power options
+- Control + Shift + L gives some love emoticons (because some of us have gfs)
+- Control + Shift + P gives a color picker (auto copies hex color to clipboard)
+- Control + Shift + K kills active window
+- Super + Arrows moves windows
+- Control + Alt + Arrows resizes windows
+- Control + Super + Arrows changes focused window
+- Super + Number-Row switches to workspace of number X
+- Alt + Number-Row moves window to workspace of number X
+- Super + F is fullscreen 
+- Super + PrintScreen is screenrecord
+- Super + Q to exit current app
+- Super + S to toggle floating window
+- Super + E to open nautilus (file manager)
+- Alt + Left-Click resizes window 
+- Super + Right-Click resizes window (don't ask why both)
+- Super + Left-Click moves window 
