@@ -27,11 +27,10 @@
 - Screen Recorder (no audio): [wf-recorder](https://github.com/ammen99/wf-recorder) (you need slurp for area recordings) 
 - Screen Shots: [grimblast](https://github.com/hyprwm/contrib)
 - Alternate Screen Shots: [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp)
-- Some sort of polkit agent ([kde's](https://github.com/KDE/polkit-kde-agent-1) is best for hyprland as per docs)
-- Bluetooth tools: [Bluez](https://wiki.archlinux.org/title/bluetooth)
+- Some sort of polkit agent: [kde's](https://github.com/KDE/polkit-kde-agent-1) is best for hyprland as per docs
+- Bluetooth tools: [Bluez](https://wiki.archlinux.org/title/bluetooth) and [bluetuith](https://github.com/darkhz/bluetuith)
 - Media Controls: [playerctl](https://github.com/altdesktop/playerctl)
 - Lock Screen: [swaylockd](https://github.com/jirutka/swaylockd) and [swaylock-effect](https://github.com/mortie/swaylock-effects)
-- Screen Shots: [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp)
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
 
@@ -48,28 +47,30 @@
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
 - Import `catppuccin-mocha-clear.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Reboot
-- Profit
+- Profit(?)
 
 ### Using the apps and tricks and shit
 - Left click on some stuff in waybar to get cool things
 - Right click on some stuff in waybar to get cool things
 - Scroll some stuff in waybar to get cool things
-- Shift + PrintScreen is instant area screenshot
+- Left click bluetooth icon in wifi menu to get to bluetooth menu (double click)
 - Super + Enter is app launcher 
 - Super + L is power options
+- Super + Shift + P gives a color picker (auto copies hex color to clipboard)
 - Control + Shift + L gives some love emoticons (because some of us have gfs)
-- Control + Shift + P gives a color picker (auto copies hex color to clipboard)
 - Control + Shift + K kills active window
 - Super + Arrows moves windows
 - Control + Alt + Arrows resizes windows
 - Control + Super + Arrows changes focused window
 - Super + Number-Row switches to workspace of number X
 - Alt + Number-Row moves window to workspace of number X
-- Super + F is fullscreen 
+- PrintScreen is screenshots
+- Shift + PrintScreen is instant area screenshot
 - Super + PrintScreen is screenrecord
+- Super + F is fullscreen 
 - Super + Q to exit current app
 - Super + S to toggle floating window
 - Super + E to open nautilus (file manager)
-- Alt + Left-Click resizes window 
-- Super + Right-Click resizes window (don't ask why both)
+- Super + B to open bluetooth menu
+- Super + Right-Click resizes window
 - Super + Left-Click moves window 
