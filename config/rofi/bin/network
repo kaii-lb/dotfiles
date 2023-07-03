@@ -5,7 +5,7 @@ rofi_password_command="rofi -dmenu -markup -markup-rows -theme $HOME/.config/rof
 
 options=$(nmcli device wifi list  | tail +2 | sed 's/Infra.*//' -E | rev | sed 's/:.*//' -E | rev | cut -c 5-)
 
-chosen=$(echo -e "$options"| $rofi_command -p 'Networks' -dmenu -selected-row 0) 
+chosen=$(echo -e "Bluetooth\n $options"| $rofi_command -p 'Networks' -dmenu -selected-row 0) 
 
 echo $chosen
 
@@ -17,14 +17,19 @@ active=$(nmcli -f GENERAL.STATE connection show $chosen)
 
 chosen=$(echo $chosen | sed 's/:.*//')
 
+echo $chosen
 
-if [[ $active != "" ]]; then
-	nmcli connection down $chosen
+if [[ $chosen == "Bluetooth" ]]; then
+	kitty bluetuith
 else
-	nmcli connection up "${chosen}"
-	if [[ $? != 0 ]]; then
-		password=$(echo -e "$options"| $rofi_password_command)
-		nmcli device wifi connect "${chosen}" password "${password}"
+	if [[ $active != "" ]]; then
+		nmcli connection down $chosen
+	else
+		nmcli connection up "${chosen}"
+		if [[ $? != 0 ]]; then
+			password=$(echo -e "$options"| $rofi_password_command)
+			nmcli device wifi connect "${chosen}" password "${password}"
+		fi
 	fi
 fi
 

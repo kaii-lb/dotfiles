@@ -38,9 +38,14 @@ elif [[ $1 == "toggle-mute" ]]; then
 	ismuted=$(pamixer --get-mute)
 
 	if [ "$ismuted" = false ]; then
-		pamixer --mute 
+		rm $HOME/.config/hypr/scripts/current_volume.txt
+		echo $(pamixer --get-volume > $HOME/.config/hypr/scripts/current_volume.txt)
+		pamixer -t
+		pamixer pamixer --set-volume 0 
 	else
-		pamixer --unmute
+		current_volume=$(cat $HOME/.config/hypr/scripts/current_volume.txt)
+		pamixer --set-volume $current_volume
+		pamixer -t
 	fi
 
 	echo toggled mute

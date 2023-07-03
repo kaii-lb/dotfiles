@@ -32,3 +32,5 @@ echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: ${WAYLAND_D
 unset XDG_RUNTIME_DIR
 
 #hyprctl dispatch cyclenext
+
+sudo intelpwm

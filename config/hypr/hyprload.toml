@@ -1,0 +1,3 @@
+plugins = [
+    hyprwm/hyprland-plugins/tree/main/csgo-vulkan-fix
+]
