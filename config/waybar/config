@@ -9,8 +9,8 @@
 		//"hyprland/window"
 	],
 	"modules-center": [
-		"clock"
-		//"weather"
+		"clock",
+		"custom/weather"
 	],
 	"modules-right": [
 		"tray",
@@ -47,7 +47,7 @@
 		"interval": 1,
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='-3pt'>&#xf06d;</span> <span font_weight='bold'>{temperatureC}°C</span>",
 		"tooltip": false,
-		"on-click": "kitty bpytop"
+		"on-click": "kitty bpytop",
 	},
 	"clock": {
 		"format": "<span font_weight='bold'>{:%I:%M %p | %A %d %b}</span>",
@@ -106,13 +106,13 @@
 	        "tooltip": false,
 	        "spacing": 8
     },
-    /*"custom/weather" : {
-        "tooltip" : true,
-        "format" : "{}",
+    "custom/weather" : {
+        "format" : "| {}",
+        "on-click": "~/.config/waybar/scripts/launch_weather.sh",
         "restart-interval" : 3600,
-        "exec" : "~/.config/waybar/scripts/weather.py",
+        "exec" : "python3 ~/.config/waybar/scripts/weather.py",
         "return-type" : "json"
-    },*/
+    },
     "custom/bluetooth-battery": {
 	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='x-large' rise='0pt'>&#xf025; </span><span font_weight='bold' rise='2pt'>{}</span>",
 	    "return-type": "json",

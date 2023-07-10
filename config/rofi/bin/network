@@ -9,8 +9,6 @@ echo -e "$options"
 
 chosen=$(echo -e "$options\n<span font='Font Awesome 6 Pro' font_weight='bold' size='medium'> </span>Bluetooth"| $rofi_command -p 'Networks' -dmenu -selected-row 0) 
 
-echo $chosen
-
 if [[ $chosen == "" ]]; then
 	exit 1
 fi
@@ -19,7 +17,8 @@ active=$(nmcli -f GENERAL.STATE connection show $chosen)
 
 chosen=$(echo $chosen | sed 's/:.*//')
 
-echo $chosen
+echo "chosen is "$chosen
+echo "rofi retv is "$ROFI_RETV
 
 if [[ $chosen == "<span font='Font Awesome 6 Pro' font_weight='bold' size='medium'> </span>Bluetooth" ]]; then
 	kitty bluetuith

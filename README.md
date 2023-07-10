@@ -34,7 +34,7 @@
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
 
-### Copying Files
+### How to apply
 
 - Copy files in `config` to `/home/$USER/.config/` or simply `~/.config/` (theyre the same place but yk fancier)
 - Copy files in `local/bin` to `/home/$USER/.local/bin/` and set permissions to executable. (obv read the source code before executing anything)
@@ -46,6 +46,7 @@
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
 - Import `catppuccin-mocha-clear.json` from `presets/user` to gradience and apply for gtk3 and gtk4
+- Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Reboot
 - Profit(?)
 
@@ -53,7 +54,8 @@
 - Left click on some stuff in waybar to get cool things
 - Right click on some stuff in waybar to get cool things
 - Scroll some stuff in waybar to get cool things
-- Left click bluetooth icon in wifi menu to get to bluetooth menu (double click)
+- Left click bluetooth icon in wifi menu to get to bluetooth menu
+- Left click on Weather to get forecast
 - Super + Enter is app launcher 
 - Super + L is power options
 - Super + Shift + P gives a color picker (auto copies hex color to clipboard)

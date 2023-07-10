@@ -60,7 +60,7 @@
 }
 
 .warning {
-	animation-name: blink_critical;
+	animation-name: blink_warning;
 	animation-duration: 1s;
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
@@ -73,14 +73,6 @@
 	animation-timing-function: linear;
 	animation-iteration-count: infinite;
 	animation-direction: alternate;
-}
-
-.critical {
-	animation-duration: 0.69s;
-}
-
-.warning {
-	animation-duration: 1s;
 }
 
 /* * { */
@@ -129,6 +121,28 @@ window > box {
 	background-color: @surface0;
 }
 
+#clock {
+	padding: 6px 0px 6px 10px;
+	margin: 0 0px;
+	color: @text;
+	border-radius: 16px 0px 0px 16px;
+	border-width: 4px 0px 4px 4px;
+	border-style: solid;
+	border-color: @lavender;
+	background-color: @surface0;	
+}
+
+#custom-weather {
+	padding: 6px 10px 6px 3px;
+	margin: 0 0px;
+	color: @text;
+	border-radius: 0px 16px 16px 0px;
+	border-width: 4px 4px 4px 0px;
+	border-style: solid;
+	border-color: @lavender;
+	background-color: @surface0;
+}
+
 #custom-song-previous, #custom-song-toggle, #custom-song-next {
 	padding: 6px 14px;
 	margin: 0px 3px;
@@ -166,11 +180,16 @@ window > box {
 	margin: 0 10px;
 }
 
-tooltip {
-	background: @surface0;
-	padding: 15px;
-	border-radius: 6px;
-}
+tooltip { 
+	padding: 0px 0px;
+	margin: 0 3px;
+	color: @text;
+	border-radius: 0px;
+	border-width: 0px;
+	border-style: solid;
+	border-color: @lavender;
+	background-color: @surface0;
+} 
 
 tooltip label {
 	color: @text;

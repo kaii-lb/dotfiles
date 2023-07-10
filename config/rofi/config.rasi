@@ -104,7 +104,7 @@ configuration {
 /*	kb-toggle-case-sensitivity: "grave,dead_grave";*/
 /*	kb-toggle-sort: "Alt+grave";*/
 /*	kb-cancel: "Escape,Control+g,Control+bracketleft";*/
-	kb-custom-1: "Alt+1";
+	kb-custom-1: "Alt+R";
 /*	kb-custom-2: "Alt+2";*/
 /*	kb-custom-3: "Alt+3";*/
 /*	kb-custom-4: "Alt+4";*/
