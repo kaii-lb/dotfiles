@@ -4,17 +4,17 @@ separator_color= frame
 highlight = "#b4befe"
 
 [urgency_low]
-background = "#1E1E2E72"
-foreground = "#CDD6F4"
+background = "#11092D72"
+foreground = "#FFFFFF"
 
 [urgency_normal]
-background = "#1E1E2E72"
-foreground = "#CDD6F4"
+background = "#11092D72"
+foreground = "#FFFFFF"
 
 [urgency_critical]
-background = "#1E1E2E72"
-foreground = "#CDD6F4"
-frame_color = "#f38ba8"
+background = "#11092D72"
+foreground = "#FFFFFF"
+frame_color = "#DF5296"
 
 [global]
 # dynamic width from 0 to 300
