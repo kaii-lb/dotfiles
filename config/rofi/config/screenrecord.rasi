@@ -1,156 +1,150 @@
+/**
+ *
+ * Author : Aditya Shakya (adi1090x)
+ * Github : @adi1090x
+ * 
+ * Rofi Theme File
+ * Rofi Version: 1.7.3
+ **/
+
+/*****----- Configuration -----*****/
 configuration {
-    show-icons:                     false;
-    display-drun: 		            "screenrcord";
-    drun-display-format:            "{icon} {name}";
-    disable-history:                false;
-    click-to-exit: 		            true;
-    location:                       0;
+    show-icons:                 false;
 }
 
-@import "font.rasi"
-@import "colors.rasi"
+/*****----- Global Properties -----*****/
+* {
+   font:                        "Product Sans Bold 12";
+   background:                  #11092D;
+   background-alt:              #28165780;
+   foreground:                  #FFFFFF;
+   selected:                    #DF5296;
+   active:                      #6E77FF;
+   urgent:                      #8E3596;
+}
 
-/* Line Responsible For Button Layouts */
-/* BUTTON = TRUE */
+/*
+USE_ICON=NO
+*/
 
+/*****----- Main Window -----*****/
 window {
-    transparency:                   "real";
-    background-color:               transparent;
-    text-color:                     @FG;
-    border:                         4px;
-    border-color:                   @BDR;
-    border-radius:                  18px;
-    width:                          300px;
-    anchor:                         center;
-    x-offset:                       0;
-    y-offset:                       0;
+    transparency:                "real";
+    location:                    north east;
+    anchor:                      north east;
+    fullscreen:                  false;
+    width:                       500px;
+    x-offset:                    -10px;
+    y-offset:                    75px;
+    margin:                      0px;
+    padding:                     0px;
+    border:                      0px;
+    border-radius:               20px;
+    border-color:                @selected;
+    cursor:                      "default";
+    background-color:            @background;
+}
+
+/*****----- Main Box -----*****/
+mainbox {
+    enabled:                     true;
+    spacing:                     15px;
+    margin:                      0px;
+    padding:                     0px;
+    background-color:            transparent;
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listview" ];
+}
+
+/*****----- Imagebox -----*****/
+imagebox {
+    border-radius:               0px;
+    background-color:            transparent;
+    background-image:            url("~/.config/rofi/images/telescope.png", height);
+    children:                    [ "prompt"];
 }
 
 prompt {
-    enabled: 			            true;
-    margin: 			            0px 0px 0px 2px;
-    padding: 			            10px;
-    background-color: 		        transparent;
-    text-color: 		            @FG;
-    border:                  	    4px;
-    border-color:                   @BDR;
-    border-radius:                  16px;
-    font:							"Product Sans Bold 14";
+   enabled:                     true;
+   margin:                      10px 40px 10px 40px;
+   padding:                     12px;
+   border:                      0px solid;
+   border-radius:               12px;
+   border-color:                @selected;
+   background-color:            @background;
+   text-color:                  @foreground;
 }
 
-textbox-prompt-colon {
-    expand: 			            false;
-    str: 			                "";
-    border-radius:                  100%;
-    background-color:               transparent;
-    text-color:                     @FG;
-    padding:                        8px 12px 8px 12px;
-    font:			                "Font Awesome 6 Pro Bold 24";
+/*****----- Message -----*****/
+message {
+    enabled:                     true;
+    margin:                      0px;
+    padding:                     10px;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
-entry {
-    background-color:               transparent;
-    text-color:                     @FG;
-    placeholder-color:              @FG;
-    expand:                         true;
-    horizontal-align:               0;
-    placeholder:                    "Search...";
-    blink:                          true;
-    border:                  	    0px 0px 2px 0px;
-    border-color:                   @BDR;
-    border-radius:                  16px;
-    padding:                        8px;
-}
-
-inputbar {
-	children: 						[ textbox-prompt-colon, prompt ];
-    background-color:               transparent;
-    text-color:                     @FG;
-    expand:                         false;
-    border:                  		0px 0px 0px 0px;
-    border-radius:                  16px;
-    border-color:                  	@BDR;
-    margin:                         0px 0px 0px 0px;
-    padding:                        0px;
-    position:                       center;
-}
-
-case-indicator {
-    background-color:               @BG;
-    text-color:                     @FG;
-    spacing:                        0;
-}
-
-
+/*****----- Listview -----*****/
 listview {
-    background-color:               transparent;
-    columns:                        1;
-    lines:							5;
-    spacing:                        4px;
-    cycle:                          true;
-    dynamic:                        true;
-    layout:                         vertical;
+    enabled:                     true;
+    columns:                     6;
+    lines:                       5;
+    cycle:                       true;
+    scrollbar:                   false;
+    layout:                      vertical;
+    
+    spacing:                     5px;
+    background-color:            transparent;
+    cursor:                      "default";
+    padding: 10px 10px 10px 0px;
 }
 
-mainbox {
-    background-color:               @BG;
-    children:                       [ inputbar, listview ];
-    spacing:                       	15px;
-    padding:                        15px;
-}
-
+/*****----- Elements -----*****/
 element {
-    background-color:               transparent;
-    text-color:                     @FG;
-    orientation:                    horizontal;
-    border-radius:                  10px;
-    padding:                        6px 6px 6px 6px;
+    enabled:                     true;
+    padding:                     10px;
+    border:                      0px solid;
+    border-radius:               15px;
+    border-color:                @selected;
+    background-color:            transparent;
+    text-color:                  @foreground;
+    cursor:                      pointer;
 }
-
-element-icon {
-    background-color: 				inherit;
-    text-color:       				inherit;
-    size:                           0px;
-    border:                         0px;
-    font:							"Font Awesome 6 Pro Bold 16";
-}
-
 element-text {
-    background-color: 				inherit;
-    text-color:       				inherit;
-    expand:                         true;
-    horizontal-align:               0;
-    vertical-align:                 0.5;
-    margin:                         2px 0px 2px 6px;
-    font: 							"Product Sans Bold 12";
+    background-color:            transparent;
+    text-color:                  inherit;
+    cursor:                      inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
-element selected {
-    background-color:               @BGA;
-    text-color:                     @SEL;
-    border:                  		0px 0px 0px 0px;
-    border-radius:                  10px;
-    border-color:                  	@BDR;
+element normal.normal,
+element alternate.normal {
+    background-color:            var(background);
+    text-color:                  var(foreground);
 }
-
-element.active,
-element.selected.urgent {
-  background-color: @ON;
-  text-color: @BG;
-  border-color: @ON;
+element normal.urgent,
+element alternate.urgent,
+element selected.active {
+    background-color:            var(urgent);
+    text-color:                  var(background);
 }
-
-element.selected.urgent {
-  border-color: @BDR;
+element normal.active,
+element alternate.active,
+element selected.urgent {
+    background-color:            var(active);
+    text-color:                  var(background);
 }
-
-element.urgent,
-element.selected.active {
-  background-color: @OFF;
-  text-color: @BG;
-  border-color: @OFF;
-}
-
-element.selected.active {
-  border-color: @BDR;
+element selected.normal {
+    background-color:            var(selected);
+    text-color:                  var(background);
 }

@@ -12,21 +12,12 @@ icon2="/home/$USER/.config/rofi/timer.svg"
 
 
 # Buttons
-layout=`cat ~/.config/rofi/config/screenshot.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
-if [[ $layout == "TRUE" ]]; then
-	screen=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Capture Desktop"
-	area=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Capture Area"
-	window=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Capture Window"
-	infivearea=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Capture Area in 5s"
-	infive=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'></span>		Capture in 5s"
 
-else
-	screen="  Capture Desktop"
-	area="  Capture Area"
-	window="  Capture Window"
-	infivearea="  Capture Area in 5s"
-	infive="  Capture in 5s"
-fi
+screen="  Capture Desktop"
+area="  Capture Area"
+window="  Capture Window"
+infivearea="  Capture Area in 5s"
+infive="  Capture in 5s"
 
 # Notify and view screenshot
 notify_view () {
@@ -106,7 +97,7 @@ fi
 # Variable passed to rofi
 options="$screen\n$area\n$window\n$infivearea\n$infive"
 
-chosen="$(echo -e "$options"| $rofi_command -p 'Take A Shot' -dmenu -selected-row 0)" 
+chosen="$(echo -e "$options"| $rofi_command -p 'Take A Screenshot' -dmenu -selected-row 0)" 
 case $chosen in
     $screen)
 		shotnow

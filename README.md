@@ -45,7 +45,7 @@
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
-- Import `catppuccin-mocha-clear.json` from `presets/user` to gradience and apply for gtk3 and gtk4
+- Import `outerspace.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Reboot
 - Profit(?)
@@ -68,6 +68,7 @@
 - Alt + Number-Row moves window to workspace of number X
 - PrintScreen is screenshots
 - Shift + PrintScreen is instant area screenshot
+- Super + Shift + PrintScreen is instant window screenshot
 - Super + PrintScreen is screenrecord
 - Super + F is fullscreen 
 - Super + Q to exit current app

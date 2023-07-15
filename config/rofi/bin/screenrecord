@@ -6,25 +6,14 @@ dir="/home/$USER/Videos/Screen-Recordings"
 #file="Screen Recording from ${date} ${time}.png"
 
 # Icons
-icon1="/home/$USER/.config/rofi/camera-movie.svg"
-icon2="/home/$USER/.config/rofi/timer.svg"
+icon1="/home/$USER/.config/rofi/images/camera-movie.svg"
+icon2="/home/$USER/.config/rofi/images/timer.svg"
 
-# Buttons
-layout=`cat ~/.config/rofi/config/screenshot.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
-if [[ $layout == "TRUE" ]]; then
-	screen=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Record Screen"
-	area=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Record Area"
-	window=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Record Window"
-	infivearea=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Record Area in 5s"
-	infive=" <span font='Font Awesome 6 Pro Bold 16' rise='-3pt'> </span>	Record in 5s"
-
-else
-	screen="  Capture Desktop"
-	area="  Capture Area"
-	window="  Capture Window"
-	infivearea="  Capture Area in 5s"
-	infive="  Capture in 5s"
-fi
+screen="  Record Desktop"
+area="  Record Area"
+window="  Record Window"
+infivearea="  Record Area in 5s"
+infive="  Record in 5s"
 
 # Notify and view screenshot
 notify_view () {
