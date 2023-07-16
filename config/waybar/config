@@ -121,8 +121,6 @@
 	    "return-type": "json",
 	    "interval": 1,
 	    "exec": "~/.local/bin/bluetooth_battery_status.sh",
-	    /* "exec": "~/.config/waybar/modules/bluetooth-battery-waybar-module.sh", */
-	    /*"exec-if": "bluetooth_battery_status.sh >/dev/null 2>&1", */
 	    "signal": 9,
 	    "on-click": "bluetuith"
   	},

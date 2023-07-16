@@ -1,7 +1,7 @@
 #!/usr/bin/bash
 
 #plugins
-#hyprctl plugin load /home/$USER/.config/hypr/plugins/csgo-vulkan-fix.so
+#hyprctl plugin load $HOME/.config/hypr/plugins/csgo-vulkan-fix.so
 
 # variables
 config=$HOME/.config/hypr
@@ -15,10 +15,9 @@ $scripts/launch_waybar &
 #$scripts/tools/dynamic &
 
 # wallpaper
-#$scripts/wall /home/$USER/Pictures/NewWallpapers/r32.png &
+#$scripts/wall $HOME/Pictures/NewWallpapers/r32.png &
 hyprpaper 
 #hyprctl hyprpaper unload all
-#/home/kai/.local/bin/wallpaper.sh
 
 # effects
 #$scripts/rgb &

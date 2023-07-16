@@ -2,12 +2,12 @@
 rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenrecord.rasi -steal-focus"
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
-dir="/home/$USER/Videos/Screen-Recordings"
+dir="$HOME/Videos/Screen-Recordings"
 #file="Screen Recording from ${date} ${time}.png"
 
 # Icons
-icon1="/home/$USER/.config/rofi/images/camera-movie.svg"
-icon2="/home/$USER/.config/rofi/images/timer.svg"
+icon1="$HOME/.config/rofi/images/camera-movie.svg"
+icon2="$HOME/.config/rofi/images/timer.svg"
 
 screen="  Record Desktop"
 area="  Record Area"

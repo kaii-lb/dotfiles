@@ -3,12 +3,12 @@
 rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus "
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
-dir="/home/$USER/Pictures/Screenshots"
+dir="$HOME/Pictures/Screenshots"
 #file="Screenshot from ${date} ${time}.png"
 
 # Icons
-icon1="/home/$USER/.config/rofi/camera-viewfinder.svg"
-icon2="/home/$USER/.config/rofi/timer.svg"
+icon1="$HOME/.config/rofi/camera-viewfinder.svg"
+icon2="$HOME/.config/rofi/timer.svg"
 
 
 # Buttons

@@ -32,13 +32,13 @@ elif [[ $1 -eq 2 ]]; then
 		exit
     fi
 elif [[ $1 -eq 3 ]]; then
-	sh /home/$USER/.config/hypr/scripts/lock.sh
+	sh $HOME/.config/hypr/scripts/lock.sh
 elif [[ $1 -eq 4 ]]; then 
 	ans=$(rdialog &)
 	if [[ $ans == "Yes" ]]; then
 		playerctl pause
 		pamixer --mute
-		sh /home/$USER/.config/hypr/scripts/lock.sh
+		sh $USER/.config/hypr/scripts/lock.sh
 		systemctl suspend
 	elif [[ $ans == "No" ]]; then
 		exit
