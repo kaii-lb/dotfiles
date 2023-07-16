@@ -15,18 +15,18 @@ show_msg() {
 
 if [[ $1 -eq 1 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans == "Yes" ]]; then
+	if [[ $ans =~ "" ]]; then
 		systemctl poweroff
-	elif [[ $ans == "No" ]]; then
+	elif [[ $ans =~ "" ]]; then
 		exit
     else
 		exit
     fi
 elif [[ $1 -eq 2 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans == "Yes" ]]; then
+	if [[ $ans =~ "" ]]; then
 		systemctl reboot
-	elif [[ $ans == "No" ]]; then
+	elif [[ $ans =~ "" ]]; then
 		exit
     else
 		exit
@@ -35,21 +35,21 @@ elif [[ $1 -eq 3 ]]; then
 	sh $HOME/.config/hypr/scripts/lock.sh
 elif [[ $1 -eq 4 ]]; then 
 	ans=$(rdialog &)
-	if [[ $ans == "Yes" ]]; then
+	if [[ $ans =~ "" ]]; then
 		playerctl pause
 		pamixer --mute
 		sh $USER/.config/hypr/scripts/lock.sh
 		systemctl suspend
-	elif [[ $ans == "No" ]]; then
+	elif [[ $ans =~ "" ]]; then
 		exit
     else
 		exit
     fi
 elif [[ $1 -eq 5 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans == "Yes" ]]; then
+	if [[ $ans =~ "" ]]; then
 		hyprctl dispatch exit 0
-	elif [[ $ans == "No" ]]; then
+	elif [[ $ans =~ "" ]]; then
 		exit
     else
 		exit

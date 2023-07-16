@@ -141,7 +141,7 @@
 	    	"io": "&#xf8e4; ",
 			"com": "&#xf8d9; ",
 	    },
-	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
+	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
 	    "tooltip": true,
 	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
   	},
