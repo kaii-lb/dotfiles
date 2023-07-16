@@ -4,7 +4,7 @@ ddir="$HOME/.config/rofi/config"
 
 # Ask for confirmation
 rdialog () {
-	echo -e "Yes\nNo" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
+	echo -e "\n" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
 }
 
 
