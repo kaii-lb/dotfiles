@@ -87,10 +87,10 @@
 	"backlight": {
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>{icon}</span> <span font_weight='bold'>{percent}%</span>",
 		"format-icons": ["&#xf740;", "&#xf746;", "&#xf185;"],
-		"on-click": "brightnessctl set 1%",
-		"on-click-right": "brightnessctl set 100%",
-		"on-scroll-up": "brightnessctl set +1%",
-		"on-scroll-down": "brightnessctl set 1%-",
+		"on-click": "hyprshade toggle blue-light-filter-custom",
+		"on-click-right": "hyprshade toggle vibrance-custom", 
+		"on-scroll-up": "brightnessctl set 100%",
+		"on-scroll-down": "brightnessctl set 1%",
 		"smooth-scrolling-threshold": 5
 	},
 	"battery": {

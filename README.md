@@ -33,6 +33,7 @@
 - Lock Screen: [swaylockd](https://github.com/jirutka/swaylockd) and [swaylock-effect](https://github.com/mortie/swaylock-effects)
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
+- Screen Shader Applier: [hyprshade](https://github.com/loqusion/hyprshade)
 
 ### How to apply
 
