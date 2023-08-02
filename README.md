@@ -56,9 +56,10 @@
 - Right click on some stuff in waybar to get cool things
 - Scroll some stuff in waybar to get cool things
 - Left click bluetooth icon in wifi menu to get to bluetooth menu
-- Left click on Weather to get forecast
+- Left click on weather icon to get forecast
 - Super + Enter is app launcher 
 - Super + L is power options
+- Super + Control + Shift + R reloads waybar incase it freezes
 - Super + Shift + P gives a color picker (auto copies hex color to clipboard)
 - Control + Shift + L gives some love emoticons (because some of us have gfs)
 - Control + Shift + K kills active window
