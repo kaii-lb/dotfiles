@@ -3,12 +3,12 @@ rofi_command="rofi -markup -markup-rows -matching fuzzy -theme $HOME/.config/rof
 
 uptime=$(uptime -p | sed -e 's/up //g')
 
-shutdown=" "
-reboot=" "
-lock=" "
-suspend=" "
-logout=" "
-hibernate=" "
+shutdown=""
+reboot=""
+lock=""
+suspend=""
+logout=""
+hibernate=""
 
 # Variable passed to rofi
 options="$lock\n$suspend\n$logout\n$reboot\n$shutdown"

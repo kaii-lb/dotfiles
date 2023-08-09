@@ -6,7 +6,7 @@
 		"cpu",
 		"temperature",
 		"custom/recording"
-		//"hyprland/window"
+		/*"hyprland/window"*/
 	],
 	"modules-center": [
 		"custom/song-previous",
@@ -23,8 +23,8 @@
 		"network",
 		"pulseaudio",
 		"backlight",
-		"battery",
-		"custom/power-menu"
+		"battery"
+		/*"custom/power-menu"*/
 	],
 	"wlr/workspaces": {
 	     "format": "{icon}",
@@ -107,7 +107,7 @@
 		},
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>{icon}</span> <span font_weight='bold'>{capacity}%</span>",
 		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
-		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='0pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
+		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='2pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
 		"tooltip": false,
 		"on-click": "resonance && lutris && notify-send 'RIP to your battery o7'"
 	},
@@ -155,7 +155,7 @@
   	},
   	"custom/song-next": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>{icon}</span>",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any next",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox next",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04e;",
@@ -166,7 +166,7 @@
   	},
   	"custom/song-previous": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>{icon}</span>",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any previous",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox previous",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04a;",
@@ -177,7 +177,7 @@
   	},
   	"custom/song-toggle": {
   		"format": "{icon}",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any play-pause",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox play-pause",
 		"tooltip": false,
 		"format-icons": {
 		        "Paused": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf04b;</span>",

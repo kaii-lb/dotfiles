@@ -7,23 +7,28 @@ dir="$HOME/Pictures/Screenshots"
 #file="Screenshot from ${date} ${time}.png"
 
 # Icons
-icon1="$HOME/.config/rofi/camera-viewfinder.svg"
-icon2="$HOME/.config/rofi/timer.svg"
+icon1="$HOME/.config/rofi/images/camera-viewfinder.svg"
+icon2="$HOME/.config/rofi/images/timer.svg"
 
 
 # Buttons
 
-screen="  Capture Desktop"
-area="  Capture Area"
-window="  Capture Window"
-infivearea="  Capture Area in 5s"
-infive="  Capture in 5s"
+screen="" #Capture Desktop
+area="" #Capture Area
+window="" #Capture Window
+infivearea="" #Capture Area in 5s
+infive="" #Capture in 5s
 
 # Notify and view screenshot
 notify_view () {
 	dunstify -u low --replace=699 -i $icon1 "Copied to clipboard."
 	if [[ -e "$dir/Screenshot from ${datetime}.png" ]]; then
-		dunstify -u low --replace=699 -i $icon1 "Screenshot Saved."
+		action=$(dunstify --action="default,openss" -u low --replace=699 -i $icon1 "Screenshot Saved.")
+		case "$action" in
+		"default")
+		    eog "$dir/Screenshot from ${datetime}.png"
+		    ;;
+		esac
 	else
 		dunstify -u low --replace=699 -i $icon1 "Screenshot Deleted."
 	fi
@@ -56,12 +61,13 @@ shot5 () {
 }
 
 shot5area () {
-	#geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
+	geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
 	countdown '5'
-	#sleep 1 && hyprpicker -r -z -n &
-	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
-	#wl-copy < $dir/"Screenshot from ${datetime}".png
-	#killall hyprpicker
+	#sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
+	sleep 1 && hyprpicker -r -z -n &
+	grim -g "${geometry}" $dir/"Screenshot from ${datetime}".png
+	wl-copy < $dir/"Screenshot from ${datetime}".png
+	killall hyprpicker
 	notify_view
 }
 

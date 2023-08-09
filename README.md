@@ -3,7 +3,7 @@
 
 ## What it looks like (shit)
 
-![Screenshot](/assets/images/screenshot.png)
+ ![Screenshot](/assets/images/screenshot.png)
 ![Utilities](/assets/images/utilities.png)
 
 ## Installing
@@ -11,6 +11,7 @@
 ### Needed apps
 
 - Window Manager: [Hyprland!](https://github.com/hyprwm/Hyprland) (obviously)
+- Hyprland Shader Applier: [Hypershade!](https://github.com/loqusion/hyprshade)
 - Status Bar: [Waybar](https://github.com/Alexays/Waybar) (also obviously & use waybar-hyprland if ur having issues with workspaces)
 - Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
 - App Launcher: [rofi](https://github.com/davatorium/rofi)
@@ -24,7 +25,7 @@
 - Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
-- Screen Recorder (no audio): [wf-recorder](https://github.com/ammen99/wf-recorder) (you need slurp for area recordings) 
+- Screen Recorder : [wl-screenrec](https://github.com/russelltg/wl-screenrec) (you need slurp for area recordings) 
 - Screen Shots: [grimblast](https://github.com/hyprwm/contrib)
 - Alternate Screen Shots: [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp)
 - Some sort of polkit agent: [kde's](https://github.com/KDE/polkit-kde-agent-1) is best for hyprland as per docs
@@ -34,6 +35,8 @@
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
 - Screen Shader Applier: [hyprshade](https://github.com/loqusion/hyprshade)
+
+
 
 ### How to apply
 
@@ -46,7 +49,7 @@
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
-- Import `outerspace.json` from `presets/user` to gradience and apply for gtk3 and gtk4
+- Import `dark-ass-mf.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Reboot
 - Profit(?)
@@ -79,3 +82,8 @@
 - Super + B to open bluetooth menu
 - Super + Right-Click resizes window
 - Super + Left-Click moves window 
+
+### Special Thanks
+- [adi1090x](https://github.com/adi1090x) for the basis of the rofi menus!
+- [loqusion](https://github.com/loqusion/hyprshade) for making shader usage a breeze
+- My cat Darcie for supporting me thru these less-than-good times

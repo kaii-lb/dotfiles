@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if pgrep -x "wf-recorder" > /dev/null
+if pgrep -x "wl-screenrec" > /dev/null
 then
     status="Running"
 else

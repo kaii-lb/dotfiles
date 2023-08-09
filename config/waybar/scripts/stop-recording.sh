@@ -1,11 +1,11 @@
 #!/bin/sh
 
-pid=$(pgrep wf-recorder)
+pid=$(pgrep wl-screenrec)
 
 # echo $pid
 
 if [[ $pid == "" ]]; then
-	echo "wf-recorder not running"
+	echo "wl-screenrec not running"
 	exit 1
 fi	
 

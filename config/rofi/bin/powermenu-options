@@ -4,13 +4,7 @@ ddir="$HOME/.config/rofi/config"
 
 # Ask for confirmation
 rdialog () {
-	echo -e "\n" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
-}
-
-
-# Display Help
-show_msg() {
-	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
+	echo -e "\n" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
 }
 
 if [[ $1 -eq 1 ]]; then
@@ -32,7 +26,14 @@ elif [[ $1 -eq 2 ]]; then
 		exit
     fi
 elif [[ $1 -eq 3 ]]; then
-	sh $HOME/.config/hypr/scripts/lock.sh
+	ans=$(rdialog &)
+	if [[ $ans =~ "" ]]; then
+		sh $HOME/.config/hypr/scripts/lock.sh
+	elif [[ $ans =~ "" ]]; then
+		exit
+    else
+		exit
+    fi
 elif [[ $1 -eq 4 ]]; then 
 	ans=$(rdialog &)
 	if [[ $ans =~ "" ]]; then

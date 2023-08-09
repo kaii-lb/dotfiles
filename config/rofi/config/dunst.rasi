@@ -14,17 +14,17 @@ configuration {
 
 /*****----- Global Properties -----*****/
 * {
-   font:                        "Product Sans Bold 12";
-   background:                  #11092D;
-   background-alt:              #28165780;
-   foreground:                  #FFFFFF;
-   selected:                    #DF5296;
-   active:                      #6E77FF;
-   urgent:                      #8E3596;
+    font:                        "Product Sans Bold 12";
+    background:                  #0f0f0f;
+    background-alt:              #423040;
+    foreground:                  #faf8ff;
+    selected:                    #894f5e;
+    active:                      #cc7765;
+    urgent:                      #f9f871;
 }
 
 /*
-USE_ICON=NO
+USE_ICON=YES
 */
 
 /*****----- Main Window -----*****/
@@ -33,13 +33,13 @@ window {
     location:                    north east;
     anchor:                      north east;
     fullscreen:                  false;
-    width:                       500px;
+    width:                       400px;
     x-offset:                    -10px;
     y-offset:                    300px;
     margin:                      0px;
     padding:                     0px;
-    border:                      0px;
-    border-radius:               20px;
+    border:                      0px solid;
+    border-radius:               50px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -48,72 +48,60 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     15px;
+    spacing:                     20px;
     margin:                      0px;
-    padding:                     0px;
+    padding:                     20px;
     background-color:            transparent;
-    orientation:                 horizontal;
-    children:                    [ "imagebox", "listview" ];
+    children:                    [ "inputbar", "message", "listview" ];
 }
 
-/*****----- Imagebox -----*****/
-imagebox {
-    border-radius:               0px;
+/*****----- Inputbar -----*****/
+inputbar {
+    enabled:                     true;
+    spacing:                     25px;
+    padding:                     10px 50px;
+    border:                      0px;
+    border-radius:               40px;
+    border-color:                @selected;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/telescope.png", height);
+    background-image:            url("~/Downloads/languid-afternoon.jpg", width);
+    text-color:                  @foreground;
     children:                    [ "prompt"];
 }
 
-prompt {
-   enabled:                     true;
-   margin:                      10px 40px 10px 40px;
-   padding:                     12px;
-   border:                      0px solid;
-   border-radius:               12px;
-   border-color:                @selected;
-   background-color:            @background;
-   text-color:                  @foreground;
+dummy{
+    background-color:            transparent;
 }
 
-/*****----- Message -----*****/
-message {
+prompt {
+	margin:						 10px 50px;
     enabled:                     true;
-    margin:                      0px;
     padding:                     10px;
-    border:                      0px solid;
-    border-radius:               0px;
-    border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
-}
-textbox {
-    background-color:            inherit;
-    text-color:                  inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.0;
+    border-radius:               100%;
+    background-color:            @active;
+    text-color:                  @background;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     6;
-    lines:                       5;
+    columns:                     1;
+    lines:                       2;
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
     
-    spacing:                     5px;
+    spacing:                     10px;
     background-color:            transparent;
     cursor:                      "default";
-    padding: 10px 10px 10px 0px;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    padding:                     10px;
+    padding:                     15px 15px;
     border:                      0px solid;
-    border-radius:               15px;
+    border-radius:               100%;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
@@ -124,12 +112,12 @@ element-text {
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.0;
+    horizontal-align:            0.5;
 }
 
 element normal.normal,
 element alternate.normal {
-    background-color:            var(background);
+    background-color:            var(background-alt);
     text-color:                  var(foreground);
 }
 element normal.urgent,

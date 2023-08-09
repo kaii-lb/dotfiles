@@ -14,12 +14,12 @@
 	font-weight: bold;
 }
 
-@define-color background #11092D;
-@define-color background-alt #281657;
-@define-color foreground #FFFFFF;
-@define-color selected #DF5296;
-@define-color active #6E77FF;
-@define-color urgent #8E3596;
+@define-color background #0f0f0f;
+@define-color background-alt #423040;
+@define-color foreground #faf8ff;
+@define-color selected #f6b161;
+@define-color active #cc7765;
+@define-color urgent #f9f871;
 
 @keyframes border_normal {
 	from {
@@ -87,6 +87,7 @@
 	animation-fill-mode:forwards;
 }
 
+
 /* * { */
 	/* font-family: Product Sans Regular; */
 	/* font-size: 15px; */
@@ -94,7 +95,7 @@
 /* } */
 
 window#waybar {
-	background-color: @background;	/* Keep transparent to blur */
+	background-color: transparent;	/* Keep transparent to blur */
 }
 
 window#waybar.hidden {
@@ -102,19 +103,18 @@ window#waybar.hidden {
 }
 
 window > box {
-	/*border-bottom-width: 2px;*/ 
-	border-color: @crust; 
+	border-color: @active; 
 	border-radius: 16px;
-	/*margin: 0 10px;*/
+	border-width: 0px;
+	margin: 10px 14px 0px 14px;
 	border-style: solid; 
-	background-color: transparent;	/* Keep transparent to blur */
-	/*background: rgba(22, 24, 32, .8);*/
+	background-color: @background;	/* Keep transparent to blur */
 }
 
 #memory, #cpu, #temperature, #clock, #network , #pulseaudio, #backlight, #battery, #workspaces, #window, #tray, #mpris{
-	padding: 3px 10px 3px;
+	padding: 1px 10px 1px;
 	margin: 0 0px;
-	color: @text;
+	color: @foreground;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -123,9 +123,9 @@ window > box {
 }
 
 #custom-bluetooth-battery, #custom-mpris-media, #custom-power-menu, #custom-recording {
-	padding: 3px 10px 3px;
+	padding: 1px 10px 1px;
 	margin: 0 0px;
-	color: @text;
+	color: @foreground;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -134,20 +134,20 @@ window > box {
 }
 
 #clock {
-	padding: 3px 0px 3px 10px;
+	padding: 1px 0px 1px 10px;
 	margin: 0 0px;
-	color: @text;
+	color: @foreground;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
 	border-color: @active;
-	background-color: @background;	
+	background-color: transparent;	
 }
 
 #custom-weather {
-	padding: 3px 10px 3px 0px;
+	padding: 1px 10px 1px 0px;
 	margin: 0 0px;
-	color: @text;
+	color: @foreground;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -156,9 +156,9 @@ window > box {
 }
 
 #custom-song-previous, #custom-song-toggle, #custom-song-next {
-	padding: 3px 10px 3px;
+	padding: 1px 10px 1px;
 	margin: 0 0px;
-	color: @text;
+	color: @foreground;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -168,21 +168,23 @@ window > box {
 
 #workspaces button {
 	transition: none;
-	color: #ffffff;
-	background: transparent;
-	font-size: 14px;
+	color: @background-alt;
+	background-color: transparent;
+	padding: 3px 8px;
+	font-size: 15px;
 }
 
 #workspaces button:hover {
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
+	background-color: transparent;
 	color: @selected;
 }
 
 #workspaces button.active {
-    color: #ffffff;
-    background-color: @selected;
+    color: @foreground;
+    background-color: transparent;
     border-radius: 10px;
 }
 
@@ -204,10 +206,7 @@ tooltip {
 } 
 
 tooltip label {
-	color: @text;
+	color: @foreground;
 	font-size: small;
 }
 
-#battery.charging {
-	animation-name: border_critical;
-}

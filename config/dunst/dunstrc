@@ -1,20 +1,20 @@
 [global]
-frame_color = "#74c7ec"
+frame_color = "#894f5e"
 separator_color= frame
-highlight = "#b4befe"
+highlight = "#894f5e"
 
 [urgency_low]
-background = "#11092D72"
-foreground = "#FFFFFF"
+background = "#0f0f0fb3"
+foreground = "#faf8ff"
 
 [urgency_normal]
-background = "#11092D72"
-foreground = "#FFFFFF"
+background = "#0f0f0fb3"
+foreground = "#faf8ff"
 
 [urgency_critical]
-background = "#11092D72"
-foreground = "#FFFFFF"
-frame_color = "#DF5296"
+background = "#0f0f0fb3"
+foreground = "#faf8ff"
+frame_color = "#f9f871"
 
 [global]
 # dynamic width from 0 to 300
@@ -27,8 +27,8 @@ height = 600
 
 dmenu = /usr/bin/rofi -dmenu -p "Choose Action" -markup -markup-rows -theme .config/rofi/config/dunst.rasi -steal-focus
 
-show_indicators = true
-indicate_hidden = false
+show_indicators = false
+indicate_hidden = true
 
 mouse_left_click = do_action
 mouse_middle_click = close_all
