@@ -1,0 +1,13 @@
+/* This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this
+ * file, You can obtain one at http://mozilla.org/MPL/2.0/. */
+
+menupopup {
+  --panel-color: #faf8ff !important;
+  --panel-background: #0f0f0f !important;
+}
+
+menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
+  background-color: #423040 !important;
+  color: #faf8ff !important;
+}

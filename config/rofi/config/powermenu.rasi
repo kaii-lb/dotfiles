@@ -46,6 +46,7 @@ window {
     border-radius:               12px;
     border-color:                @selected;
     cursor:                      "default";
+	background-color: 			 @background;
     background-image:			 url("~/Pictures/NewWallpapers/languid-afternoon.jpg", height);
 }
 

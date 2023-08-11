@@ -69,7 +69,7 @@ inputbar {
     enabled:                     true;
     spacing:                     10px;
     padding:                     80px 60px;
-    background-color:            transparent;
+    background-color:            @background;
     background-image:            url("~/Pictures/NewWallpapers/languid-afternoon.jpg", width);
     text-color:                  @foreground;
     orientation:                 horizontal;

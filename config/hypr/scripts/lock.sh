@@ -9,21 +9,21 @@ swaylockd \
 --indicator \
 --clock \
 --timestr "%I:%M:%S" \
---inside-wrong-color f38ba8  \
---ring-wrong-color 11111b  \
---inside-clear-color a6e3a1 \
---ring-clear-color 11111b \
---inside-ver-color b4befe \
---ring-ver-color 11111b \
---text-color  f5c2e7 \
+--inside-wrong-color ca7563  \
+--ring-wrong-color 3f2d3c  \
+--inside-clear-color f5b061 \
+--ring-clear-color 3f2d3c \
+--inside-ver-color f9f871 \
+--ring-ver-color 423040 \
+--text-color faf8ff \
 --indicator-radius 160 \
 --indicator-thickness 15 \
---effect-blur 10x7 \
+--effect-blur 5x4 \
 --effect-vignette 0.2:0.2 \
 --ring-color 0011111b \
---key-hl-color b4befe \
+--key-hl-color f9f871 \
 --line-color 313244 \
---inside-color 0011111b \
+--inside-color 3f2d3c00 \
 --separator-color 00000000 \
 --fade-in 0.1 && echo "Locked Succesfully"
 

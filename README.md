@@ -51,6 +51,8 @@
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
 - Import `dark-ass-mf.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
+- Open `/home/$USER/.config/hyprland/autostart.sh` and change `wallpaper` to your desired wallpaper
+- Open `/home/$USER/.config/hyprland/hyprpaper.conf` and change `$USER` to your username
 - Reboot
 - Profit(?)
 
