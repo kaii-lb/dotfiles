@@ -22,7 +22,7 @@
 - Logout Manager/App/Thingy: [rofi](https://github.com/davatorium/rofi)
 - GTK theme: [Catppuccin-Mocha-Standard-Lavender](https://github.com/catppuccin/gtk) 
 - Modifications for GTK theme: [gradience](https://github.com/GradienceTeam/Gradience) 
-- Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one)
+- Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one, but nothing will work without it)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
 - Screen Recorder : [wl-screenrec](https://github.com/russelltg/wl-screenrec) (you need slurp for area recordings) 
@@ -51,8 +51,7 @@
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
 - Import `dark-ass-mf.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
-- Open `/home/$USER/.config/hyprland/autostart.sh` and change `wallpaper` to your desired wallpaper
-- Open `/home/$USER/.config/hyprland/hyprpaper.conf` and change `$USER` to your username
+- Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
 - Reboot
 - Profit(?)
 
