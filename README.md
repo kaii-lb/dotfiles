@@ -81,6 +81,7 @@
 - Super + S to toggle floating window
 - Super + E to open nautilus (file manager)
 - Super + B to open bluetooth menu
+- Super + O to toggle waybar
 - Super + Right-Click resizes window
 - Super + Left-Click moves window 
 
