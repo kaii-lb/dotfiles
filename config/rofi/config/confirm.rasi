@@ -46,7 +46,7 @@ window {
     border-radius:               12px;
     border-color:                @selected;
     cursor:                      "default";
-    background-image:			 url("~/Downloads/languid-afternoon.jpg", height);
+    background-image:			 url("~/Pictures/NewWallpapers/languid-afternoon.jpg", height);
 }
 
 /*****----- Main Box -----*****/
