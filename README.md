@@ -35,7 +35,7 @@
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
 - Screen Shader Applier: [hyprshade](https://github.com/loqusion/hyprshade)
-
+- Spotify Themeing: [spicetify](https://spicetify.app/)
 
 
 ### How to apply
@@ -44,6 +44,7 @@
 - Copy files in `local/bin` to `/home/$USER/.local/bin/` and set permissions to executable. (obv read the source code before executing anything)
 - Copy files in `themes` to `/home/$USER/.local/share/themes/` and apply using `lxppearance` and `gnome-tweaks`
 - Copy files in `icons` to `/home/$USER/.local/share/icons/` and apply using `lxppearance` and `gnome-tweaks`
+- Copy files in `spicetify/Themes` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
