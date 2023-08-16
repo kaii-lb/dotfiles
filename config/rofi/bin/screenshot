@@ -74,7 +74,7 @@ shot5area () {
 shotwin () {
 	#sleep 1 && hyprpicker -r -z -n &
 	#grim -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" $dir/"Screenshot from ${datetime}".png
-	$HOME/.local/bin/grimblast --freeze copysave active  $dir/"Screenshot from ${datetime}".png
+	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave active  $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view

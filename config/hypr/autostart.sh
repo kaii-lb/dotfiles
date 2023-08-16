@@ -14,20 +14,6 @@ dunst &
 $scripts/launch_waybar &
 #$scripts/tools/dynamic &
 
-# wallpaper
-# FONT="Product Sans Bold"
-# SIZE=20
-# STRING=$(hyprctl splash)
-# spacing=$(inkscape --without-gui --query-id=id1 -W <(echo '<svg><text id="id1" style="font-size:'$SIZE'px;font-family:'$FONT';">'$STRING'</text></svg>') 2>/dev/null)
-# spacing=${spacing%.*}
-# spacing=$(($spacing/2 - 30))
-# 
-# wallpaper=/home/$USER/Pictures/NewWallpapers/languid-afternoon.jpg
-# 
-# convert $wallpaper -gravity East -font ~/.local/share/fonts/Product\ Sans\ Bold.ttf -fill white -pointsize 20 -annotate +$spacing+450 "$STRING" ~/Pictures/hyprpaper-image.png
-hyprpaper 
-#hyprctl hyprpaper unload all
-
 # effects
 #$scripts/rgb &
 
@@ -46,3 +32,23 @@ rfkill unblock all
 #hyprctl setcursor Bibata-Modern-Classic 24
 
 sudo intelpwm
+
+# wallpaper
+# FONT="Product Sans Bold"
+# SIZE=20
+# STRING=$(hyprctl splash)
+# spacing=$(inkscape --without-gui --query-id=id1 -W <(echo '<svg><text id="id1" style="font-size:'$SIZE'px;font-family:'$FONT';">'$STRING'</text></svg>') 2>/dev/null)
+# spacing=${spacing%.*}
+# spacing=$(($spacing/2 - 30))
+# 
+# wallpaper=/home/$USER/Pictures/NewWallpapers/languid-afternoon.jpg
+# 
+# convert $wallpaper -gravity East -font ~/.local/share/fonts/Product\ Sans\ Bold.ttf -fill white -pointsize 20 -annotate +$spacing+450 "$STRING" ~/Pictures/hyprpaper-image.png
+hyprpaper 
+#hyprctl hyprpaper unload all
+
+
+
+
+
+

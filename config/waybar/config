@@ -5,7 +5,8 @@
 		"custom/bluetooth-battery",
 		"cpu",
 		"temperature",
-		"custom/recording"
+		"custom/recording",
+		"tray"
 		/*"hyprland/window"*/
 	],
 	"modules-center": [
@@ -18,7 +19,6 @@
 	"modules-right": [
 		"clock",
 		"custom/weather",
-		"tray",
 		
 		"network",
 		"pulseaudio",
@@ -119,7 +119,7 @@
     "custom/weather" : {
         "format" : "| {}",
         "on-click": "~/.config/waybar/scripts/launch_weather.sh",
-        "restart-interval" : 3600,
+        "interval" : 3600,
         "exec" : "python3 ~/.config/waybar/scripts/weather.py",
         "return-type" : "json"
     },
