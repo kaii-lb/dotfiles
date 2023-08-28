@@ -37,7 +37,7 @@
 - Screen Shader Applier: [hyprshade](https://github.com/loqusion/hyprshade)
 - Spotify Theming: [spicetify](https://spicetify.app/)
 - Firefox Theming: [dark vibes :D](https://addons.mozilla.org/en-US/firefox/addon/dark-vibes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
-
+- VSCode Theming: [dark vibes :D](https://github.com/kaii-lb/Dark-Vibes-VsCode)
 
 ### How to apply
 
@@ -53,6 +53,7 @@
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
 - Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
 - Import `dark-ass-mf.json` from `presets/user` to gradience and apply for gtk3 and gtk4
+- Import the `dark-vibes-yay.vsix` that you downloaded to vscode and set color scheme to `dark vibes :D`
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
 - Reboot
