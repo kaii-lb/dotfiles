@@ -47,7 +47,7 @@ window {
     border-color:                @selected;
     cursor:                      "default";
 	background-color: 			 @background;
-    background-image:			 url("~/Pictures/NewWallpapers/languid-afternoon.jpg", height);
+    background-image:			 url("~/.config/rofi/images/dark-twm.png", height);
 }
 
 /*****----- Main Box -----*****/

@@ -18,20 +18,20 @@ $scripts/launch_waybar &
 #$scripts/rgb &
 
 # other
-/usr/lib64/polkit-kde-authentication-agent-1 &
-/usr/lib64/polkit-kde-authentication-agent-1 &
+QT_STYLE_OVERRIDE=kvantum /usr/lib64/polkit-kde-authentication-agent-1 &
+QT_STYLE_OVERRIDE=kvantum /usr/lib64/polkit-kde-authentication-agent-1 &
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
-brightnessctl set 15%
+brightnessctl set 50% &
 
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
 
-rfkill unblock all
+rfkill unblock all &
 
 #hyprctl setcursor Bibata-Modern-Classic 24
 #hyprctl setcursor Bibata-Modern-Classic 24
 
-sudo intelpwm
+sudo intelpwm &
 
 # wallpaper
 # FONT="Product Sans Bold"
@@ -44,7 +44,7 @@ sudo intelpwm
 # wallpaper=/home/$USER/Pictures/NewWallpapers/languid-afternoon.jpg
 # 
 # convert $wallpaper -gravity East -font ~/.local/share/fonts/Product\ Sans\ Bold.ttf -fill white -pointsize 20 -annotate +$spacing+450 "$STRING" ~/Pictures/hyprpaper-image.png
-hyprpaper 
+hyprpaper &
 #hyprctl hyprpaper unload all
 
 

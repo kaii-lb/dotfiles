@@ -10,7 +10,7 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser";
-    show-icons:                 true;
+    show-icons:                 false;
     display-drun:               "";
     display-run:                "";
     display-filebrowser:        "";
@@ -70,7 +70,7 @@ inputbar {
     spacing:                     10px;
     padding:                     80px 60px;
     background-color:            @background;
-    background-image:            url("~/Pictures/NewWallpapers/languid-afternoon.jpg", width);
+    background-image:            url("~/.config/rofi/images/dark-twm.png", width);
     text-color:                  @foreground;
     orientation:                 horizontal;
     children:                    [ "textbox-prompt-colon", "entry", "dummy", "mode-switcher" ];
@@ -145,11 +145,13 @@ listview {
 element {
     enabled:                     true;
     spacing:                     10px;
-    padding:                     4px;
+    padding:                     10px;
     border-radius:               100%;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
+    vertical-align:				 0.5;
+    horizontal-align:			 0.5;
 }
 element normal.normal {
     background-color:            inherit;
