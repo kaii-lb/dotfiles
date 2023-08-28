@@ -15,11 +15,11 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Product Sans Bold 12";
-    background:                  #0f0f0f;
+    background:                  #000005;
     background-alt:              #423040;
     foreground:                  #faf8ff;
-    selected:                    #894f5e;
-    active:                      #cc7765;
+    selected:                    #c97163;
+    active:                      #f5ae5f;
     urgent:                      #f9f871;
 }
 
@@ -74,7 +74,7 @@ button-bluetooth {
    enabled:                     true;
    padding:                     10px;
    border-radius:               100%;
-   background-color:            @active;
+   background-color:            @selected;
    text-color:                  @background;
    action: 						"kb-row-last";
    content:						"Bluetooth";
@@ -90,7 +90,7 @@ prompt {
     enabled:                     true;
     padding:                     10px;
     border-radius:               100%;
-    background-color:            @active;
+    background-color:            @selected;
     text-color:                  @background;
 }
 

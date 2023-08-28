@@ -35,7 +35,8 @@
 - Wallpaper: [hyprpaper](https://github.com/hyprwm/hyprpaper)
 - Screenshot freezer: [hyprpicker](https://github.com/hyprwm/hyprpicker) (freezes the screen for area screenshots, also doubles as colorpicker)
 - Screen Shader Applier: [hyprshade](https://github.com/loqusion/hyprshade)
-- Spotify Themeing: [spicetify](https://spicetify.app/)
+- Spotify Theming: [spicetify](https://spicetify.app/)
+- Firefox Theming: [dark vibes :D](https://addons.mozilla.org/en-US/firefox/addon/dark-vibes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 
 
 ### How to apply
@@ -45,6 +46,7 @@
 - Copy files in `themes` to `/home/$USER/.local/share/themes/` and apply using `lxppearance` and `gnome-tweaks`
 - Copy files in `icons` to `/home/$USER/.local/share/icons/` and apply using `lxppearance` and `gnome-tweaks`
 - Copy files in `spicetify/Themes` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
+- Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  

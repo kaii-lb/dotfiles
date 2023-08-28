@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-rofi_command="rofi -markup -markup-rows -matching fuzzy -theme $HOME/.config/rofi/config/powermenu.rasi"
+rofi_command="rofi -markup -markup-rows -matching fuzzy -theme $HOME/.config/rofi/config/powermenu.rasi -hover-select"
 
 uptime=$(uptime -p | sed -e 's/up //g')
 

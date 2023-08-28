@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus "
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenshot.rasi -steal-focus -hover-select"
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
 dir="$HOME/Pictures/Screenshots"

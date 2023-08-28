@@ -21,11 +21,11 @@ configuration {
 /*****----- Global Properties -----*****/
 * {
     font:                        "Product Sans Bold 12";
-    background:                  #0f0f0f;
+    background:                  #000005;
     background-alt:              #423040;
     foreground:                  #faf8ff;
-    selected:                    #894f5e;
-    active:                      #cc7765;
+    selected:                    #c97163;
+    active:                      #f5ae5f;
     urgent:                      #f9f871;
 }
 
@@ -166,7 +166,7 @@ element normal.active {
     text-color:                  @foreground;
 }
 element selected.normal {
-    background-color:            @background-alt;
+    background-color:            @selected;
     text-color:                  @foreground;
 }
 element selected.urgent {

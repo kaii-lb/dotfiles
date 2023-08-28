@@ -14,16 +14,16 @@
 	font-weight: bold;
 }
 
-@define-color background #0f0f0f;
+@define-color background #000005;
 @define-color background-alt #423040;
 @define-color foreground #faf8ff;
-@define-color selected #f6b161;
-@define-color active #cc7765;
+@define-color selected #c97163;
+@define-color active #f5ae5f;
 @define-color urgent #f9f871;
 
 @keyframes border_normal {
 	from {
-		border-color: @active;
+		border-color: @selected;
 		border-width: 2px;
 		border-radius: 8px;		 		
 	}
@@ -36,7 +36,7 @@
 
 @keyframes border_critical {
 	from {
-		border-color: @active;
+		border-color: @selected;
 		border-width: 2px;
 		border-radius: 8px;		 		
 	}
@@ -56,7 +56,7 @@
 	to {
 		border-radius: 8px;
 		border-width: 2px; 
-		border-color: @active;
+		border-color: @selected;
 	}
 }
 
