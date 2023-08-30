@@ -48,6 +48,7 @@
 - Copy files in `spicetify/Themes` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
 - Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
+- Run `gsettings set org.gnome.desktop.a11y.interface high-contrast true` to enable highlights around buttons and shit
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
