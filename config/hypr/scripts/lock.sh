@@ -18,14 +18,14 @@ swaylockd \
 --text-color faf8ff \
 --indicator-radius 160 \
 --indicator-thickness 15 \
---effect-blur 5x4 \
+--effect-blur 4x4 \
 --effect-vignette 0.2:0.2 \
 --ring-color 0011111b \
 --key-hl-color f9f871 \
 --line-color 313244 \
 --inside-color 3f2d3c00 \
 --separator-color 00000000 \
---fade-in 0.1 && echo "Locked Succesfully"
+--fade-in 0.2 && echo "Locked Succesfully"
 
 echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: ${WAYLAND_DISPLAY}\nSWAYSOCK is: $SWAYSOCK"
 
