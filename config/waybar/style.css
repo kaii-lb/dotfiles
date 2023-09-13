@@ -175,10 +175,11 @@ window > box {
 }
 
 #workspaces button:hover {
+	background: transparent;
+	border-color: transparent;
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
-	background-color: transparent;
 	color: @selected;
 }
 

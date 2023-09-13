@@ -33,6 +33,8 @@ rfkill unblock all &
 
 sudo intelpwm &
 
+/usr/lib/bluetooth/obexd -n &
+
 # wallpaper
 # FONT="Product Sans Bold"
 # SIZE=20
