@@ -1,0 +1,10 @@
+* {
+    font:                        "Product Sans Bold 12";
+    background:                  #26233a;
+    background-alt:              #524f67;
+    foreground:                  #ebbcba;
+    selected:                    #cf537f;
+    active:                      #908caa;
+    urgent:                      #f6c177;
+}
+
