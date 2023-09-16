@@ -3,6 +3,9 @@
 #plugins
 #hyprctl plugin load $HOME/.config/hypr/plugins/csgo-vulkan-fix.so
 
+#might help with long time to launch app
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+
 # variables
 config=$HOME/.config/hypr
 scripts=$config/scripts

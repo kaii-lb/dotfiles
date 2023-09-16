@@ -42,9 +42,7 @@
 
 - Copy files in `config` to `/home/$USER/.config/` or simply `~/.config/` (theyre the same place but yk fancier)
 - Copy files in `local/bin` to `/home/$USER/.local/bin/` and set permissions to executable. (obv read the source code before executing anything)
-- Copy files in `themes` to `/home/$USER/.local/share/themes/` and apply using `lxppearance` and `gnome-tweaks`
-- Copy files in `icons` to `/home/$USER/.local/share/icons/` and apply using `lxppearance` and `gnome-tweaks`
-- Copy files in `spicetify/Themes` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
+- Copy files in `config/spicetify/Themes/` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
 - Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
 - Run `gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic` to set cursor theme
