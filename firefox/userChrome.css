@@ -5,9 +5,21 @@
 menupopup {
   --panel-color: #faf8ff !important;
   --panel-background: #000005 !important;
+  --panel-border-color: #c97163 !important;
+  border: #c97163 !important;
 }
 
 menu:not([disabled="true"])[_moz-menuactive="true"], menuitem:not([disabled="true"])[_moz-menuactive="true"] {
   background-color: #00001a !important;
   color: #faf8ff !important;
+  border: #c97163 !important;
+}
+
+menuseparator {
+	-moz-appearance: none !important;
+	max-height: 1px !important;
+	border: none !important;
+	padding: 0px 0 !important;
+	margin: 0 10px !important;
+    background-color: #c97163 !important;
 }

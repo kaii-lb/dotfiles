@@ -29,7 +29,10 @@ dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
 rfkill unblock all &
 
 #hyprctl setcursor Bibata-Modern-Classic 24
-#hyprctl setcursor Bibata-Modern-Classic 24
+hyprctl setcursor Bibata-Modern-Classic 24 &
+# set -x XCURSOR_THEME Bibata-Modern-Classic &
+# set -x XCURSOR_SIZE 24
+
 
 sudo intelpwm &
 

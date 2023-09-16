@@ -20,8 +20,7 @@
 - File Manager: [Nautilus](https://github.com/GNOME/nautilus) 
 - Audio: [Pipewire](https://gitlab.freedesktop.org/pipewire/pipewire/) and [Wireplumber](https://gitlab.freedesktop.org/pipewire/wireplumber/) (you should be able to use pulse audio but im not sure)
 - Logout Manager/App/Thingy: [rofi](https://github.com/davatorium/rofi)
-- GTK theme: [Catppuccin-Mocha-Standard-Lavender](https://github.com/catppuccin/gtk) 
-- Modifications for GTK theme: [gradience](https://github.com/GradienceTeam/Gradience) 
+- Modifications for GTK/LibAdwaita: [gradience](https://github.com/GradienceTeam/Gradience) 
 - Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one, but nothing will work without it)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
@@ -48,7 +47,9 @@
 - Copy files in `spicetify/Themes` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
 - Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
+- Run `gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic` to set cursor theme
 - Run `gsettings set org.gnome.desktop.a11y.interface high-contrast true` to enable highlights around buttons and shit
+- Run `gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'` to move window buttons to left (optional)
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
@@ -57,6 +58,8 @@
 - Import the `dark-vibes-yay.vsix` that you downloaded to vscode and set color scheme to `dark vibes :D`
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
+- Open firefox, go to `about:config` and search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it to `true`
+- Open `/etc/environment` and add `export XCURSOR_THEME Bibata-Modern-Classic && export XCURSOR_SIZE 24 &`
 - Reboot
 - Profit(?)
 

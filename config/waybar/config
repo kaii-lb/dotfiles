@@ -1,7 +1,7 @@
 {
 	"layer": "top",
 	"modules-left": [
-		"wlr/workspaces",
+		"hyprland/workspaces",
 		"custom/bluetooth-battery",
 		"cpu",
 		"temperature",
