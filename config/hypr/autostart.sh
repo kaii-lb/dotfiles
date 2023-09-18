@@ -36,7 +36,7 @@ hyprctl setcursor Bibata-Modern-Classic 24 &
 # set -x XCURSOR_THEME Bibata-Modern-Classic &
 # set -x XCURSOR_SIZE 24
 
-
+export GTK_THEME=adw-gtk3
 sudo intelpwm &
 
 /usr/lib/bluetooth/obexd -n &

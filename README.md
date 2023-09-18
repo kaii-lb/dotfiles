@@ -3,7 +3,7 @@
 
 ## What it looks like (shit)
 
- ![Screenshot](/assets/images/screenshot.png)
+![Screenshot](/assets/images/screenshot.png)
 ![Utilities](/assets/images/utilities.png)
 
 ## Installing
@@ -11,16 +11,17 @@
 ### Needed apps
 
 - Window Manager: [Hyprland!](https://github.com/hyprwm/Hyprland) (obviously)
-- Hyprland Shader Applier: [Hypershade!](https://github.com/loqusion/hyprshade)
-- Status Bar: [Waybar](https://github.com/Alexays/Waybar) (also obviously & use waybar-hyprland if ur having issues with workspaces)
+- Status Bar: [Waybar](https://github.com/Alexays/Waybar) (also obviously & use hyprland/workspaces if ur having issues with workspaces)
 - Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
 - App Launcher: [rofi](https://github.com/davatorium/rofi)
 - Notification Daemon: [dunst](https://github.com/dunst-project/dunst)
 - Terminal Text Editor: [micro](https://github.com/zyedidia/micro)
 - File Manager: [Nautilus](https://github.com/GNOME/nautilus) 
 - Audio: [Pipewire](https://gitlab.freedesktop.org/pipewire/pipewire/) and [Wireplumber](https://gitlab.freedesktop.org/pipewire/wireplumber/) (you should be able to use pulse audio but im not sure)
+- Audio control: [pamixer](https://github.com/cdemoulins/pamixer) (yes it for pulseaudio but works with pipewire better than wpctl)
 - Logout Manager/App/Thingy: [rofi](https://github.com/davatorium/rofi)
 - Modifications for GTK/LibAdwaita: [gradience](https://github.com/GradienceTeam/Gradience) 
+- Hyprland Shader Applier: [Hypershade!](https://github.com/loqusion/hyprshade)
 - Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one, but nothing will work without it)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
@@ -57,7 +58,6 @@
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
 - Open firefox, go to `about:config` and search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it to `true`
-- Open `/etc/environment` and add `export XCURSOR_THEME Bibata-Modern-Classic && export XCURSOR_SIZE 24 &`
 - Reboot
 - Profit(?)
 
