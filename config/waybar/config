@@ -44,7 +44,7 @@
 		"on-click": "kitty bpytop"
 	},
 	"temperature": {
-		"hwmon-path": "/sys/class/hwmon/hwmon3/temp1_input",
+		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
 		"critical-threshold": 80,
 		"interval": 1,
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>&#xf06d;</span> <span font_weight='bold'>{temperatureC}°C</span>",

@@ -4,7 +4,10 @@
 #hyprctl plugin load $HOME/.config/hypr/plugins/csgo-vulkan-fix.so
 
 #might help with long time to launch app
-dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --all
+gnome-keyring-daemon --start --components=secrets
+
+xsettingsd --config $HOME/.config/xsettingsd/xsettingsd.conf &
 
 # variables
 config=$HOME/.config/hypr
@@ -33,13 +36,15 @@ rfkill unblock all &
 
 #hyprctl setcursor Bibata-Modern-Classic 24
 hyprctl setcursor Bibata-Modern-Classic 24 &
-# set -x XCURSOR_THEME Bibata-Modern-Classic &
-# set -x XCURSOR_SIZE 24
 
-export GTK_THEME=adw-gtk3
-sudo intelpwm &
-
+# use only if obex doesn't work by default for you
 /usr/lib/bluetooth/obexd -n &
+
+gsettings set org.gnome.desktop.a11y.interface high-contrast true
+gsettings set org.gnome.desktop.interface color-scheme prefer-dark
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
+gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
+gsettings set org.gnome.desktop.wm.preferences theme adw-gtk3-dark
 
 # wallpaper
 # FONT="Product Sans Bold"

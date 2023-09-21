@@ -105,8 +105,9 @@ window#waybar.hidden {
 window > box {
 	border-color: @active; 
 	border-radius: 16px;
-	border-width: 0px;
-	margin: 10px 14px 0px 14px;
+	border-width: 2px;
+    box-shadow: 0px 0px 5px 2px @active;
+	margin: 10px 14px 10px 14px;
 	border-style: solid; 
 	background-color: @background;	/* Keep transparent to blur */
 }
