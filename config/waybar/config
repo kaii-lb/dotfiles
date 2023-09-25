@@ -108,7 +108,7 @@
 		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
 		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='2pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
 		"tooltip": false,
-		"on-click": "resonance && lutris && notify-send 'RIP to your battery o7'"
+		"on-click": "flatpak run com.github.neithern.g4music && bottles && notify-send 'RIP to your battery o7'"
 	},
 	"tray": {
 	        "icon-size": 22,
@@ -123,7 +123,7 @@
         "return-type" : "json"
     },
     "custom/bluetooth-battery": {
-	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='1pt'>&#xf025; </span><span font_weight='bold' rise='2pt'>{}</span>",
+	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='15pt' rise='1pt'> </span><span font_weight='bold' rise='2pt'>{}</span>",
 	    "return-type": "json",
 	    "interval": 1,
 	    "exec": "~/.local/bin/bluetooth_battery_status.sh",
@@ -140,15 +140,7 @@
   		"format": "{}",
   		"return-type": "json",
 	    "max-length":70,
-	    "format-icons": {
-	    	"firefox": "&#xf269; ",
-	    	"Clapper": "&#xf401; ",
-	    	"spotify": "&#xf1bc; ",
-	    	"g4music": "&#xf8d; ",
-	    	"io": "&#xf8e4; ",
-			"com": "&#xf8d9; ",
-	    },
-	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
+	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \" {{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
 	    "tooltip": true,
 	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
   	},
@@ -191,11 +183,11 @@
   		"on-click-right": "$HOME/.config/waybar/scripts/toggle-shuffle-loop.sh shuffle",
 		"tooltip": false,
 		"format-icons": {
-		        "Playlist": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf8a0;</span>",
-		        "Track": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf89f;</span>",
-		        "None": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf347;</span>"
+		        "Playlist": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'></span>",
+		        "Track": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'></span>",
+		        "None": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'></span>"
 		},
-		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any loop --format '{\"alt\": \"{{loop}}\", \"class\": \"{{loop}}\"}'",
+		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{loop}}\", \"class\": \"{{loop}}\"}'",
 		"return-type": "json"
   	},
   	"custom/recording": {

@@ -38,6 +38,7 @@
 - Spotify Theming: [spicetify](https://spicetify.app/)
 - Firefox Theming: [dark vibes :D](https://addons.mozilla.org/en-US/firefox/addon/dark-vibes/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - VSCode Theming: [dark vibes :D](https://github.com/kaii-lb/Dark-Vibes-VsCode)
+- Bluetooth Battery: [bluetooth-headset-battery-level](https://github.com/TheWeirdDev/Bluetooth_Headset_Battery_Level)
 
 ### How to apply
 

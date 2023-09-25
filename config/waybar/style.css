@@ -103,11 +103,11 @@ window#waybar.hidden {
 }
 
 window > box {
-	border-color: @active; 
+	border-color: @selected; 
 	border-radius: 16px;
-	border-width: 2px;
-    box-shadow: 0px 0px 5px 2px @active;
-	margin: 10px 14px 10px 14px;
+	border-width: 3px;
+    box-shadow: 0px 0px 5px 2px @selected;
+	margin: 10px 14px 8px 14px;
 	border-style: solid; 
 	background-color: @background;	/* Keep transparent to blur */
 }
@@ -156,7 +156,7 @@ window > box {
 	background-color: transparent;
 }
 
-#custom-song-previous, #custom-song-toggle, #custom-song-next {
+#custom-song-previous, #custom-song-toggle, #custom-song-next, #custom-song-loop {
 	padding: 1px 10px 1px;
 	margin: 0 0px;
 	color: @foreground;
@@ -205,6 +205,7 @@ tooltip {
 	border-style: solid;
 	border-color: @selected;
 	background-color: @background;
+    box-shadow: 0px 0px 3px 1px @selected;
 } 
 
 tooltip label {
