@@ -1,0 +1,46 @@
+placessidebar {
+	background-color: transparent;
+}
+
+#NautilusPathBar {
+  box-shadow: inset 0 0 0 1px @borders;
+}
+
+#NautilusPathButton:not(:hover):not(:drop(active)),
+#NautilusPathButton.current-dir:not(:drop(active)) {
+  box-shadow: none;
+}
+
+#NautilusQueryEditorTag {
+  box-shadow: inset 0 0 0 1px @borders;
+}
+
+.disk-space-free {
+  color: alpha(currentColor, 0.3);
+}
+
+.nautilus-list-view columnview > listview > row.activatable:hover,
+.nautilus-grid-view gridview > child.activatable:hover {
+  box-shadow: inset 0 0 0 1px @borders;
+}
+
+.nautilus-list-view columnview > listview > row:selected,
+.nautilus-grid-view gridview > child:selected {
+  box-shadow: inset 0 0 0 1px alpha(@accent_color, .6);
+}
+
+#NautilusGtkSidebarRow:hover {
+  border: inset 0 0 0 1px alpha(@accent_color, .6);	
+}
+
+.sidebar-row {
+  border: inset 0.5px transparent;
+}
+
+.sidebar-row:hover {
+  border: inset 0.5px #faf8ff80;
+}
+
+.sidebar-row:selected {
+  border: inset 0.5px @accent_fg_color;
+}

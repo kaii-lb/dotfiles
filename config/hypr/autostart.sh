@@ -8,11 +8,9 @@ config=$HOME/.config/hypr
 scripts=$config/scripts
 
 # might help with long time to launch app
-dbus-update-activation-environment --all
+systemctl --user import-environment WAYLAND_DISPLAY XDG_CURRENT_DESKTOP
+dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=Hyprland
 gnome-keyring-daemon --start --components=secrets
-
-# launch xsettings for theming and fonts and shit
-xsettingsd --config $HOME/.config/xsettingsd/xsettingsd.conf &
 
 # notification daemon
 dunst &
@@ -22,11 +20,11 @@ $scripts/launch_waybar &
 brightnessctl set 50% &
 
 # polkit agent (password prompt)
-QT_STYLE_OVERRIDE=kvantum /usr/lib64/polkit-kde-authentication-agent-1 &
+/usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # just incase, force these variables
 dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP &
-/usr/lib/xdg-desktop-portal-gtk -v -r
+/usr/lib/xdg-desktop-portal-gtk -v -r &
 
 # sometimes bluetooth and/or wifi get blocked, this unblocks them
 rfkill unblock all &

@@ -1,10 +1,11 @@
+/*****----- Global Properties -----*****/
 * {
     font:                        "Product Sans Bold 12";
-    background:                  #26233a;
-    background-alt:              #524f67;
-    foreground:                  #ebbcba;
-    selected:                    #cf537f;
-    active:                      #908caa;
-    urgent:                      #f6c177;
+    background:                  rgb(0,0,5, 0.8);
+    background-alt:              #423040;
+    foreground:                  #faf8ff;
+    selected:                    #c97163;
+    active:                      #f5ae5f;
+    urgent:                      #f9f871;
 }
 

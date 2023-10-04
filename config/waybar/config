@@ -10,11 +10,11 @@
 		/*"hyprland/window"*/
 	],
 	"modules-center": [
-		"custom/song-previous",
-		"custom/song-loop",
-		"custom/mpris-media",
-		"custom/song-toggle",
-		"custom/song-next"
+		//"custom/song-previous",
+		//"custom/song-loop",
+		"custom/mpris-media"
+		//"custom/song-toggle",
+		//"custom/song-next"
 	],
 	"modules-right": [
 		"clock",
@@ -26,8 +26,8 @@
 		"battery"
 		/*"custom/power-menu"*/
 	],
-	"wlr/workspaces": {
-	     "format": "{icon}",
+	"hyprland/workspaces": {
+	     "format": "{}",
 	     "on-scroll-up": "hyprctl dispatch workspace e+1",
 	     "on-scroll-down": "hyprctl dispatch workspace e-1",
          "on-click": "activate",
@@ -108,7 +108,7 @@
 		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
 		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='2pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
 		"tooltip": false,
-		"on-click": "flatpak run com.github.neithern.g4music && bottles && notify-send 'RIP to your battery o7'"
+		"on-click": "sh ~/.config/waybar/scripts/gamemode.sh"
 	},
 	"tray": {
 	        "icon-size": 22,
@@ -140,9 +140,14 @@
   		"format": "{}",
   		"return-type": "json",
 	    "max-length":70,
-	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \" {{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
+		"format-icons": {
+		        "Paused": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf04b;</span>",
+		        "Playing": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf04c;</span>",
+		},
+	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \" {{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
 	    "tooltip": true,
-	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
+	    "on-click-right": "~/.config/waybar/scripts/get-media-player.sh",
+	    "on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox play-pause"
   	},
   	"custom/song-next": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>{icon}</span>",

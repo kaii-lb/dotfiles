@@ -48,7 +48,6 @@
 - Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
 - Run `gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic` to set cursor theme
-- Run `gsettings set org.gnome.desktop.a11y.interface high-contrast true` to enable highlights around buttons and shit
 - Run `gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'` to move window buttons to left (optional)
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
