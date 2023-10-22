@@ -4,8 +4,8 @@
         "accent_color": "#c97163",
         "accent_bg_color": "#c97163",
         "accent_fg_color": "#faf8ff",
-        "destructive_color": "#8C0000",
-        "destructive_bg_color": "#8C0000",
+        "destructive_color": "#6e1b1b",
+        "destructive_bg_color": "#6E1B1B",
         "destructive_fg_color": "#faf8ff",
         "success_color": "#F3645B",
         "success_bg_color": "#F3645B",
@@ -25,12 +25,12 @@
         "headerbar_border_color": "rgba(49,50,68, 0)",
         "headerbar_backdrop_color": "rgba(15, 15, 15, 0.0)",
         "headerbar_shade_color": "rgba(0, 0, 0, 0)",
-        "card_bg_color": "#22222240",
+        "card_bg_color": "rgba(34, 34, 34, 0.25)",
         "card_fg_color": "#faf8ff",
         "card_shade_color": "rgba(0, 0, 0, 0.0)",
         "dialog_bg_color": "rgba(0, 0, 5, 0.8)",
         "dialog_fg_color": "#faf8ff",
-        "popover_bg_color": "#22222240",
+        "popover_bg_color": "rgba(34, 34, 34, 0.4)",
         "popover_fg_color": "#faf8ff",
         "shade_color": "rgba(0, 0, 0,  0.48)",
         "scrollbar_outline_color": "rgba(0,0,0,0)",
@@ -106,7 +106,7 @@
         }
     },
     "custom_css": {
-        "gtk4": "@import 'file:///home/$USER/.config/gtk-4.0/nautilus.css';",
+        "gtk4": "",
         "gtk3": ""
     },
     "plugins": {}

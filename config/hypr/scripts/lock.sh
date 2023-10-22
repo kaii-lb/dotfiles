@@ -27,10 +27,11 @@ swaylock \
 --separator-color 00000000 \
 --fade-in 0.2 && echo "Locked Succesfully"
 
-echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: ${WAYLAND_DISPLAY}\nSWAYSOCK is: $SWAYSOCK"
+echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: ${WAYLAND_DISPLAY}\n"
 
 unset XDG_RUNTIME_DIR
 
 #hyprctl dispatch cyclenext
+#sudo intelpwm
 
-sudo intelpwm
+killall -SIGUSR2 waybar
