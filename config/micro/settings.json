@@ -1,5 +1,6 @@
 {
     "clipboard": "terminal",
-    "colorscheme": "catppuccin-mocha",
+    "colorscheme": "cmc-16",
+    "hltrailingws": true,
     "mkparents": true
 }

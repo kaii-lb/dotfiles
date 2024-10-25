@@ -7,6 +7,4 @@ rofi \
 	-no-drun-show-actions \
 	-terminal kitty \
 	-kb-cancel Escape \
-	-normal-window \
-	-theme "$HOME"/.config/rofi/config/launcher.rasi  #\
-#	-hover-select
+	-theme "$HOME"/.config/rofi/config/launcher.rasi

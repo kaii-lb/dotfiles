@@ -1,13 +1,13 @@
 #!/usr/bin/env bash
-rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenrecord.rasi -steal-focus -hover-select"
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/screenrecord.rasi -steal-focus"
 
 datetime=$(date +"%Y-%m-%d %I-%M-%S")
-dir="$HOME/Videos/Screen-Recordings"
+dir="/home/$USER/Videos/Screen-Recordings"
 #file="Screen Recording from ${date} ${time}.png"
 
 # Icons
-icon1="$HOME/.config/rofi/images/camera-movie.svg"
-icon2="$HOME/.config/rofi/images/timer.svg"
+icon1="/home/$USER/.config/rofi/images/camera-movie.svg"
+icon2="/home/$USER/.config/rofi/images/timer.svg"
 
 screen="  Record Desktop"
 area="  Record Area"
@@ -19,13 +19,7 @@ infive="  Record in 5s"
 notify_view () {
 	dunstify -u low --replace=699 -i $icon1 "Copied to clipboard."
 	if [[ -e "$dir/Screen Recording from ${datetime}.mkv" ]]; then
-		echo "$dir/Screen Recording from ${datetime}.mkv"
-		action=$(dunstify --action="default,openss" -u low --replace=699 -i $icon1 "Screen Recording Saved.")
-		case "$action" in
-		"default")
-		    xdg-open "$dir/Screen Recording from ${datetime}.mkv"
-		    ;;
-		esac		
+		dunstify -u low --replace=699 -i $icon1 "Screen Recording Saved."
 	else
 		dunstify -u low --replace=699 -i $icon1 "Screen Recording Deleted."
 	fi
@@ -41,7 +35,7 @@ countdown () {
 
 # take shots
 recordnow () {
-	sleep 0.5 && wl-screenrec -g "0,0 1920x1080" -f $dir/"Screen Recording from ${datetime}".mkv
+	sleep 0.5 && wf-recorder -g "0,0 1920x1080" -f $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
@@ -55,21 +49,19 @@ record5 () {
 
 record5area () {
 	countdown '5'
-	sleep 1 &&  wl-screenrec -g "$(slurp -b#0f0f0f78 -c#cc7765 -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
+	sleep 1 &&  wf-recorder -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 recordwin () {
-	hyprvars=$(hyprctl activewindow -j | cut -d' ' -f2- | head -n -1 | tail -n +4)
-	jqvars=$(echo -e "{\n$hyprvars\n}" |  jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')
-	sleep 1 & wl-screenrec -g "${jqvars}" -f $dir/"Screen Recording from ${datetime}".mkv
+	wf-recorder -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" -f $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 recordarea () {
-	wl-screenrec -g "$(slurp -b#0f0f0f78 -c#cc7765 -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
+	wf-recorder -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }

@@ -3,31 +3,30 @@
 	"modules-left": [
 		"hyprland/workspaces",
 		"custom/bluetooth-battery",
-		"cpu",
-		"temperature",
 		"custom/recording",
-		"tray"
-		/*"hyprland/window"*/
+		"cpu",
+		"temperature"
 	],
-	"modules-center": [
-		//"custom/song-previous",
-		//"custom/song-loop",
-		"custom/mpris-media"
-		//"custom/song-toggle",
-		//"custom/song-next"
-	],
+	// "modules-center": [
+	// 	"custom/song-previous",
+	// 	"custom/song-loop",
+	// 	"custom/mpris-media",
+	// 	"custom/song-toggle",
+	// 	"custom/song-next"
+	// ],
 	"modules-right": [
+		"network#speed",
 		"clock",
 		"custom/weather",
-		
+		"tray",
 		"network",
 		"pulseaudio",
 		"backlight",
-		"battery"
-		/*"custom/power-menu"*/
+		"battery",
+		"custom/power-menu"
 	],
-	"hyprland/workspaces": {
-	     "format": "{}",
+	"wlr/workspaces": {
+	     "format": "{icon}",
 	     "on-scroll-up": "hyprctl dispatch workspace e+1",
 	     "on-scroll-down": "hyprctl dispatch workspace e-1",
          "on-click": "activate",
@@ -45,11 +44,11 @@
 	},
 	"temperature": {
 		"hwmon-path": "/sys/class/hwmon/hwmon2/temp1_input",
-		"critical-threshold": 80,
+		"critical-threshold": 90,
 		"interval": 1,
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>&#xf06d;</span> <span font_weight='bold'>{temperatureC}°C</span>",
 		"tooltip": false,
-		"on-click": "kitty btop",
+		"on-click": "kitty bpytop",
 	},
 	"clock": {
 		"format": "<span font_weight='bold'>{:%I:%M %p | %A %d %b} </span>",
@@ -72,32 +71,26 @@
 	"pulseaudio": {
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>{icon}</span><span font_weight='bold'>{volume}%</span>",
 		"format-muted": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>&#xf6a9;</span> <span font_weight='bold'>Muted</span>",
-		"format-icons": [ " ", " ", " " ],
+		"format-icons": {
+			"default": ["&#xf027; ", "&#xf6a8; ", "&#xf028; "]
+		},
 		"states": {
-			"normal": 75,
-			"warning": 89,
-			"critical": 100
+			"warning": 80,
+			"critical": 90
 		},
 		"scroll-step": 3,
 		"on-click": "sh ~/.config/hypr/scripts/volume.sh toggle-mute",
 		"smooth-scrolling-threshold": 5,
 		"tooltip": false
 	},
-
 	"backlight": {
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>{icon}</span> <span font_weight='bold'>{percent}%</span>",
 		"format-icons": ["&#xf740;", "&#xf746;", "&#xf185;"],
-		"states": {
-			"normal": 0,
-			"warning": 80,
-			"critical": 90
-		},
-		"on-click": "hyprshade toggle blue-light-filter-custom",
-		"on-click-right": "hyprshade toggle vibrance-custom", 
-		"on-scroll-up": "brightnessctl set 100%",
-		"on-scroll-down": "brightnessctl set 1%",
-		"smooth-scrolling-threshold": 5,
-		"tooltip": false
+		"on-click": "brightnessctl set 1%",
+		"on-click-right": "brightnessctl set 100%",
+		"on-scroll-up": "brightnessctl set +1%",
+		"on-scroll-down": "brightnessctl set 1%-",
+		"smooth-scrolling-threshold": 5
 	},
 	"battery": {
 		"states": {
@@ -106,9 +99,9 @@
 		},
 		"format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='-2pt'>{icon}</span> <span font_weight='bold'>{capacity}%</span>",
 		"format-icons": ["&#xf377;", "&#xf243;", "&#xf242;", "&#xf241;", "&#xf240;"],
-		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='2pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
+		"format-charging": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='0pt'>&#xe2a4;</span> <span font_weight='bold' rise='2pt'>{capacity}%</span>",
 		"tooltip": false,
-		"on-click": "sh ~/.config/waybar/scripts/gamemode.sh"
+		"on-click": "resonance && lutris && notify-send 'RIP to your battery o7'"
 	},
 	"tray": {
 	        "icon-size": 22,
@@ -116,21 +109,21 @@
 	        "spacing": 8
     },
     "custom/weather" : {
-        "format" : "<span font_weight='bold'>| {}</span>",
+        "format" : " |  {}",
         "on-click": "~/.config/waybar/scripts/launch_weather.sh",
-        "interval" : 3600,
+        "restart-interval" : 3600,
         "exec" : "python3 ~/.config/waybar/scripts/weather.py",
-        "on-click-right" : "python3 ~/.config/waybar/scripts/weather.py",
         "return-type" : "json"
     },
     "custom/bluetooth-battery": {
-	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='15pt' rise='1pt'> </span><span font_weight='bold' rise='2pt'>{}</span>",
+	    "format": "<span font='Font Awesome 6 Pro' font_weight='bold' size='large' rise='1pt'>&#xf025; </span><span font_weight='bold' rise='2pt'>{}</span>",
 	    "return-type": "json",
 	    "interval": 1,
 	    "exec": "~/.local/bin/bluetooth_battery_status.sh",
+	    /* "exec": "~/.config/waybar/modules/bluetooth-battery-waybar-module.sh", */
+	    /*"exec-if": "bluetooth_battery_status.sh >/dev/null 2>&1", */
 	    "signal": 9,
-	    "on-click": "bluetuith",
-	    "on-click-right": "bluetoothctl power off"
+	    "on-click": "bluetuith"
   	},
   	"custom/power-menu": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>&#xf011;</span>",
@@ -141,18 +134,21 @@
   		"format": "{}",
   		"return-type": "json",
 	    "max-length":70,
-		"format-icons": {
-		        "Paused": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf04b;</span>",
-		        "Playing": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf04c;</span>",
-		},
-	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \" {{playerName}} : {{artist}} - {{album}} - {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}'",
+	    "format-icons": {
+	    	"firefox": "&#xf269; ",
+	    	"Clapper": "&#xf401; ",
+	    	"spotify": "&#xf1bc; ",
+	    	"g4music": "&#xf8d; ",
+	    	"io": "&#xf8e4; ",
+			"com": "&#xf8d9; ",
+	    },
+	    "exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,com,spotify,%any metadata --format '{\"text\": \"{{artist}} - {{title}}\", \"tooltip\": \"{{playerName}} : {{artist}} - {{album}}{{markup_escape(title)}}\", \"alt\": \"{{playerName}}\", \"class\": \"{{playerName}}\"}'",
 	    "tooltip": true,
-	    "on-click-right": "~/.config/waybar/scripts/get-media-player.sh",
-	    "on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox play-pause"
+	    "on-click": "~/.config/waybar/scripts/get-media-player.sh"
   	},
   	"custom/song-next": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>{icon}</span>",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox next",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any next",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04e;",
@@ -163,7 +159,7 @@
   	},
   	"custom/song-previous": {
   		"format": "<span font='Font Awesome 6 Pro' size='large' font_weight='bold' rise='-2pt'>{icon}</span>",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox previous",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any previous",
   		"tooltip": false,
   		"format-icons": {
   			"Playing": "&#xf04a;",
@@ -174,7 +170,7 @@
   	},
   	"custom/song-toggle": {
   		"format": "{icon}",
-  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any,firefox play-pause",
+  		"on-click": "playerctl --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any play-pause",
 		"tooltip": false,
 		"format-icons": {
 		        "Paused": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf04b;</span>",
@@ -189,11 +185,11 @@
   		"on-click-right": "$HOME/.config/waybar/scripts/toggle-shuffle-loop.sh shuffle",
 		"tooltip": false,
 		"format-icons": {
-		        "Playlist": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'></span>",
-		        "Track": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'></span>",
-		        "None": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'></span>"
+		        "Playlist": "<span font='Font Awesome 6 Pro' rise='-1pt' font_weight='bold'>&#xf8a0;</span>",
+		        "Track": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf89f;</span>",
+		        "None": "<span font='Font Awesome 6 Pro' rise='-1pt' size='large' font_weight='bold'>&#xf347;</span>"
 		},
-		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any metadata --format '{\"alt\": \"{{loop}}\", \"class\": \"{{loop}}\"}'",
+		"exec": "playerctl --follow --ignore-player=firefox --player=io.github.nate_xyz.Resonance,io.bassi.Amberol,spotify,%any loop --format '{\"alt\": \"{{loop}}\", \"class\": \"{{loop}}\"}'",
 		"return-type": "json"
   	},
   	"custom/recording": {
@@ -206,5 +202,13 @@
 		"interval": 1,
 		"exec": "~/.config/waybar/scripts/recording.sh",		
   		"on-click": "~/.config/waybar/scripts/stop-recording.sh"
-  	}
+  	},
+	"network#speed": {
+	    "interval": 1,
+	    "tooltip": false,
+	    "format-disconnected": "",
+	    "format-wifi": "<span font='Font Awesome 6 Pro' size='medium' font_weight='bold'></span>  {bandwidthDownBytes}",
+	    "format-ethernet": "<span font='Font Awesome 6 Pro' size='medium' font_weight='bold'></span>  {bandwidthDownBytes}"
+	}
 }
+

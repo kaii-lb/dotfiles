@@ -1,7 +1,7 @@
 #!/bin/sh
 
-rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/network.rasi -steal-focus -hover-select"
-rofi_password_command="rofi -dmenu -markup -markup-rows -theme $HOME/.config/rofi/config/network-password.rasi -steal-focus -hover-select"
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/network.rasi -steal-focus "
+rofi_password_command="rofi -dmenu -markup -markup-rows -theme $HOME/.config/rofi/config/network-password.rasi -steal-focus "
 
 options=$(nmcli device wifi list  | tail +2 | sed 's/Infra.*//' -E | rev | sed 's/:.*//' -E | rev | cut -c 5-)
 echo -e "$options" 

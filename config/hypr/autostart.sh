@@ -33,7 +33,7 @@ brightnessctl set 50% &
 rfkill unblock all &
 
 # set the cursor
-hyprctl setcursor Bibata-Modern-Classic 24 &
+# hyprctl setcursor Bibata-Modern-Classic 24 &
 
 # use only if obex doesn't work by default for you
 /usr/lib/bluetooth/obexd -n &

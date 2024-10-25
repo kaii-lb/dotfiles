@@ -4,7 +4,6 @@
 ## What it looks like (shit)
 
 ![Screenshot](/assets/images/screenshot.png)
-![Utilities](/assets/images/utilities.png)
 
 ## Installing
 
@@ -45,19 +44,16 @@
 - Copy files in `config` to `/home/$USER/.config/` or simply `~/.config/` (theyre the same place but yk fancier)
 - Copy files in `local/bin` to `/home/$USER/.local/bin/` and set permissions to executable. (obv read the source code before executing anything)
 - Copy files in `config/spicetify/Themes/` to `/home/$USER/.config/spicetify/Themes` and apply using `spictify-cli`
-- Copy files in `firefox` to `/home/$USER/.mozilla/FIREFOX_PROFILE_THINGY/chrome/`
 - Run `hyprctl setcursor Bibata-Modern-Classic 24`
 - Run `gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic` to set cursor theme
 - Run `gsettings set org.gnome.desktop.wm.preferences button-layout 'close,minimize,maximize:appmenu'` to move window buttons to left (optional)
 - Go to `/home/$USER/.config/hypr/` and set the `autostart` file to executable.
-- Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.  
-- Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.  
-- Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.  
-- Import `dark-ass-mf.json` from `presets/user` to gradience and apply for gtk3 and gtk4
-- Import the `dark-vibes-yay.vsix` that you downloaded to vscode and set color scheme to `dark vibes :D`
+- Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.
+- Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.
+- Go to `/home/$USER/.config/waybar/scripts/` and set everything to executable.
+- Import `outerspace.json` from `presets/user` to gradience and apply for gtk3 and gtk4
 - Open `/home/$USER/.config/waybar/scripts/weather.py` and replace `mycity+mycountry` with your city and country
 - Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
-- Open firefox, go to `about:config` and search for `toolkit.legacyUserProfileCustomizations.stylesheets` and set it to `true`
 - Reboot
 - Profit(?)
 
@@ -87,7 +83,7 @@
 - Super + S to toggle floating window
 - Super + E to open nautilus (file manager)
 - Super + B to open bluetooth menu
-- Super + O to toggle waybar
+- Super + O to toggle waybar visibility
 - Super + Right-Click resizes window
 - Super + Left-Click moves window 
 

@@ -4,52 +4,52 @@ ddir="$HOME/.config/rofi/config"
 
 # Ask for confirmation
 rdialog () {
-	echo -e "\n" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
+	echo -e "Yes\nNo" | rofi -dmenu -p "Are you sure?" -kb-select-1 "y" -kb-select-2 "n" -markup -markup-rows -theme $HOME/.config/rofi/config/confirm.rasi -steal-focus
+}
+
+
+# Display Help
+show_msg() {
+	rofi -theme "$ddir/askpass.rasi" -e "Options : yes / no / y / n"
 }
 
 if [[ $1 -eq 1 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans =~ "" ]]; then
+	if [[ $ans == "Yes" ]]; then
 		systemctl poweroff
-	elif [[ $ans =~ "" ]]; then
+	elif [[ $ans == "No" ]]; then
 		exit
     else
 		exit
     fi
 elif [[ $1 -eq 2 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans =~ "" ]]; then
+	if [[ $ans == "Yes" ]]; then
 		systemctl reboot
-	elif [[ $ans =~ "" ]]; then
+	elif [[ $ans == "No" ]]; then
 		exit
     else
 		exit
     fi
 elif [[ $1 -eq 3 ]]; then
-	ans=$(rdialog &)
-	if [[ $ans =~ "" ]]; then
-		sh $HOME/.config/hypr/scripts/lock.sh
-	elif [[ $ans =~ "" ]]; then
-		exit
-    else
-		exit
-    fi
+	sh /home/$USER/.config/hypr/scripts/lock.sh
 elif [[ $1 -eq 4 ]]; then 
 	ans=$(rdialog &)
-	if [[ $ans =~ "" ]]; then
+	if [[ $ans == "Yes" ]]; then
 		playerctl pause
 		pamixer --mute
+		sh /home/$USER/.config/hypr/scripts/lock.sh
 		systemctl suspend
-	elif [[ $ans =~ "" ]]; then
+	elif [[ $ans == "No" ]]; then
 		exit
     else
 		exit
     fi
 elif [[ $1 -eq 5 ]]; then
 	ans=$(rdialog &)
-	if [[ $ans =~ "" ]]; then
+	if [[ $ans == "Yes" ]]; then
 		hyprctl dispatch exit 0
-	elif [[ $ans =~ "" ]]; then
+	elif [[ $ans == "No" ]]; then
 		exit
     else
 		exit

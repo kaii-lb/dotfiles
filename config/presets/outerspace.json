@@ -101,7 +101,7 @@
         }
     },
     "custom_css": {
-        "gtk4": "",
+        "gtk4": ".sidebar-pane {\n  background-color: rgba(0,0,0,0);\n}",
         "gtk3": ""
     },
     "plugins": {}

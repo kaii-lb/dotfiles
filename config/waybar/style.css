@@ -14,49 +14,36 @@
 	font-weight: bold;
 }
 
-@define-color background #000005;
-@define-color background-alt #423040;
-@define-color foreground #faf8ff;
-@define-color selected #c97163;
-@define-color active #f5ae5f;
-@define-color urgent #f9f871;
-
-@keyframes border_normal {
-	from {
-		border-color: @selected;
-		border-width: 2px;
-		border-radius: 8px;		 		
-	}
-	to {
-		border-width: 2px; 
-		border-radius: 8px;
-		border-color: @background;
-	}
-}
+@define-color background #11092D;
+@define-color background-alt #281657;
+@define-color foreground #FFFFFF;
+@define-color selected #DF5296;
+@define-color active #6E77FF;
+@define-color urgent #8E3596;
 
 @keyframes border_critical {
 	from {
-		border-color: @selected;
+		border-color: @active;
 		border-width: 2px;
 		border-radius: 8px;		 		
 	}
 	to {
 		border-width: 2px; 
 		border-radius: 8px;
-		border-color: @urgent;
+		border-color: @selected;
 	}
 }
 
 @keyframes border_warning {
 	from {
-		border-color: @urgent;
+		border-color: @selected;
 		border-width: 2px;
 		border-radius: 8px;		
 	}
 	to {
 		border-radius: 8px;
 		border-width: 2px; 
-		border-color: @selected;
+		border-color: @active;
 	}
 }
 
@@ -78,16 +65,6 @@
 	animation-fill-mode:forwards;
 }
 
-.normal {
-	animation-name: border_normal;
-	animation-duration: 1s;
-	animation-timing-function: linear;
-	animation-iteration-count: 1;
-	animation-direction: normal;
-	animation-fill-mode:forwards;
-}
-
-
 /* * { */
 	/* font-family: Product Sans Regular; */
 	/* font-size: 15px; */
@@ -95,7 +72,7 @@
 /* } */
 
 window#waybar {
-	background-color: transparent;	/* Keep transparent to blur */
+	background-color: @background;	/* Keep transparent to blur */
 }
 
 window#waybar.hidden {
@@ -103,19 +80,19 @@ window#waybar.hidden {
 }
 
 window > box {
-	border-color: @selected; 
+	/*border-bottom-width: 2px;*/ 
+	border-color: @crust; 
 	border-radius: 16px;
-	border-width: 3px;
-    box-shadow: 0px 0px 5px 2px @selected;
-	margin: 10px 14px 8px 14px;
+	/*margin: 0 10px;*/
 	border-style: solid; 
-	background-color: @background;	/* Keep transparent to blur */
+	background-color: transparent;	/* Keep transparent to blur */
+	/*background: rgba(22, 24, 32, .8);*/
 }
 
 #memory, #cpu, #temperature, #clock, #network , #pulseaudio, #backlight, #battery, #workspaces, #window, #tray, #mpris{
-	padding: 1px 10px 1px;
+	padding: 3px 10px 3px;
 	margin: 0 0px;
-	color: @foreground;
+	color: @text;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -124,9 +101,9 @@ window > box {
 }
 
 #custom-bluetooth-battery, #custom-mpris-media, #custom-power-menu, #custom-recording {
-	padding: 1px 10px 1px;
+	padding: 3px 10px 3px;
 	margin: 0 0px;
-	color: @foreground;
+	color: @text;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -135,20 +112,20 @@ window > box {
 }
 
 #clock {
-	padding: 1px 0px 1px 10px;
+	padding: 3px 0px 3px 10px;
 	margin: 0 0px;
-	color: @foreground;
+	color: @text;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
 	border-color: @active;
-	background-color: transparent;	
+	background-color: @background;	
 }
 
 #custom-weather {
-	padding: 1px 10px 1px 0px;
+	padding: 3px 10px 3px 0px;
 	margin: 0 0px;
-	color: @foreground;
+	color: @text;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -156,10 +133,10 @@ window > box {
 	background-color: transparent;
 }
 
-#custom-song-previous, #custom-song-toggle, #custom-song-next, #custom-song-loop {
-	padding: 1px 10px 1px;
+#custom-song-previous, #custom-song-toggle, #custom-song-next {
+	padding: 3px 10px 3px;
 	margin: 0 0px;
-	color: @foreground;
+	color: @text;
 	border-radius: 0px;
 	border-width: 0px;
 	border-style: solid;
@@ -169,15 +146,12 @@ window > box {
 
 #workspaces button {
 	transition: none;
-	color: @background-alt;
-	background-color: transparent;
-	padding: 3px 8px;
-	font-size: 15px;
+	color: #ffffff;
+	background: transparent;
+	font-size: 14px;
 }
 
 #workspaces button:hover {
-	background: transparent;
-	border-color: transparent;
 	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
@@ -185,8 +159,8 @@ window > box {
 }
 
 #workspaces button.active {
-    color: @foreground;
-    background-color: transparent;
+    color: #ffffff;
+    background-color: @selected;
     border-radius: 10px;
 }
 
@@ -205,11 +179,13 @@ tooltip {
 	border-style: solid;
 	border-color: @selected;
 	background-color: @background;
-    box-shadow: 0px 0px 3px 1px @selected;
 } 
 
 tooltip label {
-	color: @foreground;
+	color: @text;
 	font-size: small;
 }
 
+#battery.charging {
+	animation-name: border_critical;
+}

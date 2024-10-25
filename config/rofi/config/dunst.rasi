@@ -1,129 +1,156 @@
-/**
- *
- * Author : Aditya Shakya (adi1090x)
- * Github : @adi1090x
- * 
- * Rofi Theme File
- * Rofi Version: 1.7.3
- **/
-
-/*****----- Configuration -----*****/
 configuration {
-    show-icons:                 false;
+    show-icons:                     false;
+    display-drun: 		            "choose-action";
+    drun-display-format:            "{icon} {name}";
+    disable-history:                false;
+    click-to-exit: 		            true;
+    location:                       0;
 }
 
+@import "font.rasi"
 @import "colors.rasi"
 
-/*
-USE_ICON=YES
-*/
+/* Line Responsible For Button Layouts */
+/* BUTTON = TRUE */
 
-/*****----- Main Window -----*****/
 window {
-    transparency:                "real";
-    location:                    north east;
-    anchor:                      north east;
-    fullscreen:                  false;
-    width:                       400px;
-    x-offset:                    -10px;
-    y-offset:                    300px;
-    margin:                      0px;
-    padding:                     0px;
-    border:                      0px solid;
-    border-radius:               50px;
-    border-color:                @selected;
-    cursor:                      "default";
-    background-color:            @background;
-}
-
-/*****----- Main Box -----*****/
-mainbox {
-    enabled:                     true;
-    spacing:                     20px;
-    margin:                      0px;
-    padding:                     20px;
-    background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview" ];
-}
-
-/*****----- Inputbar -----*****/
-inputbar {
-    enabled:                     true;
-    spacing:                     25px;
-    padding:                     10px 50px;
-    border:                      0px;
-    border-radius:               40px;
-    border-color:                @selected;
-    background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/dark-twm.png", width);
-    text-color:                  @foreground;
-    children:                    [ "prompt"];
-}
-
-dummy{
-    background-color:            transparent;
+    transparency:                   "real";
+    background-color:               transparent;
+    text-color:                     @FG;
+    border:                         4px;
+    border-color:                   @BDR;
+    border-radius:                  18px;
+    width:                          300px;
+    anchor:                         center;
+    x-offset:                       0;
+    y-offset:                       0;
 }
 
 prompt {
-	margin:						 10px 50px;
-    enabled:                     true;
-    padding:                     10px;
-    border-radius:               100%;
-    background-color:            @active;
-    text-color:                  @background;
+    enabled: 			            true;
+    margin: 			            0px 0px 0px 18px;
+    padding: 			            12px;
+    background-color: 		        transparent;
+    text-color: 		            @FG;
+    border:                  	    4px;
+    border-color:                   @BDR;
+    border-radius:                  16px;
+    font:							"Product Sans Bold 14";
 }
 
-/*****----- Listview -----*****/
+textbox-prompt-colon {
+    expand: 			            false;
+    str: 			                "";
+    border-radius:                  100%;
+    background-color:               transparent;
+    text-color:                     @FG;
+    padding:                        12px 0px 8px 12px;
+    font:			                "Font Awesome 6 Pro Bold 24";
+}
+
+entry {
+    background-color:               transparent;
+    text-color:                     @FG;
+    placeholder-color:              @FG;
+    expand:                         true;
+    horizontal-align:               0;
+    placeholder:                    "Search...";
+    blink:                          true;
+    border:                  	    0px 0px 2px 0px;
+    border-color:                   @BDR;
+    border-radius:                  16px;
+    padding:                        8px;
+}
+
+inputbar {
+	children: 						[ textbox-prompt-colon, prompt ];
+    background-color:               transparent;
+    text-color:                     @FG;
+    expand:                         false;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  16px;
+    border-color:                  	@BDR;
+    margin:                         0px 0px 0px 0px;
+    padding:                        0px;
+    position:                       center;
+}
+
+case-indicator {
+    background-color:               @BG;
+    text-color:                     @FG;
+    spacing:                        0;
+}
+
+
 listview {
-    enabled:                     true;
-    columns:                     1;
-    lines:                       2;
-    cycle:                       true;
-    scrollbar:                   false;
-    layout:                      vertical;
-    
-    spacing:                     10px;
-    background-color:            transparent;
-    cursor:                      "default";
+    background-color:               transparent;
+    columns:                        1;
+    lines:							5;
+    spacing:                        4px;
+    cycle:                          true;
+    dynamic:                        true;
+    layout:                         vertical;
 }
 
-/*****----- Elements -----*****/
+mainbox {
+    background-color:               @BG;
+    children:                       [ inputbar, listview ];
+    spacing:                       	15px;
+    padding:                        15px;
+}
+
 element {
-    enabled:                     true;
-    padding:                     15px 15px;
-    border:                      0px solid;
-    border-radius:               100%;
-    border-color:                @selected;
-    background-color:            transparent;
-    text-color:                  @foreground;
-    cursor:                      pointer;
-}
-element-text {
-    background-color:            transparent;
-    text-color:                  inherit;
-    cursor:                      inherit;
-    vertical-align:              0.5;
-    horizontal-align:            0.5;
+    background-color:               transparent;
+    text-color:                     @FG;
+    orientation:                    horizontal;
+    border-radius:                  10px;
+    padding:                        6px 6px 6px 6px;
 }
 
-element normal.normal,
-element alternate.normal {
-    background-color:            var(background-alt);
-    text-color:                  var(foreground);
+element-icon {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    size:                           0px;
+    border:                         0px;
+    font:							"Font Awesome 6 Pro Bold 16";
 }
-element normal.urgent,
-element alternate.urgent,
-element selected.active {
-    background-color:            var(urgent);
-    text-color:                  var(background);
+
+element-text {
+    background-color: 				inherit;
+    text-color:       				inherit;
+    expand:                         true;
+    horizontal-align:               0;
+    vertical-align:                 0.5;
+    margin:                         2px 0px 2px 6px;
+    font: 							"Product Sans Bold 12";
 }
-element normal.active,
-element alternate.active,
-element selected.urgent {
-    background-color:            var(active);
-    text-color:                  var(background);
+
+element selected {
+    background-color:               @BGA;
+    text-color:                     @SEL;
+    border:                  		0px 0px 0px 0px;
+    border-radius:                  10px;
+    border-color:                  	@BDR;
 }
-element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+
+element.active,
+element.selected.urgent {
+  background-color: @ON;
+  text-color: @BG;
+  border-color: @ON;
+}
+
+element.selected.urgent {
+  border-color: @BDR;
+}
+
+element.urgent,
+element.selected.active {
+  background-color: @OFF;
+  text-color: @BG;
+  border-color: @OFF;
+}
+
+element.selected.active {
+  border-color: @BDR;
 }

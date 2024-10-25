@@ -12,10 +12,19 @@ configuration {
     show-icons:                 false;
 }
 
-@import "colors.rasi"
+/*****----- Global Properties -----*****/
+* {
+   font:                        "Product Sans Bold 12";
+   background:                  #11092D;
+   background-alt:              #28165780;
+   foreground:                  #FFFFFF;
+   selected:                    #DF5296;
+   active:                      #6E77FF;
+   urgent:                      #8E3596;
+}
 
 /*
-USE_ICON=YES
+USE_ICON=NO
 */
 
 /*****----- Main Window -----*****/
@@ -24,13 +33,13 @@ window {
     location:                    north east;
     anchor:                      north east;
     fullscreen:                  false;
-    width:                       400px;
+    width:                       500px;
     x-offset:                    -10px;
     y-offset:                    75px;
     margin:                      0px;
     padding:                     0px;
     border:                      0px;
-    border-radius:               50px;
+    border-radius:               20px;
     border-color:                @selected;
     cursor:                      "default";
     background-color:            @background;
@@ -39,78 +48,88 @@ window {
 /*****----- Main Box -----*****/
 mainbox {
     enabled:                     true;
-    spacing:                     20px;
+    spacing:                     15px;
     margin:                      0px;
-    padding:                     20px;
-	border-radius:				 50px;
+    padding:                     0px;
     background-color:            transparent;
-    children:                    [ "inputbar", "message", "listview" ];
+    orientation:                 horizontal;
+    children:                    [ "imagebox", "listview" ];
 }
 
-/*****----- Inputbar -----*****/
-inputbar {
-    enabled:                     true;
-    spacing:                     25px;
-    padding:                     10px 50px;
-    border:                      0px;
-    border-radius:               40px;
-    border-color:                @selected;
+/*****----- Imagebox -----*****/
+imagebox {
+    border-radius:               0px;
     background-color:            transparent;
-    background-image:            url("~/.config/rofi/images/dark-twm.png", width);
-    text-color:                  @foreground;
+    background-image:            url("~/.config/rofi/images/telescope.png", height);
     children:                    [ "prompt"];
 }
 
-dummy{
-    background-color:            transparent;
+prompt {
+   enabled:                     true;
+   margin:                      10px 40px 10px 40px;
+   padding:                     12px;
+   border:                      0px solid;
+   border-radius:               12px;
+   border-color:                @selected;
+   background-color:            @background;
+   text-color:                  @foreground;
 }
 
-prompt {
-	margin:						 10px 50px;
+/*****----- Message -----*****/
+message {
     enabled:                     true;
+    margin:                      0px;
     padding:                     10px;
-    border-radius:               100%;
-    background-color:            @selected;
-    text-color:                  @background;
+    border:                      0px solid;
+    border-radius:               0px;
+    border-color:                @selected;
+    background-color:            @background-alt;
+    text-color:                  @foreground;
+}
+textbox {
+    background-color:            inherit;
+    text-color:                  inherit;
+    vertical-align:              0.5;
+    horizontal-align:            0.0;
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
     columns:                     6;
-    lines:                       1;
+    lines:                       5;
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
     
-    spacing:                     20px;
+    spacing:                     5px;
     background-color:            transparent;
     cursor:                      "default";
+    padding: 10px 10px 10px 0px;
 }
 
 /*****----- Elements -----*****/
 element {
     enabled:                     true;
-    padding:                     15px 15px;
+    padding:                     10px;
     border:                      0px solid;
-    border-radius:               100%;
+    border-radius:               15px;
     border-color:                @selected;
     background-color:            transparent;
     text-color:                  @foreground;
     cursor:                      pointer;
 }
 element-text {
-    font:                        "Font Awesome 6 Pro Bold 16";
     background-color:            transparent;
     text-color:                  inherit;
     cursor:                      inherit;
     vertical-align:              0.5;
-    horizontal-align:            0.5;
+    horizontal-align:            0.0;
 }
 
 element normal.normal,
 element alternate.normal {
-    background-color:            var(background-alt);
+    background-color:            var(background);
     text-color:                  var(foreground);
 }
 element normal.urgent,

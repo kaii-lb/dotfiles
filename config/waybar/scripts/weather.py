@@ -49,9 +49,9 @@ WEATHER_CODES = {
     '371': ' ',
     '374': '🌧 ',
     '377': '🌧 ',
-    '386': ' ',
+    '386': '⛈ ',
     '389': '🌩 ',
-    '392': ' ',
+    '392': '⛈ ',
     '395': ' '
 }
 
@@ -60,8 +60,9 @@ data = {}
 try:
     weather = requests.get("https://wttr.in/mycity+mycountry?format=j1", timeout=5).json()
 
-    data['text'] = WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + \
-        weather['current_condition'][0]['temp_C'] + "°C"    
+    weatherIcon = "<span font='Font Awesome 6 Pro' rise='-2pt' size='13pt' font_weight='bold'>" + WEATHER_CODES[weather['current_condition'][0]['weatherCode']] + "</span>"
+
+    data['text'] = weatherIcon + weather['current_condition'][0]['temp_C'] + "°C"
 except Exception as e:
     data['text'] = "…"
 

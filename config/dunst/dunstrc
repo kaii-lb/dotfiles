@@ -1,20 +1,20 @@
 [global]
-frame_color = "#894f5e"
+frame_color = "#74c7ec"
 separator_color= frame
-highlight = "#894f5e"
+highlight = "#b4befe"
 
 [urgency_low]
-background = "#0f0f0fb3"
-foreground = "#faf8ff"
+background = "#1E1E2E72"
+foreground = "#CDD6F4"
 
 [urgency_normal]
-background = "#0f0f0fb3"
-foreground = "#faf8ff"
+background = "#1E1E2E72"
+foreground = "#CDD6F4"
 
 [urgency_critical]
-background = "#0f0f0fb3"
-foreground = "#faf8ff"
-frame_color = "#f9f871"
+background = "#1E1E2E72"
+foreground = "#CDD6F4"
+frame_color = "#f38ba8"
 
 [global]
 # dynamic width from 0 to 300
@@ -25,10 +25,10 @@ width = 300
 # The maximum height of a single notification, excluding the frame.
 height = 600
 
-dmenu = /usr/bin/rofi -dmenu -p "Choose Action" -markup -markup-rows -theme .config/rofi/config/dunst.rasi -steal-focus
+dmenu = /usr/bin/rofi -dmenu -p "Choose Action" -markup -markup-rows -theme /home/kaii/.config/rofi/config/dunst.rasi -steal-focus
 
-show_indicators = false
-indicate_hidden = true
+show_indicators = true
+indicate_hidden = false
 
 mouse_left_click = do_action
 mouse_middle_click = close_all
