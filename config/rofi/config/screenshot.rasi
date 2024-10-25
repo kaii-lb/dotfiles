@@ -12,16 +12,7 @@ configuration {
     show-icons:                 false;
 }
 
-/*****----- Global Properties -----*****/
-* {
-   font:                        "Product Sans Bold 12";
-   background:                  #11092D;
-   background-alt:              #28165780;
-   foreground:                  #FFFFFF;
-   selected:                    #DF5296;
-   active:                      #6E77FF;
-   urgent:                      #8E3596;
-}
+@import "colors.rasi"
 
 /*
 USE_ICON=NO

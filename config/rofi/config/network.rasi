@@ -12,16 +12,7 @@ configuration {
     show-icons:                 false;
 }
 
-/*****----- Global Properties -----*****/
-* {
-   font:                        "Product Sans Bold 12";
-   background:                  #11092D;
-   background-alt:              #28165780;
-   foreground:                  #FFFFFF;
-   selected:                    #DF5296;
-   active:                      #6E77FF;
-   urgent:                      #8E3596;
-}
+@import "colors.rasi"
 
 /*
 USE_ICON=NO
@@ -67,29 +58,16 @@ imagebox {
 inputbar {
 	enabled:                     true;
     spacing:                     10px;
-    padding:                     00px;
+    padding:                     0px;
     border-radius:               10px;
     background-color:            transparent;
     text-color:                  @foreground;
-    children:                    [ "prompt", "button-bluetooth" ];
-}
-
-button-bluetooth {
-   enabled:                     true;
-   margin:                      10px;
-   padding:                     12px;
-   border:                      0px solid;
-   border-radius:               12px;
-   border-color:                @selected;
-   background-color:            @background;
-   text-color:                  @foreground;
-   action: 						"kb-row-last";
-   content:						"Bluetooth";
+    children:                    [ "prompt" ];
 }
 
 prompt {
    enabled:                     true;
-   margin:                      10px;
+   margin:                      10px 72px 10px 72px;
    padding:                     12px;
    border:                      0px solid;
    border-radius:               12px;
@@ -124,7 +102,7 @@ listview {
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;
-    
+
     spacing:                     5px;
     background-color:            transparent;
     cursor:                      "default";

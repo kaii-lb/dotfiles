@@ -14,17 +14,6 @@ configuration {
     show-icons:                 true;
 }
 
-/*****----- Global Properties -----*****/
-* {
-    font:                        "Product Sans Bold 12";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
-    selected:                    #DF5296;
-    active:                      #6E77FF;
-    urgent:                      #8E3596;
-}
-
 /*****----- Main Window -----*****/
 window {
     /* properties for window widget */

@@ -21,29 +21,42 @@
 @define-color active #6E77FF;
 @define-color urgent #8E3596;
 
-@keyframes border_critical {
+@keyframes border_normal {
 	from {
-		border-color: @active;
+		border-color: @selected;
 		border-width: 2px;
 		border-radius: 8px;		 		
 	}
 	to {
 		border-width: 2px; 
 		border-radius: 8px;
+		border-color: @background;
+	}
+}
+
+@keyframes border_critical {
+	from {
 		border-color: @selected;
+		border-width: 2px;
+		border-radius: 8px;		 		
+	}
+	to {
+		border-width: 2px; 
+		border-radius: 8px;
+		border-color: @urgent;
 	}
 }
 
 @keyframes border_warning {
 	from {
-		border-color: @selected;
+		border-color: @urgent;
 		border-width: 2px;
 		border-radius: 8px;		
 	}
 	to {
 		border-radius: 8px;
 		border-width: 2px; 
-		border-color: @active;
+		border-color: @selected;
 	}
 }
 
@@ -58,6 +71,15 @@
 
 .critical {
 	animation-name: border_critical;
+	animation-duration: 1s;
+	animation-timing-function: linear;
+	animation-iteration-count: 1;
+	animation-direction: normal;
+	animation-fill-mode:forwards;
+}
+
+.normal {
+	animation-name: border_normal;
 	animation-duration: 1s;
 	animation-timing-function: linear;
 	animation-iteration-count: 1;

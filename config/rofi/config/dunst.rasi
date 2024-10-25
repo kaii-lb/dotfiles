@@ -7,7 +7,6 @@ configuration {
     location:                       0;
 }
 
-@import "font.rasi"
 @import "colors.rasi"
 
 /* Line Responsible For Button Layouts */
