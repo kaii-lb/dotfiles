@@ -41,10 +41,10 @@ rfkill unblock all &
 # force gtk settings (last resort type shit)
 # gsettings set org.gnome.desktop.a11y.interface high-contrast true
 # gsettings set org.gnome.desktop.interface color-scheme prefer-dark
-# gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
+gsettings set org.gnome.desktop.interface cursor-theme Bibata-Modern-Classic
 # gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-dark
 # gsettings set org.gnome.desktop.wm.preferences theme adw-gtk3-dark
-# 
+#
 # set the hyprland splash text on top of your wallpaper (needs chaning hyprpaper conf to work)
 # wallpaper
 # FONT="Product Sans Bold"
@@ -53,9 +53,9 @@ rfkill unblock all &
 # spacing=$(inkscape --without-gui --query-id=id1 -W <(echo '<svg><text id="id1" style="font-size:'$SIZE'px;font-family:'$FONT';">'$STRING'</text></svg>') 2>/dev/null)
 # spacing=${spacing%.*}
 # spacing=$(($spacing/2 - 30))
-# 
+#
 # wallpaper=/home/$USER/Pictures/NewWallpapers/languid-afternoon.jpg
-# 
+#
 # convert $wallpaper -gravity East -font ~/.local/share/fonts/Product\ Sans\ Bold.ttf -fill white -pointsize 20 -annotate +$spacing+450 "$STRING" ~/Pictures/hyprpaper-image.png
 
 # launch hyprpaper (wallpaper daemon thingy wtv)

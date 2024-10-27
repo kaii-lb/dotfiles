@@ -25,10 +25,10 @@
 	from {
 		border-color: @selected;
 		border-width: 2px;
-		border-radius: 8px;		 		
+		border-radius: 8px;
 	}
 	to {
-		border-width: 2px; 
+		border-width: 2px;
 		border-radius: 8px;
 		border-color: @background;
 	}
@@ -36,27 +36,27 @@
 
 @keyframes border_critical {
 	from {
-		border-color: @selected;
+		border-color: @urgent;
 		border-width: 2px;
-		border-radius: 8px;		 		
+		border-radius: 8px;
 	}
 	to {
-		border-width: 2px; 
+		border-width: 2px;
 		border-radius: 8px;
-		border-color: @urgent;
+		border-color: @selected;
 	}
 }
 
 @keyframes border_warning {
 	from {
-		border-color: @urgent;
+		border-color: @selected;
 		border-width: 2px;
-		border-radius: 8px;		
+		border-radius: 8px;
 	}
 	to {
 		border-radius: 8px;
-		border-width: 2px; 
-		border-color: @selected;
+		border-width: 2px;
+		border-color: @urgent;
 	}
 }
 
@@ -73,7 +73,7 @@
 	animation-name: border_critical;
 	animation-duration: 1s;
 	animation-timing-function: linear;
-	animation-iteration-count: 1;
+	animation-iteration-count: 10;
 	animation-direction: normal;
 	animation-fill-mode:forwards;
 }

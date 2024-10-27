@@ -25,7 +25,7 @@ window {
     location:                    east;
     anchor:                      east;
     fullscreen:                  false;
-    width:                       115px;
+    width:                       100px;
     x-offset:                    -15px;
     y-offset:                    0px;
 
@@ -146,9 +146,9 @@ element {
     enabled:                     true;
     spacing:                     0px;
     margin:                      0px;
-    padding:                     25px 0px;
+    padding:                     18px 0px;
     border:                      0px solid;
-    border-radius:               100%;
+    border-radius:               10px;
     border-color:                @selected;
     background-color:            @background;
     text-color:                  @foreground;

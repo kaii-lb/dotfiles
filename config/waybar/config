@@ -100,6 +100,7 @@
 	},
 	"battery": {
 		"states": {
+			"normal": 21,
 			"warning": 20,
 			"critical": 10
 		},
