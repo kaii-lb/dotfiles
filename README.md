@@ -1,7 +1,7 @@
 # MY DOT FILES WOOO
 <sub>this is such a bad idea</sub>
 
-## What it looks like (shit)
+## What it looks like (not accurate, changes have been made)
 
 ![Screenshot](/assets/images/screenshot.png)
 
