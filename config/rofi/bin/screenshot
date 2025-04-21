@@ -40,7 +40,7 @@ countdown () {
 # take shots
 shotnow () {
 	#sleep 0.5 && hyprpicker -r -z -n &
-	sleep 0.5 && $HOME/.local/bin/grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
+	sleep 0.5 && grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view
@@ -49,7 +49,7 @@ shotnow () {
 shot5 () {
 	countdown '5'
 	#sleep 1 && hyprpicker -r -z -n &
-	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
+	sleep 1 && grimblast --freeze copysave screen $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view
@@ -59,7 +59,7 @@ shot5area () {
 	#geometry=$(slurp -b#1e1e1e55 -c#b4befe -w4)
 	countdown '5'
 	#sleep 1 && hyprpicker -r -z -n &
-	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
+	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view
@@ -68,7 +68,7 @@ shot5area () {
 shotwin () {
 	#sleep 1 && hyprpicker -r -z -n &
 	#grim -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" $dir/"Screenshot from ${datetime}".png
-	$HOME/.local/bin/grimblast --freeze copysave active  $dir/"Screenshot from ${datetime}".png
+	grimblast --freeze copysave active  $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view
@@ -76,7 +76,7 @@ shotwin () {
 
 shotarea () {
 	#sleep 0.8 && hyprpicker -r -z -n &
-	sleep 1 && $HOME/.local/bin/grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png 
+	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png 
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view

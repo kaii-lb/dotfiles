@@ -28,7 +28,7 @@ elif [[ $1 -eq 2 ]]; then
 elif [[ $1 -eq 3 ]]; then
 	ans=$(rdialog &)
 	if [[ $ans == "" ]]; then
-		sh /home/$USER/.config/hypr/scripts/lock.sh
+		sh /home/$USER/.config/hypr/scripts/lock.sh &
 	else
 		exit
 	fi
@@ -37,7 +37,7 @@ elif [[ $1 -eq 4 ]]; then
 	if [[ $ans == "" ]]; then
 		playerctl pause
 		pamixer --mute
-		sh /home/$USER/.config/hypr/scripts/lock.sh
+		sh /home/$USER/.config/hypr/scripts/lock.sh &
 		systemctl suspend
 	elif [[ $ans == "" ]]; then
 		exit
@@ -56,7 +56,7 @@ elif [[ $1 -eq 5 ]]; then
 else
 	echo "Please provide an option of 1 -> 5"
 	echo "1 is shutdown"
-	echo "2 is reboot"	
+	echo "2 is reboot"
 	echo "3 is lock"
 	echo "4 is suspend"
 	echo "5 is logout"

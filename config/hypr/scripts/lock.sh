@@ -38,4 +38,4 @@ unset XDG_RUNTIME_DIR
 #hyprctl dispatch cyclenext
 #sudo intelpwm
 
-killall -SIGUSR2 waybar
+# killall -SIGUSR2 waybar
