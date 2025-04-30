@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+
+rofi_command="rofi -markup -markup-rows -theme $HOME/.config/rofi/config/tesseract.rasi -steal-focus "
+
+datetime=$(date +"%Y-%m-%d %I-%M-%S")
+
+english="  English"
+arabic="  Arabic"
+
+dir="/home/$USER/.cache/tesseract-ocr"
+if [[ ! -d $dir ]]; then
+	mkdir -p $dir
+fi
+
+icon1="/home/$USER/.config/rofi/tesseract.svg"
+
+shotarea () {
+	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
+}
+
+options="$english\n$arabic"
+
+chosen="$(echo -e "$options"| $rofi_command -p 'Screen To Text' -dmenu -selected-row 0)"
+case $chosen in
+    $arabic)
+		shotarea
+		tesseract -l ara $dir/"Screenshot from ${datetime}".png $dir/"Text from ${datetime}"
+		wl-copy < $dir/"Text from ${datetime}".txt
+		notify-send -u low -i $icon1 "Text copied to clipboard."
+        ;;
+    $english)
+		shotarea
+		tesseract -l eng $dir/"Screenshot from ${datetime}".png $dir/"Text from ${datetime}"
+		wl-copy < $dir/"Text from ${datetime}".txt
+		notify-send -u low -i $icon1 "Text copied to clipboard."
+        ;;
+esac

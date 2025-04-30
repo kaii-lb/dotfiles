@@ -17,18 +17,18 @@ infive="  Record in 5s"
 
 # Notify and view screenshot
 notify_view () {
-	dunstify -u low --replace=699 -i $icon1 "Copied to clipboard."
+	notify-send -u low --replace-id=699 -i $icon1 "Copied to clipboard."
 	if [[ -e "$dir/Screen Recording from ${datetime}.mkv" ]]; then
-		dunstify -u low --replace=699 -i $icon1 "Screen Recording Saved."
+		notify-send -u low --replace-id=699 -i $icon1 "Screen Recording Saved."
 	else
-		dunstify -u low --replace=699 -i $icon1 "Screen Recording Deleted."
+		notify-send -u low --replace-id=699 -i $icon1 "Screen Recording Deleted."
 	fi
 }
 
 # countdown
 countdown () {
 	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 -i $icon2 "Recording in : $sec"
+		notify-send -t 1000 --replace-id=699 -i $icon2 "Recording in : $sec"
 		sleep 1
 	done
 }

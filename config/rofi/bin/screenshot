@@ -21,18 +21,18 @@ infive="  Capture in 5s"
 
 # Notify and view screenshot
 notify_view () {
-	dunstify -u low --replace=699 -i $icon1 "Copied to clipboard."
+	notify-send -u low --replace-id=699 -i $icon1 "Copied to clipboard."
 	if [[ -e "$dir/Screenshot from ${datetime}.png" ]]; then
-		dunstify -u low --replace=699 -i $icon1 "Screenshot Saved."
+		notify-send -u low --replace-id=699 -i $icon1 "Screenshot Saved."
 	else
-		dunstify -u low --replace=699 -i $icon1 "Screenshot Deleted."
+		notify-send -u low --replace-id=699 -i $icon1 "Screenshot Deleted."
 	fi
 }
 
 # countdown
 countdown () {
 	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 -i $icon2 "Taking shot in : $sec"
+		notify-send -t 1000 --replace-id=699 -i $icon2 "Taking shot in : $sec"
 		sleep 1
 	done
 }
@@ -76,7 +76,7 @@ shotwin () {
 
 shotarea () {
 	#sleep 0.8 && hyprpicker -r -z -n &
-	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png 
+	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
 	#wl-copy < $dir/"Screenshot from ${datetime}".png
 	#killall hyprpicker
 	notify_view

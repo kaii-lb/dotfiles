@@ -36,6 +36,7 @@
 - Spotify Theming: [spicetify](https://spicetify.app/)
 - Firefox Theming: [Catpuccin Mocha Lavender](https://addons.mozilla.org/en-US/firefox/addon/catppuccin-mocha-lavender-git/?utm_source=addons.mozilla.org&utm_medium=referral&utm_content=search)
 - VSCode Theming: [Catpuccin Mocha Lavender](https://github.com/catppuccin/vscode)
+- Screen To Text: [tesseract-cor](https://github.com/tesseract-ocr/tesseract)
 
 ### How to apply
 
@@ -75,6 +76,7 @@
 - Super + B to open overskride (bluetooth manager)
 - Super + Right-Click resizes window
 - Super + Left-Click moves window
+- Copilot key to launch screen to text (ocr)
 
 ### Special Thanks
 - [adi1090x](https://github.com/adi1090x) for the basis of the rofi menus!
