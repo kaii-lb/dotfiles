@@ -35,33 +35,33 @@ countdown () {
 
 # take shots
 recordnow () {
-	sleep 0.5 && wf-recorder -g "0,0 1920x1080" -f $dir/"Screen Recording from ${datetime}".mkv
+	sleep 0.5 && gpu-screen-recorder -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 record5 () {
 	countdown '5'
-	sleep 1 &&  wf-recorder -g "0,0 1920x1080" -f $dir/"Screen Recording from ${datetime}".mkv
+	sleep 1 &&  gpu-screen-recorder -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 record5area () {
 	countdown '5'
-	sleep 1 &&  wf-recorder -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
+	sleep 1 &&  gpu-screen-recorder -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 recordwin () {
-	wf-recorder -g "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[0]),\(.[1]) \(.[2])x\(.[3])"')" -f $dir/"Screen Recording from ${datetime}".mkv
+	gpu-screen-recorder -w region -f 60 -a default_output -region "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[2])x\(.[3])+\(.[0])+\(.[1])"')" -o $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }
 
 recordarea () {
-	wf-recorder -g "$(slurp -b#1e1e1e55 -c#b4befe -w4)" -f $dir/"Screen Recording from ${datetime}".mkv
+	gpu-screen-recorder -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".mkv
 	wl-copy < $dir/"Screen Recording from ${datetime}".mkv
 	notify_view
 }

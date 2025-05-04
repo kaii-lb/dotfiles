@@ -4,10 +4,10 @@
 #export WAYLAND_DISPLAY=wayland-1
 #export SWAYSOCK=$XDG_RUNTIME_DIR/sway-ipc.$(id -u).$(pgrep -x sway)sock
 
-sleep 1
-/usr/bin/hyprlock
+# sleep 1
+pidof /usr/bin/hyprlock || /usr/bin/hyprlock
 
-# 
+#
 # swaylock \
 # --screenshots \
 # --indicator \
@@ -31,9 +31,9 @@ sleep 1
 # --separator-color 00000000 \
 # --fade-in 0.2 && echo "Locked Succesfully"
 
-echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: $\{WAYLAND_DISPLAY}\n"
+# echo -e "XDG_RUNTIME_DIR is: ${XDG_RUNTIME_DIR}\nWAYLAND_DISPLAY is: $\{WAYLAND_DISPLAY}\n"
 
-unset XDG_RUNTIME_DIR
+# unset XDG_RUNTIME_DIR
 
 #hyprctl dispatch cyclenext
 #sudo intelpwm

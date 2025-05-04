@@ -23,7 +23,7 @@
 - Fonts: [Font Awesome 6 Pro](https://fontawesome.com/) and Product Sans (can't give u a link for this one, but nothing will work without it)
 - Cursor: [Bibata-Modern-Classic](https://github.com/ful1e5/Bibata_Cursor)
 - App for setting said themes: [lxappearance](https://github.com/lxde/lxappearance)
-- Screen Recorder : [wl-screenrec](https://github.com/russelltg/wl-screenrec) (you need slurp for area recordings)
+- Screen Recorder : [gpu-screen-recorder](https://git.dec05eba.com/gpu-screen-recorder/about/) (you need slurp for area recordings)
 - Screen Shots: [grimblast](https://github.com/hyprwm/contrib)
 - Alternate Screen Shots: [grim](https://sr.ht/~emersion/grim/) and [slurp](https://github.com/emersion/slurp)
 - Some sort of polkit agent: [HyprPolkitAgent](https://wiki.hyprland.org/Hypr-Ecosystem/hyprpolkitagent/)
@@ -77,6 +77,7 @@
 - Super + Right-Click resizes window
 - Super + Left-Click moves window
 - Copilot key to launch screen to text (ocr)
+- Novo favourites key to stop screen recording (rebind for non lenovo laptops)
 
 ### Special Thanks
 - [adi1090x](https://github.com/adi1090x) for the basis of the rofi menus!
