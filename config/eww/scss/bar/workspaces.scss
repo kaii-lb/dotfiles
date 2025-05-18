@@ -1,0 +1,33 @@
+.workspaces-widget {
+    background-color: $surface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding / 2 $generalPadding;
+}
+
+.workspace-entry {
+    margin: 0;
+
+    padding: $generalPadding 0rem;
+}
+
+.workspace-entry-active {
+    background-color: $primary;
+    color: $primary;
+    margin: 0rem 0.2rem;
+    
+    border-radius: $borderRadius * 2;
+
+    min-width: 3rem;
+    min-height: 0.2rem;
+}
+
+.workspace-entry-nonactive {
+    color: $secondary;
+    background-color: $secondary;
+
+    border-radius: $borderRadius * 2;
+
+    min-width: 1.5rem;
+    min-height: 0.4rem;
+}

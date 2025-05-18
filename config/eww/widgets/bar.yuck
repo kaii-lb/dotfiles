@@ -7,6 +7,7 @@
 (include "./widgets/bar/dashboardbutton.yuck")
 (include "./widgets/bar/temperature.yuck")
 (include "./widgets/bar/languageindicator.yuck")
+(include "./widgets/bar/workspaces.yuck")
 
 (defwidget bar []
     (box :class "bar-widget" :orientation "h" :space-evenly true
@@ -18,11 +19,12 @@
         )
 
         (box :orientation "h" :space-evenly false :halign "center"
-            (clock)
+            (workspaces)
             ; (weather)
         )
 
         (box :orientation "h" :space-evenly false :halign "end"
+            (clock)
             (notificationbutton)
             (quicksettings)
             (batteryindicator)
