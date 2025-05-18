@@ -1,0 +1,16 @@
+(deflisten brightnessicon `tail -F /tmp/current_brightness`)
+(deflisten volumeicon `tail -F /tmp/current_volume`)
+(defpoll networkicon :interval "1s" `/home/kaii/.config/eww/scripts/get_network_icon.sh`)
+
+(defwidget quicksettings []
+    (eventbox :cursor "pointer"
+        (box 
+            :class "quicksettings-widget"
+            :orientation "h" :space-evenly true
+
+            (image :path networkicon :fill-svg "#FFFFFF" :image-width "24")
+            (image :path volumeicon :fill-svg "#FFFFFF" :image-width "32")
+            (image :path brightnessicon :fill-svg "#FFFFFF" :image-width "24")
+        )
+    )
+)

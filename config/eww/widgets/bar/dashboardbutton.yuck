@@ -1,0 +1,7 @@
+(defwidget dashboardbutton []
+    (eventbox :cursor "pointer"
+        (box :class "dashboardbutton-widget"
+            (label :text "󰣇")
+        )
+    )
+)

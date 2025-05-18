@@ -1,0 +1,23 @@
+.temperature-widget {
+    background-color: $surface;
+    color: $onSurface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding;
+}
+
+.temperature-widget label:nth-child(1) {
+    font-size: $fontSize;
+    font-weight: $textWeight;
+    margin: 0;
+    margin-left: -1rem;
+}
+
+.temperature-widget label:nth-child(2) {
+    font-size: $fontSize;
+    font-weight: $textWeight;
+
+    margin: 0;
+    margin-left: -0.75rem;
+    padding-right: 0.5rem;
+}

@@ -1,0 +1,18 @@
+.powerbutton {
+    background-color: $primary;
+    color: $background;
+
+    border-radius: 100%;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+}
+
+.powerbutton label {
+    font-family: "Font Awesome 6 Pro";
+    font-weight: bold;
+    font-size: 1.4rem;
+}
+
+.powerbutton:hover {
+    background-color: $primary; // TODO: change to dark primary
+}

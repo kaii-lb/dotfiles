@@ -1,0 +1,7 @@
+(defwidget notificationbutton []
+    (eventbox :cursor "pointer"
+        (button :class "notificationbutton-widget"
+            (label :text "")
+        )
+    )
+)

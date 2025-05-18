@@ -1,0 +1,14 @@
+.notificationbutton-widget {
+    background-color: $surface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding;
+}
+
+.notificationbutton-widget label {
+    font-size: $fontSize;
+    font-weight: $fontWeight;
+    margin-right: 0.7rem;
+    margin-left: 0.5rem;
+}
+

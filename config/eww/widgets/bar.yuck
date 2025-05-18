@@ -1,0 +1,33 @@
+(include "./widgets/bar/powerbutton.yuck")
+(include "./widgets/bar/quicksettings.yuck")
+(include "./widgets/bar/notificationbutton.yuck")
+(include "./widgets/bar/batteryindicator.yuck")
+(include "./widgets/bar/clock.yuck")
+(include "./widgets/bar/weather.yuck")
+(include "./widgets/bar/dashboardbutton.yuck")
+(include "./widgets/bar/temperature.yuck")
+(include "./widgets/bar/languageindicator.yuck")
+
+(defwidget bar []
+    (box :class "bar-widget" :orientation "h" :space-evenly true
+
+        (box :orientation "h" :space-evenly false :halign "start"
+            (dashboardbutton)
+            (temperature)
+            (languageindicator)
+        )
+
+        (box :orientation "h" :space-evenly false :halign "center"
+            (clock)
+            ; (weather)
+        )
+
+        (box :orientation "h" :space-evenly false :halign "end"
+            (notificationbutton)
+            (quicksettings)
+            (batteryindicator)
+            (powerbutton)
+        )
+
+    )
+)

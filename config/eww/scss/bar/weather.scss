@@ -1,0 +1,25 @@
+.weather-widget {
+    background-color: $surface;
+    color: $onSurface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding $generalPadding $generalPadding 0rem;
+}
+
+.weather-widget label:nth-child(1) {
+    font-size: $fontSize * 0.9;
+    font-weight: 400;
+    color: $primary;
+    
+    margin: 0;
+    margin-top: 0.2rem;
+    margin-right: -0.8rem;
+}
+
+.weather-widget label:nth-child(2) {
+    font-size: $fontSize;
+    font-weight: $textWeight;
+
+    margin: 0;
+    margin-right: $generalPadding;
+}

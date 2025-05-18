@@ -25,5 +25,5 @@ else
 	systemctl restart scx_loader.service
 	ip link set enp7s0 down
 	modprobe -r uvcvideo
-	rfkill block bluetooth
+	pidof spotify || rfkill block bluetooth
 fi

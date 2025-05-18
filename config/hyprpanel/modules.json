@@ -1,8 +1,0 @@
-{
-	"custom/brightness": {
-		"label": "{percentage}%",
-		"icon": ["󰕿", "󰖀", "󰕾"],
-		"execute": "sh ~/.config/hyprpanel/scripts/brightness.sh",
-		"interval": 1000,
-	}
-}

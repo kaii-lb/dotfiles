@@ -1,0 +1,11 @@
+.languageindicator-widget {
+    background-color: $surface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding;
+}
+
+.languageindicator-widget label {
+    font-size: $fontSize;
+    font-weight: $textWeight;
+}

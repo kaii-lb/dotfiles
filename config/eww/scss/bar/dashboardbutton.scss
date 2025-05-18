@@ -1,0 +1,16 @@
+.dashboardbutton-widget {
+    background-color: $surface;
+    color: $onSurface;
+
+    border-radius: 100%;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
+}
+
+.dashboardbutton-widget label {
+    font-weight: bold;
+    font-size: 1.6rem;
+
+    margin-right: 1rem;
+    margin-left: 0.65rem;
+}

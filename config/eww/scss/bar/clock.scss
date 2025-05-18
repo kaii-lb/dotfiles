@@ -1,0 +1,11 @@
+.clock-widget {
+    background-color: $surface;
+
+    border-radius: $borderRadius;
+    padding: $generalPadding;
+}
+
+.clock-widget label {
+    font-size: $fontSize;
+    font-weight: $textWeight;
+}

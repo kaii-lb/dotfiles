@@ -1,0 +1,9 @@
+(defpoll batteryicon :interval "60s" `/home/kaii/.config/eww/scripts/get_battery_icon.sh`)
+
+(defwidget batteryindicator []
+    (box :class "batteryindicator-widget"
+        (transform :rotate 75 :transform-origin-x "55%" :transform-origin-y "50%" :translate-y "-4%"
+            (image :path batteryicon :fill-svg "#FFFFFF" :image-width 24)
+        )
+    ) 
+)
