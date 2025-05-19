@@ -1,5 +1,4 @@
 (include "widgets/bar.yuck")
-(include "widgets/powermenu/powermenu.yuck")
 
 (defwindow topbar
            :monitor 0

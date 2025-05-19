@@ -12,25 +12,53 @@
     margin-left: 0.5rem;
 }
 
-.notification {
-    background-color: $background;
+.notification-info {
+    background-color: mix($surface, $background, 50%);
     border-radius: $borderRadius * 2;
     margin: $generalPadding 0;
     padding: $generalPadding;
 
-    min-width: 25rem;
+    min-width: 30rem;
     min-height: 5rem;
-}
 
-.notification label:nth-child(1) {
     font-size: $fontSize;
-    font-weight: 600;
     font-family: "Product Sans Regular";
 }
 
-.notification label:nth-child(2) {
-    font-size: $fontSize * 0.8;
-    font-family: "Product Sans Regular";
+.notification-summary {
+    font-weight: 600;
+    margin: 0;
+}
 
-    margin-top: -1rem;
+.notification-body {
+    font-size: $fontSize * 0.8;
+
+    margin: 0;
+}
+
+.notification-close {
+    background-color: $surface;
+    margin-left: 1rem;
+    margin-right: 0.5rem;
+    
+    border-radius: $borderRadius * 2;
+    padding: $generalPadding / 2 $generalPadding
+}
+
+.notification-close label {
+    font-size: $fontSize * 1.25;
+}
+
+.notification-close:hover {
+    background-color: mix($surface, white, 90%);
+}
+
+.notification-image-visible {
+    border-radius: $borderRadius;
+
+    margin: $generalPadding * 2;
+}
+
+.notification-image-hidden {
+    margin: 0;
 }

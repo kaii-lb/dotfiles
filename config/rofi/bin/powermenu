@@ -11,7 +11,7 @@ logout=""
 hibernate=""
 
 # Variable passed to rofi
-options="$suspend\n$lock\n$logout\n$reboot\n$shutdown\n"
+options="$suspend\n$lock\n$logout\n$reboot\n$shutdown"
 
 chosen="$(echo -e "$options" | $rofi_command -p "Online For:  ${uptime}" -dmenu -selected-row 0)"
 case $chosen in
