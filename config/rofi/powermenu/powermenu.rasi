@@ -11,7 +11,7 @@ configuration {
 
 * {
 	transparent: #00000000;
-	foreground: #F2F2F2EE;
+	primary: #F2F2F2EE;
 	background-selected: #F2F2F245;
 	background-active: #F2F2F230;
 	background-white: #F2F2F211;
@@ -23,7 +23,7 @@ configuration {
 window {
 	transparency: "real";
 	background-color: @transparent;
-	text-color: @foreground;
+	text-color: @primary;
 	location: northwest;
 	anchor: northwest;
 }
@@ -51,7 +51,7 @@ mainbox {
 
 element {
 	background-color: @transparent;
-	text-color: @foreground;
+	text-color: @primary;
 	orientation: horizontal;
 	border-radius: 10px;
     padding: 30px;
@@ -67,14 +67,14 @@ element-text {
 element normal.urgent,
 element alternate.urgent {
 	background-color: @urgent;
-	text-color: @foreground;
+	text-color: @primary;
 	border-radius: 9px;
 }
 
 element normal.active,
 element alternate.active {
 	background-color: @background-active;
-	text-color: @foreground;
+	text-color: @primary;
 }
 
 element selected {
@@ -84,10 +84,10 @@ element selected {
 
 element selected.urgent {
 	background-color: @urgent-selected;
-	text-color: @foreground;
+	text-color: @primary;
 }
 
 element selected.active {
 	background-color: @background-active;
-	color: @foreground-selected;
+	color: @primary-selected;
 }

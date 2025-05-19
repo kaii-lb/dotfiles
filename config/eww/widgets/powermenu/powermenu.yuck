@@ -1,0 +1,26 @@
+(defwindow powermenu
+    :monitor 0
+    :geometry (geometry :x "0%"
+    :y "0%"
+    :width "35%"
+    :height "135px"
+    :anchor "bottom center")
+    :stacking "overlay"
+    :exclusive false
+    :focusable "ondemand"
+    :namespace "eww-powermenu"
+
+    (box :space-evenly true :class "powermenu-widget" :spacing 8
+        (powermenu-item :icon "/home/kaii/.config/eww/assets/volume_high.svg" :action "notify-send 1")
+        (powermenu-item :icon "/home/kaii/.config/eww/assets/volume_high.svg" :action "notify-send 2")
+        (powermenu-item :icon "/home/kaii/.config/eww/assets/volume_high.svg" :action "notify-send 3")
+        (powermenu-item :icon "/home/kaii/.config/eww/assets/volume_high.svg" :action "notify-send 4")
+        (powermenu-item :icon "/home/kaii/.config/eww/assets/volume_high.svg" :action "notify-send 5")
+    )
+)
+
+(defwidget powermenu-item [icon action]
+    (button :class "powermenu-widget-item" :onclick {action}
+        (image :path {icon} :image-width 48)
+    )
+)

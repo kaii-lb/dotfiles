@@ -2,5 +2,20 @@
     background-color: $surface;
 
     border-radius: $borderRadius;
-    padding: $generalPadding $generalPadding / 4;
+    padding: $generalPadding 0 $generalPadding $generalPadding;
+}
+
+.batteryindicator-widget image {
+    margin: 0;
+}
+
+.batteryindicator-widget image:nth-child(2) {
+    // margin-right: 0rem;
+    margin-left: -0.8rem;
+    margin-top: 0.05rem;
+}
+
+.batteryindicator-widget label {
+    font-size: $fontSize;
+    font-weight: $textWeight;
 }

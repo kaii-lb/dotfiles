@@ -63,7 +63,7 @@ prompt {
    border-radius:               12px;
    border-color:                @selected;
    background-color:            @background;
-   text-color:                  @foreground;
+   text-color:                  @primary;
 }
 
 /*****----- Message -----*****/
@@ -74,8 +74,8 @@ message {
     border:                      0px solid;
     border-radius:               0px;
     border-color:                @selected;
-    background-color:            @background-alt;
-    text-color:                  @foreground;
+    background-color:            @surface;
+    text-color:                  @primary;
 }
 textbox {
     background-color:            inherit;
@@ -107,7 +107,7 @@ element {
     border-radius:               15px;
     border-color:                @selected;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @primary;
     cursor:                      pointer;
 }
 element-text {
@@ -121,7 +121,7 @@ element-text {
 element normal.normal,
 element alternate.normal {
     background-color:            var(background);
-    text-color:                  var(foreground);
+    text-color:                  var(primary);
 }
 element normal.urgent,
 element alternate.urgent,

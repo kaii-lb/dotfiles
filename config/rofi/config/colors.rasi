@@ -1,8 +1,8 @@
 * {
     font:                        "Product Sans Bold 12";
-    background:                  #11092D;
-    background-alt:              #281657;
-    foreground:                  #FFFFFF;
+    background:                  #0F1417;
+    surface:                     #1E333C;
+    primary:                     #ACC7FF;
     selected:                    #DF5296;
     active:                      #6E77FF;
     urgent:                      #8E3596;

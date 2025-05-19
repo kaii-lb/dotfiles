@@ -1,9 +1,22 @@
-(defpoll batteryicon :interval "60s" `/home/kaii/.config/eww/scripts/get_battery_icon.sh`)
+(defpoll batteryicon :initial "/home/kaii/.config/eww/assets/battery-7.svg" :interval "60s" `/home/kaii/.config/eww/scripts/get_battery_icon.sh`)
+(defpoll charging-visible :initial false :interval "10s" `/home/kaii/.config/eww/scripts/get_battery_state.sh`)
+(defvar percentage-visible false)
+(defpoll percentage :initial "100%" :interval "60s" `/home/kaii/.config/eww/scripts/get_battery_level.sh`)
 
 (defwidget batteryindicator []
     (box :class "batteryindicator-widget"
-        (transform :rotate 75 :transform-origin-x "55%" :transform-origin-y "50%" :translate-y "-4%"
-            (image :path batteryicon :fill-svg "#FFFFFF" :image-width 24)
+        (eventbox :onhover `eww update percentage-visible=true` :onhoverlost `eww update percentage-visible=false`
+            (box :space-evenly false
+                (transform :rotate 75 :transform-origin-x "50%" :transform-origin-y "50%" :translate-y {percentage-visible ? "-25%" : "-12.5%"}
+                    (image :path batteryicon :fill-svg "#FFFFFF" :image-width 24)
+                )
+        
+                (image :path "/home/kaii/.config/eww/assets/battery_charging.svg" :visible charging-visible)
+
+                (revealer :transition "slideleft" :reveal percentage-visible :duration "350ms"
+                    (label :text {percentage + "%"})
+                )
+            )
         )
     ) 
 )

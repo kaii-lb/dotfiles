@@ -1,7 +1,20 @@
+(deflisten notifications :initial "" `python3 /home/kaii/.config/eww/scripts/notification_daemon.py`)
+
 (defwidget notificationbutton []
     (eventbox :cursor "pointer"
         (button :class "notificationbutton-widget"
             (label :text "")
         )
     )
+)
+
+(defwindow notificationview
+    :monitor 0
+    :geometry (geometry :x "0px"
+                        :y "0px"
+                        :anchor "top center")
+    :stacking "overlay"
+    :namespace "eww-notifications"
+
+    (literal :content notifications)
 )

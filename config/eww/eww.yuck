@@ -1,4 +1,5 @@
 (include "widgets/bar.yuck")
+(include "widgets/powermenu/powermenu.yuck")
 
 (defwindow topbar
            :monitor 0
@@ -10,7 +11,7 @@
            :stacking "fg"
            :exclusive true
            :focusable false
+           :namespace "eww-topbar"
 
            (bar)
-
         )

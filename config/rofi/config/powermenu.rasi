@@ -18,18 +18,19 @@ configuration {
 window {
     /* properties for window widget */
     transparency:                "real";
-    location:                    east;
-    anchor:                      east;
+    location:                    south;
+    anchor:                      south;
     fullscreen:                  false;
-    width:                       100px;
-    x-offset:                    -10px;
+    x-offset:                    0px;
     y-offset:                    0px;
+    width: 620px;
 
     /* properties for all widgets */
     enabled:                     true;
     border:                  	 0px;
     border-color:                @selected;
-    border-radius:               20px;
+    border-radius:               50px 50px 0 0;
+    padding:                     10px;
     cursor:                      "default";
     background-color:            @background;
 }
@@ -41,73 +42,64 @@ mainbox {
     spacing:                        15px;
     padding:                        15px;
     margin:							-1px;
-    background-image:               url("~/.config/rofi/images/telescope.png", none);
 }
 
 /*****----- Listview -----*****/
 listview {
     enabled:                     true;
-    columns:                     1;
-    lines:                       5;
+    columns:                     5;
+    lines:                       1;
     cycle:                       true;
-    dynamic:                     true;
+    dynamic:                     false;
     scrollbar:                   false;
     layout:                      vertical;
     reverse:                     false;
-    fixed-height:                true;
-    fixed-columns:               true;
+    fixed-height:                false;
+    fixed-columns:               false;
     
     spacing:                     15px;
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @primary;
     cursor:                      "default";
 }
 
 /*****----- Elements -----*****/
 element {
     background-color:            transparent;
-    text-color:                  @foreground;
+    text-color:                  @primary;
     orientation:                 horizontal;
-    border-radius:               10px;
-    padding:                     20px;
+    border-radius:               50%;
+    padding:                     30px 0px 30px 0px;
     cursor:                      pointer;
 }
+
 element normal.normal,
 element alternate.normal {
-    background-color:            var(background);
-    text-color:                  var(foreground);
+    background-color:            var(surface);
+    text-color:                  var(primary);
 }
-element normal.urgent,
-element alternate.urgent,
+
 element selected.active {
-    background-color:            var(urgent);
-    text-color:                  var(background);
+    background-color:            var(primary);
+    text-color:                  var(surface);
 }
-element normal.active,
-element alternate.active,
-element selected.urgent {
-    background-color:            var(active);
-    text-color:                  var(background);
-}
+
 element selected.normal {
-    background-color:            var(selected);
-    text-color:                  var(background);
+    background-color:            var(primary);
+    text-color:                  var(surface);
 }
+
 element-icon {
-    background-color: 		        inherit;
-    text-color:       		        inherit;
-    horizontal-align:               0.5;
-    vertical-align:                 0.5;
-    size:                           0px;
-    border:                         0px;
+    size: 0px;
 }
+
 element-text {
     background-color: 		     inherit;
     text-color:       		     inherit;
-    font:			             "Font Awesome 6 Pro Bold 22";
-    expand:                      true;
-    horizontal-align:            0.5;
+    font:			             "Font Awesome 6 Pro Bold 28";
+    expand:                      false;
+    horizontal-align:            0.7;
     vertical-align:              0.5;
-    margin:                      0px 0px 0px 0px;
+    margin:                      0px;
 }
 

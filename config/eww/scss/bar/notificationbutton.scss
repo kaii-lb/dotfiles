@@ -12,3 +12,25 @@
     margin-left: 0.5rem;
 }
 
+.notification {
+    background-color: $background;
+    border-radius: $borderRadius * 2;
+    margin: $generalPadding 0;
+    padding: $generalPadding;
+
+    min-width: 25rem;
+    min-height: 5rem;
+}
+
+.notification label:nth-child(1) {
+    font-size: $fontSize;
+    font-weight: 600;
+    font-family: "Product Sans Regular";
+}
+
+.notification label:nth-child(2) {
+    font-size: $fontSize * 0.8;
+    font-family: "Product Sans Regular";
+
+    margin-top: -1rem;
+}

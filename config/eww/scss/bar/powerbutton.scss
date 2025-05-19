@@ -5,6 +5,8 @@
     border-radius: 100%;
     min-width: 2.75rem;
     min-height: 2.75rem;
+
+    transition: background-color 250ms ease-in;
 }
 
 .powerbutton label {
@@ -14,5 +16,9 @@
 }
 
 .powerbutton:hover {
-    background-color: $primary; // TODO: change to dark primary
+    background-color: mix($primary, #fff, 60%);   
+}
+
+.powerbutton:focus {
+    background-color: mix($primary, #fff, 60%);
 }

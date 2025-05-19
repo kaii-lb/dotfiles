@@ -9,12 +9,12 @@ if [ $connectivity == "limited" ] || [ $connectivity == "unknown" ]; then
 	exit 0
 fi
 
-if [[ "${active_network_type}" -eq "wifi" ]]; then
+if [[ "${active_network_type}" == "wifi" ]]; then
 	echo "/home/kaii/.config/eww/assets/wifi_connected.svg"
-elif [[ "${active_network_type}" -eq "ethernet" ]]; then
+elif [[ "${active_network_type}" == "ethernet" ]]; then
 	echo "/home/kaii/.config/eww/assets/ethernet.svg"
-elif [[ "${wifi_active}" -eq "enabled" ]]; then
+elif [[ "${wifi_active}" == "enabled" ]]; then
 	echo "/home/kaii/.config/eww/assets/wifi_no_internet.svg"
-elif [[ "${wifi_active}" -eq "disabled" ]]; then
+elif [[ "${wifi_active}" == "disabled" ]]; then
 	echo "/home/kaii/.config/eww/assets/wifi_off.svg"
 fi
