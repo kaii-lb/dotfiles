@@ -2,21 +2,16 @@
     background-color: $surface;
 
     border-radius: $borderRadius;
-    padding: $generalPadding;
-}
+    padding: $generalPadding $generalPadding / 2;
 
-.notificationbutton-widget label {
-    font-size: $fontSize;
-    font-weight: $fontWeight;
-    margin-right: 0.7rem;
-    margin-left: 0.5rem;
+    margin: 0;
 }
 
 .notification-info {
     background-color: mix($surface, $background, 50%);
-    border-radius: $borderRadius * 2;
+    border-radius: $borderRadius * 1.75;
     margin: $generalPadding 0;
-    padding: $generalPadding;
+    padding: $generalPadding * 2;
 
     min-width: 30rem;
     min-height: 5rem;
@@ -39,14 +34,15 @@
 .notification-close {
     background-color: $surface;
     margin-left: 1rem;
-    margin-right: 0.5rem;
+    margin-right: 0rem;
+    margin-top: 0.5rem;
     
     border-radius: $borderRadius * 2;
-    padding: $generalPadding / 2 $generalPadding
+    padding: 0 $generalPadding / 2;
 }
 
 .notification-close label {
-    font-size: $fontSize * 1.25;
+    font-size: $fontSize * 1.1;
 }
 
 .notification-close:hover {
@@ -54,11 +50,19 @@
 }
 
 .notification-image-visible {
-    border-radius: $borderRadius;
+    border-radius: $borderRadius * 5;
+    // background-color: $surface;
 
-    margin: $generalPadding * 2;
+    padding: $generalPadding;
+    margin-left: 0;
 }
 
 .notification-image-hidden {
     margin: 0;
+    padding: 0;
+}
+
+.notification-app {
+    font-size: $fontSize / 1.5;
+    opacity: 0.5;
 }

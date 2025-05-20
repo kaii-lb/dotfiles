@@ -24,6 +24,7 @@
         )
 
         (box :orientation "h" :space-evenly false :halign "end"
+            (systray :space-evenly true :spacing 0)
             (clock)
             (notificationbutton)
             (quicksettings)

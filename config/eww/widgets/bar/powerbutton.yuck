@@ -1,10 +1,10 @@
 (defwidget powerbutton []
-    (eventbox :cursor "pointer"
-        (button
-            :class "powerbutton"
-            :onclick "~/.config/rofi/bin/powermenu"
-
-            (label :text "")
-        )
+  (eventbox :cursor "pointer"
+    (button
+      :class "powerbutton"
+      :onclick "~/.config/rofi/bin/powermenu"
+      
+      (label :text "")
     )
+  )
 )

@@ -1,0 +1,39 @@
+.notification-list-widget {
+    background-color: $surface;
+
+    border-radius: $borderRadius * 1.75;
+
+    min-width: 30rem;
+    min-height: 5rem;
+
+    margin: $generalPadding 0;
+    padding: $generalPadding * 2;
+}
+
+.notification-list-header {
+    background-color: $surface;
+    border-radius: $borderRadius * 1.75 $borderRadius * 1.75 0 0;
+    padding: $generalPadding * 2;
+    margin: $generalPadding 0 0 0;
+}
+
+.notification-list-title {
+    font-size: $fontSize * 1.25;
+    font-weight: $textWeight;
+
+    margin-left: -5rem;
+}
+
+.notification-list-close-button {
+    background-color: mix($surface, $background, 60%);
+
+    border-radius: 100%;
+    padding: 0.45rem 0.1rem;
+}
+
+.notification-list-clear-button {
+    background-color: mix($surface, $background, 60%);
+
+    border-radius: $borderRadius * 2;
+    padding: $generalPadding;
+}

@@ -40,7 +40,7 @@ class NotificationDaemon(dbus.service.Object):
         summary = str(summary)
         body = str(body)
 
-        if replaces_id != 0:
+        if replaces_id != 0 and app_name != "Spotify":
             id = replaces_id
         else:
             log_file = self.read_log_file()
@@ -138,7 +138,6 @@ class NotificationDaemon(dbus.service.Object):
     @dbus.service.method("org.freedesktop.Notifications", in_signature="", out_signature="")
     def GetDNDState(self):
         subprocess.run(["eww", "update", f"do-not-disturb={json.dumps(self.dnd)}"])
-    
 
     def get_gtk_icon(self, icon_name):
         theme = Gtk.IconTheme.get_default()
@@ -146,7 +145,6 @@ class NotificationDaemon(dbus.service.Object):
 
         if icon_info is not None:
             return icon_info.get_filename()
-        
 
     def save_img_byte(self, px_args: typing.Iterable, save_path: str):
         GdkPixbuf.Pixbuf.new_from_bytes(
@@ -175,7 +173,6 @@ class NotificationDaemon(dbus.service.Object):
             with open(log_file, "w") as log:
                 json.dump(empty, log)
             return empty
-        
 
     def save_notifications(self, notification):
         current = self.read_log_file()
@@ -189,7 +186,7 @@ class NotificationDaemon(dbus.service.Object):
         for notify in self.read_log_file()['notifications']:
             self.NotificationClosed(notify['id'], 2)
         data = {"count": 0, "notifications": [], "popups": []}
-        
+
         self.write_log_file(data)
 
 

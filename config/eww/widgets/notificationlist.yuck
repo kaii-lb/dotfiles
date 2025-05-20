@@ -1,0 +1,54 @@
+(defpoll counts :interval "2s" `/home/kaii/.config/eww/scripts/get_notification_array.sh`)
+
+(defwidget notification-list-widget []
+  (box :orientation "v" :style "margin: 0;" :space-evenly false
+    (box :orientation "h" :space-evenly true :class "notification-list-header" :hexpand true
+      (label :text "Notifications" :valing "center" :class "notification-list-title")
+      
+      (box :orientation "h" :space-evenly false :halign "end" :valign "center"
+        (eventbox :cursor "pointer"
+          (button
+            :class "notification-list-clear-button"
+            :onclick "/home/kaii/.config/eww/scripts/notifications.sh clear"
+            
+            "Clear All"
+          )
+        )
+        
+        (eventbox :cursor "pointer"
+          (button
+            :class "notification-list-close-button"
+            :onclick "eww close notification-list"
+            
+            (image :path "/home/kaii/.config/eww/assets/close.svg")
+          )
+        )
+      )
+    )
+    
+    (scroll :vscroll true :hscroll false :vexpand true :style "min-height: 29.5rem; min-width: 35rem; margin: 0; padding-left: 0; padding-right: 0; padding-top: 0.5rem; border-radius: 0rem 0rem 2.5rem 2.5rem;" :class "notification-list-widget"
+      (box :orientation "v" :space-evenly false :vexpand true
+        (for i in counts
+          (box :orientation "v" :class "notifications-popup-body" :visible {notifications.notifications[i] != "null" ? true : false}
+            (notification :notify {notifications.notifications[i]})
+          )
+        )
+      )
+    )
+  )
+)
+
+(defwindow notification-list
+  :monitor 0
+  :geometry (geometry :x "1.5%"
+    :y "0%"
+    :width "0%"
+    :height "0%"
+  :anchor "top right")
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-notis-view"
+  
+  (notification-list-widget)
+)
