@@ -14,10 +14,13 @@ else
 	echo "/home/kaii/.config/eww/assets/volume_high.svg" >> /tmp/current_volume_icon
 fi
 
+brightness_open=$(eww get open_brightness_osd)
+
+eww update open_brightness_osd=false
 eww update open_volume_osd=true
 
-sleep 5
+sleep 3
 eww_volume=$(eww get volume)
-if [[ eww_volume -eq $volume ]]; then
+if [[ $eww_volume -eq $volume ]]; then
 	eww update open_volume_osd=false
 fi

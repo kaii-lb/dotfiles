@@ -1,16 +1,16 @@
 (deflisten volume :initial 0 `tail -F /tmp/current_volume`)
 
-(defwidget volume_scale []
+(defwidget volume-scale []
   (overlay :hexpand true
-    (scale :min 0 :max 100 :active {volume != 0} :value {volume} :onchange "pamixer --set-volume {}" :class "volume-scale")
+    (scale :min 0 :max 100 :active {volume != 0} :value {volume} :onchange "pamixer --set-volume {}" :class "scale")
     (image :path volumeicon :fill-svg "#1E333C" :image-width "32" :halign "start" :style "margin-left: 1rem;")
   )
 )
 
-(defwidget volume_osd []
-  (revealer :transition "slidedown" :reveal {open_volume_osd} :duration "600ms" :class "volume-osd-holder"
-    (box :orientation "h" :class "volume-osd" :space-evenly false
-      (volume_scale)
+(defwidget volume-osd []
+  (revealer :transition "slidedown" :reveal {open_volume_osd} :duration "600ms" :class "osd-holder"
+    (box :orientation "h" :class "osd" :space-evenly false
+      (volume-scale)
     )
   )
 )
@@ -27,5 +27,5 @@
   :focusable false
   :namespace "eww-volume-osd"
   
-  (volume_osd)
+  (volume-osd)
 )

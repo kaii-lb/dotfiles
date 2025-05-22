@@ -2,6 +2,7 @@
 (include "widgets/notificationlist.yuck")
 (include "variables.yuck")
 (include "widgets/volumeosd.yuck")
+(include "widgets/brightnessosd.yuck")
 
 (defwindow topbar
            :monitor 0

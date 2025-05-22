@@ -1,4 +1,4 @@
-.volume-scale trough {
+.scale trough {
     background-color: $surface;
     border-radius: $borderRadius * 2;
     min-height: 2.25rem;
@@ -7,7 +7,7 @@
     padding: 0;
 }
 
-.volume-scale highlight {
+.scale highlight {
     background-color: $primary;
     border-radius: $borderRadius * 2;
     min-height: 2.25rem;
@@ -16,11 +16,11 @@
     padding: 0;
 }
 
-.volume-osd-holder {
+.osd-holder {
     padding: 0 $generalPadding * 2 $generalPadding * 2 $generalPadding * 2;
 }
 
-.volume-osd {
+.osd {
     background-color: $background;
     border-radius: 0 0 $borderRadius * 2 $borderRadius * 2;
     padding: $generalPadding * 2 $generalPadding * 0.5;
