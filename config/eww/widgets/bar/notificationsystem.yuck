@@ -1,4 +1,3 @@
-; (deflisten notifications :initial "" `python3 /home/kaii/.config/eww/scripts/notification_daemon.py`)
 (deflisten notifications `scripts/notifications.sh current`)
 
 (defwidget notification [notify]
@@ -63,7 +62,7 @@
     :y "0%"
     :width "0%"
     :height "0%"
-  :anchor "top right")
+  :anchor "top center")
   :stacking "overlay"
   :exclusive false
   :focusable false

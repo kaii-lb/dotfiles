@@ -1,6 +1,6 @@
 (defwidget clock []
     (eventbox :cursor "pointer"
-        (button :onclick "/home/alien/.config/eww/scripts/toggle_calendar.sh" :class "clock-widget"
+        (button :onclick "/home/kaii/.config/eww/scripts/toggle_calendar.sh" :class "clock-widget"
             ;; Display a clock in HH:MM AM/PM format
             (label :class "clock-lable" :text {formattime(EWW_TIME, "%a %d - %I:%M %p")})
         )

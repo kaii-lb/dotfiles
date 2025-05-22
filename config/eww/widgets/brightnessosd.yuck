@@ -8,7 +8,7 @@
 )
 
 (defwidget brightness-osd []
-  (revealer :transition "slidedown" :reveal {open_brightness_osd} :duration "600ms" :class "osd-holder"
+  (revealer :transition "slideup" :reveal {open_brightness_osd} :duration "600ms" :class "osd-holder"
     (box :orientation "h" :class "osd" :space-evenly false
       (brightness-scale)
     )
@@ -18,10 +18,10 @@
 (defwindow brightnessosd
   :monitor 0
   :geometry (geometry :x "0%"
-    :y "0%"
+    :y "7.5%"
     :width "0%"
     :height "0%"
-    :anchor "top center")
+    :anchor "bottom center")
   :stacking "overlay"
   :exclusive false
   :focusable false

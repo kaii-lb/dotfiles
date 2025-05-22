@@ -1,0 +1,13 @@
+(defpoll is_recording :interval "1s" :initial false `/home/kaii/.config/eww/scripts/check_is_recording.sh`)
+
+(defwidget recordingindicator []
+  (eventbox :cursor "pointer"
+    (button
+      :class "powerbutton"
+      :onclick "pkill -SIGKILL -f gpu-screen-recorder"
+      :visible {is_recording == "true"}
+      
+      (image :path "/home/kaii/.config/eww/assets/videocam.svg" :fill-svg "#000000" :image-width 24)
+    )
+  )
+)

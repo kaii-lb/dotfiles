@@ -8,6 +8,7 @@
 (include "./widgets/bar/temperature.yuck")
 (include "./widgets/bar/languageindicator.yuck")
 (include "./widgets/bar/workspaces.yuck")
+(include "./widgets/bar/recordingindicator.yuck")
 
 (defwidget bar []
     (box :class "bar-widget" :orientation "h" :space-evenly true
@@ -16,6 +17,7 @@
             (dashboardbutton)
             (temperature)
             (languageindicator)
+            (recordingindicator)
         )
 
         (box :orientation "h" :space-evenly false :halign "center"

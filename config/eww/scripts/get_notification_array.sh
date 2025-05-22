@@ -1,6 +1,6 @@
 #!/bin/sh
 
-count=$(head -n 2 ~/.cache/notifications.json | grep count | tr -d '["count:", ",", " ", "\"\""]')
+count=$(head -n 2 /home/kaii/.cache/notifications.json | grep count | tr -d '["count:", ",", " ", "\"\""]')
 
 string=""
 

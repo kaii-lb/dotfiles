@@ -2,7 +2,7 @@
   (eventbox :cursor "pointer"
     (button
       :class "powerbutton"
-      :onclick "~/.config/rofi/bin/powermenu"
+      :onclick "/home/kaii/.config/rofi/bin/powermenu"
       
       (label :text "")
     )
