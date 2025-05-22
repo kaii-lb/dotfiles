@@ -3,7 +3,7 @@
 (defwidget brightness-scale []
   (overlay :hexpand true
     (scale :min 0 :max 100 :active {brightness != 0} :value {brightness} :onchange "pamixer --set-volume {}" :class "scale")
-    (image :path brightnessicon :fill-svg "#1E333C" :image-width "32" :halign "start" :style "margin-left: 1rem;")
+    (image :path brightnessicon :fill-svg "#1E333C" :image-width "28" :halign "start" :style "margin-left: 1rem;")
   )
 )
 

@@ -10,7 +10,7 @@
 ### Needed apps
 
 - Window Manager: [Hyprland!](https://github.com/hyprwm/Hyprland) (obviously)
-- Status Bar: [Hyprpanel](https://hyprpanel.com/)
+- Status Bar: [EWW](https://github.com/elkowar/eww/)
 - Terminal: [Kitty](https://github.com/kovidgoyal/kitty)
 - App Launcher: [rofi](https://github.com/davatorium/rofi)
 - Terminal Text Editor: [micro](https://github.com/zyedidia/micro)
@@ -38,6 +38,17 @@
 - VSCode Theming: [Catpuccin Mocha Lavender](https://github.com/catppuccin/vscode)
 - Screen To Text: [tesseract-cor](https://github.com/tesseract-ocr/tesseract)
 
+### Needed commandline apps
+- socat
+- stdbuf
+- jq
+- bc
+- upower
+- brightnessctl
+- nmcli (Network Manager)
+- pamixer
+- dbus-send
+
 ### How to apply
 
 - Copy files in `config` to `/home/$USER/.config/` or simply `~/.config/` (theyre the same place but yk fancier)
@@ -48,9 +59,7 @@
 - Run `spicetify backup apply` to apply the spicetify themes and plugins
 - Go to `/home/$USER/.config/hypr/scripts/` and set everything to executable.
 - Go to `/home/$USER/.config/rofi/bin/` and set everything to executable.
-- Go to `/home/$USER/.config/hyprpanel/scripts/` and set everything to executable.
-- Open `/home/$USER/.config/hyprpanel/config.json` and change `menus.clock.weather.location`'s value to your location
-- Open `/home/$USER/.config/hyprpanel/config.json` and change `menus.clock.weather.key`'s value to your WeatherApi key
+- Go to `/home/$USER/.config/eww/scripts/` and set everything to executable (`cd ~/.config/eww/scripts/ && chmod u+x *`)
 - Open `/home/$USER/.config/hyprland/hyprpaper.conf` and set the wallpaper path
 - Reboot
 - Profit(?)
@@ -76,8 +85,9 @@
 - Super + B to open overskride (bluetooth manager)
 - Super + Right-Click resizes window
 - Super + Left-Click moves window
+- Super + Novo favourites key to stop screen recording (rebind for non lenovo laptops)
+- Novo favourites key to toggle gamemode (thermald enabling)
 - Copilot key to launch screen to text (ocr)
-- Novo favourites key to stop screen recording (rebind for non lenovo laptops)
 
 ### Special Thanks
 - [adi1090x](https://github.com/adi1090x) for the basis of the rofi menus!
