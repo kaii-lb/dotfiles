@@ -1,5 +1,5 @@
 (deflisten brightnessicon :initial "/home/kaii/.config/eww/assets/brightness_2.svg" `tail -F /tmp/current_brightness`)
-(deflisten volumeicon :initial "/home/kaii/.config/eww/assets/volume_mute.svg" `tail -F /tmp/current_volume`)
+(deflisten volumeicon :initial "/home/kaii/.config/eww/assets/volume_mute.svg" `tail -F /tmp/current_volume_icon`)
 (defpoll networkicon :initial "/home/kaii/.config/eww/assets/wifi_off.svg" :interval "1s" `~/.config/eww/scripts/get_network_icon.sh`)
 
 (defwidget quicksettings []

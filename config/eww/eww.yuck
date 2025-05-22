@@ -1,5 +1,7 @@
 (include "widgets/bar.yuck")
 (include "widgets/notificationlist.yuck")
+(include "variables.yuck")
+(include "widgets/volumeosd.yuck")
 
 (defwindow topbar
            :monitor 0

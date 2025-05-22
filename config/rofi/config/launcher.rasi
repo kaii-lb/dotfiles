@@ -111,8 +111,8 @@ button {
     cursor:                      pointer;
 }
 button selected {
-    background-color:            @selected;
-    text-color:                  @primary;
+    background-color:            @primary;
+    text-color:                  @surface;
 }
 
 /*****----- Listview -----*****/
@@ -153,12 +153,12 @@ element normal.urgent {
     text-color:                  @primary;
 }
 element normal.active {
-    background-color:            @active;
-    text-color:                  @primary;
+    background-color:            @primary;
+    text-color:                  @surface;
 }
 element selected.normal {
-    background-color:            @selected;
-    text-color:                  @primary;
+    background-color:            @primary;
+    text-color:                  @surface;
 }
 element selected.urgent {
     background-color:            @urgent;

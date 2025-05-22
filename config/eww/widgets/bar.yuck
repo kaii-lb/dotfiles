@@ -1,6 +1,6 @@
 (include "./widgets/bar/powerbutton.yuck")
 (include "./widgets/bar/quicksettings.yuck")
-(include "./widgets/bar/notificationbutton.yuck")
+(include "./widgets/bar/notificationsystem.yuck")
 (include "./widgets/bar/batteryindicator.yuck")
 (include "./widgets/bar/clock.yuck")
 (include "./widgets/bar/weather.yuck")
