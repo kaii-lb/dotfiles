@@ -1,8 +1,8 @@
-(deflisten brightness :initial 0 `tail -F /tmp/current_brightness`)
+(deflisten brightness :initial 25 `tail -F /tmp/current_brightness`)
 
 (defwidget brightness-scale []
   (overlay :hexpand true
-    (scale :min 0 :max 100 :active {brightness != 0} :value {brightness} :onchange "pamixer --set-volume {}" :class "scale")
+    (scale :min 0 :max 100 :active {brightness != 0} :value {brightness} :onchange "brightnessctl set {}%" :class "scale")
     (image :path brightnessicon :fill-svg "#1E333C" :image-width "28" :halign "start" :style "margin-left: 1rem;")
   )
 )

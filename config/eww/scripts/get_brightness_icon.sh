@@ -19,7 +19,7 @@ fi
 eww update open_volume_osd=false
 eww update open_brightness_osd=true
 
-sleep 3
+sleep 4
 eww_brightness=$(eww get brightness)
 if [[ $eww_brightness -eq $brightness ]]; then
 	eww update open_brightness_osd=false

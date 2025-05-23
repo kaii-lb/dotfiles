@@ -19,7 +19,7 @@ brightness_open=$(eww get open_brightness_osd)
 eww update open_brightness_osd=false
 eww update open_volume_osd=true
 
-sleep 3
+sleep 4
 eww_volume=$(eww get volume)
 if [[ $eww_volume -eq $volume ]]; then
 	eww update open_volume_osd=false
