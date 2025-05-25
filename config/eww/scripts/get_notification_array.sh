@@ -4,8 +4,8 @@ count=$(head -n 2 /home/kaii/.cache/notifications.json | grep count | tr -d '["c
 
 string=""
 
-if [[ $count -ge 100 ]]; then
-	count=100
+if [[ $count -ge 50 ]]; then
+	count=50
 fi
 
 for i in $(eval echo "{0..${count}}"); do

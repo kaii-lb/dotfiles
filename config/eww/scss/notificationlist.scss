@@ -19,13 +19,6 @@
     margin: $generalPadding 0 0 0;
 }
 
-.notification-list-title {
-    font-size: $fontSize * 1.25;
-    font-weight: $textWeight;
-
-    margin-left: -5rem;
-}
-
 .notification-list-close-button {
     background-color: mix($surface, $background, 60%);
 

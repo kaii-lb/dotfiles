@@ -2,7 +2,7 @@
 
 (defwidget brightness-scale []
   (overlay :hexpand true
-    (scale :min 0 :max 100 :active {brightness != 0} :value {brightness} :onchange "brightnessctl set {}%" :class "scale")
+    (scale :min 0 :max 101 :active {brightness != 0} :value {brightness} :onchange "brightnessctl set {}% && /home/kaii/.config/eww/scripts/get_brightness_icon.sh & disown" :class "scale")
     (image :path brightnessicon :fill-svg "#1E333C" :image-width "28" :halign "start" :style "margin-left: 1rem;")
   )
 )

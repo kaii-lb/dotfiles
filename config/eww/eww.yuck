@@ -8,6 +8,8 @@
 
 (include "widgets/quicksettings-menu/quicksettings-menu.yuck")
 (include "widgets/quicksettings-menu/buttons.yuck")
+(include "widgets/quicksettings-menu/music-player.yuck")
+(include "widgets/quicksettings-menu/sliders.yuck")
 
 (defwindow topbar
            :monitor 0

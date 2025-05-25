@@ -4,7 +4,7 @@
 (defpoll bluetooth_properties :interval "1s" :initial '{"powered": "true", "connected_device": "", "battery": ""}' `/home/kaii/.config/eww/scripts/bluetooth_state.sh`)
 
 (defwidget quicksettings []
-    (eventbox :cursor "pointer" :onclick "if eww active-windows | grep \"quicksettings-menu\"; then eww close quicksettings-menu && eww close quicksettings-menu-closer; else eww open quicksettings-menu && eww open quicksettings-menu-closer; fi"
+    (eventbox :cursor "pointer" :onclick "/home/${username}/.config/eww/scripts/toggle_quicksettings.sh & disown"
         (box 
             :class "quicksettings-widget"
             :orientation "h" :space-evenly true

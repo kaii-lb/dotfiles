@@ -7,12 +7,14 @@ playerctl metadata -F -f '{{position}} {{mpris:length}}' | while read -r line; d
     position=$(echo "($position + 0.5) / 1" | bc)
     positionStr=$(playerctl metadata -f "{{duration(position)}}")
     player=$(playerctl metadata -f "{{playerName}}")
+    state=$(playerctl metadata -f "{{status}}")
+
     JSON_STRING=$( jq -n \
                 --arg position "$position" \
-                --arg length "$length" \
+                --arg state "$state" \
                 --arg positionStr "$positionStr" \
                 --arg player "$player" \
-                '{$player: {position: $position, positionStr: $positionStr}}' )
+                '{$player: {position: $position, positionStr: $positionStr, state: $state}}' )
     echo $JSON_STRING
 
 done

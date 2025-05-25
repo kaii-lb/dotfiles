@@ -37,8 +37,8 @@ class NotificationDaemon(dbus.service.Object):
         actions = list(actions)
         app_icon = str(app_icon)
         app_name = str(app_name)
-        summary = str(summary)
-        body = str(body)
+        summary = str(summary)[:35]
+        body = str(body)[:35]
 
         if replaces_id != 0 and app_name != "Spotify":
             id = replaces_id

@@ -2,7 +2,7 @@
 
 (defwidget notification-list-widget []
   (box :orientation "v" :style "margin: 0; padding: 2rem;" :space-evenly false
-    (box :orientation "v" :space-evenly false :class "notification-list-widget"    
+    (box :orientation "v" :space-evenly false :class "notification-list-widget"
       (box :orientation "h" :space-evenly true :class "notification-list-header" :hexpand true
         (label :text "Notifications" :valign "center" :class "notification-list-title")
         
@@ -26,9 +26,9 @@
           )
         )
       )
-
+      
       (transform :translate-y "-5%"
-      (label :visible {counts == "[0]"} :text "No Notifications Here" :halign "center" :valign "center" :style "min-height: 29.5rem; min-width: 35rem; margin: 0; padding: 0; border-radius: 0rem 0rem 2.5rem 2.5rem;")
+        (label :visible {counts == "[0]"} :text "No Notifications Here" :halign "center" :valign "center" :style "min-height: 29.5rem; min-width: 35rem; margin: 0; padding: 0; border-radius: 0rem 0rem 2.5rem 2.5rem;")
       )
       
       (scroll :visible {counts != "[0]"} :vscroll true :hscroll false :vexpand true :style "min-height: 29.5rem; min-width: 35rem; margin: 0; padding-left: 0; padding-right: 0; padding-top: 0.5rem; border-radius: 0rem 0rem 2.5rem 2.5rem;"
@@ -46,7 +46,7 @@
 
 (defwindow notification-list-closer
   :monitor 0
-  :geometry (geometry 
+  :geometry (geometry
     :x "0%"
     :y "0%"
     :width "100%"
@@ -56,7 +56,7 @@
   :exclusive false
   :focusable false
   :namespace "eww-notification-list-closer"
-
+  
   (closer :window "notification-list")
 )
 

@@ -1,5 +1,12 @@
 #!/bin/sh
 
+eww daemon
+
+eww open topbar
+eww open notification-view
+eww open volumeosd
+eww open brightnessosd
+
 /home/kaii/.config/eww/scripts/get_brightness_icon.sh
 /home/kaii/.config/eww/scripts/get_network_icon.sh
 /home/kaii/.config/eww/scripts/get_volume_icon.sh
@@ -15,11 +22,4 @@ fi
 
 /home/kaii/.config/eww/scripts/notifications.sh getdnd
 
-eww daemon
-
 python3 /home/kaii/.config/eww/scripts/notification_daemon.py & disown
-
-eww open topbar
-eww open notification-view
-eww open volumeosd
-eww open brightnessosd

@@ -2,7 +2,7 @@
 
 (defwidget volume-scale []
   (overlay :hexpand true
-    (scale :min 0 :max 100 :active {volume != 0} :value {volume} :onchange "pamixer --set-volume {}" :class "scale")
+    (scale :min 0 :max 101 :active {volume != 0} :value {volume} :onchange "pamixer --set-volume {} && /home/kaii/.config/eww/scripts/get_volume_icon.sh & disown" :class "scale")
     (image :path volumeicon :fill-svg {volume <= "5" ? "#FFFFFF" : "#1E333C"} :image-width "32" :halign "start" :style "margin-left: 1rem;")
   )
 )
