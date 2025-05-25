@@ -36,7 +36,7 @@
 
 (defwidget notifications_popup_widget []
   (box :orientation "v" :space-evenly false
-    (for i in "[2, 1, 0]"
+    (for i in "[0, 1, 2]"
       (revealer :transition "slidedown" :reveal {notifications.popups[i] == "null" ? false : true} :duration "350ms"
         (box :orientation "h" :space-evenly false :class "notifications-popup-body"
           (notification :notify {notifications.popups[i]})
@@ -49,7 +49,7 @@
 (defwidget notificationbutton []
   (box
     (eventbox :cursor "pointer"
-      (button :class "notificationbutton-widget" :onclick "if eww active-windows | grep \"notification-list\"; then eww close notification-list; else eww open notification-list; fi"
+      (button :class "notificationbutton-widget" :onclick "if eww active-windows | grep \"notification-list\"; then eww close notification-list && eww close notification-list-closer; else eww open notification-list && eww open notification-list-closer; fi"
         (image :path "/home/kaii/.config/eww/assets/notifications_filled.svg" :image-width 24 :image-height 24)
       )
     )

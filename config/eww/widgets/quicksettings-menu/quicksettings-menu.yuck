@@ -1,0 +1,184 @@
+(deflisten username :initial "kaii" `whoami`)
+(defvar do-not-disturb false)
+(defvar performance_mode false)
+(deflisten media_properties `/home/kaii/.config/eww/scripts/media_state.sh`)
+(deflisten media_positions :initial '{ "none": { "position": "0", "positionStr": "0:00" } }' `/home/kaii/.config/eww/scripts/media_positions.sh`)
+
+(defwidget quicksettings-menu-header []
+  (box :orientation "h" :space-evenly false :class "quicksettings-menu-header" :hexpand true :valign "start" :halign "start"
+    (box :orientation "h" :space-evenly false :class "rounded-image" :style "background-image: url('/home/${username}/.face'); min-width: 4rem; min-height: 4rem; border-radius: 50%; margin-left: 1rem;")
+    
+    (box :orientation "h" :space-evenly false :valign "center" :hexpand false :halign "start"
+      (label :text username :valign "center" :class "notification-list-title" :style "margin: 0;")
+      (label :text "|" :valign "center" :style "margin-bottom: 0.1rem;" :style "margin-top: -0.25rem; margin-right: 0;")
+      (label :text "Hyprland" :valign "center" :style "margin: 0; margin-left: 0.25rem")
+    )
+    
+    (box :space-evenly false :halign "end" :hexpand true :vexpand true :valign "center" :style "margin-left: 15rem;"
+      (eventbox :cursor "pointer"
+        (button
+          :class "notification-list-close-button"
+          :onclick "eww close quicksettings-menu && eww close quicksettings-menu-closer"
+          
+          (image :path "/home/kaii/.config/eww/assets/close.svg")
+        )
+      )
+    )
+  )
+)
+
+(defwidget quicksettings-menu-buttons []
+  (box :space-evenly false :hexpand true :vexpand true :orientation "v"
+    (box :hexpand true :style "padding: 0.5rem; margin: 0;"
+      (quicksettings-button
+        :icon {network_properties.icon}
+        :text {network_properties.name}
+        :state {network_properties.icon == "/home/kaii/.config/eww/assets/wifi_off.svg" ? "Off" : "On"}
+        :expandable true
+        :onclick "/home/${username}/.config/eww/scripts/network_util.sh toggle"
+      )
+      
+      (quicksettings-button
+        :icon {bluetooth_properties.icon}
+        :text {bluetooth_properties.connected_device != "" ? bluetooth_properties.connected_device : "Bluetooth"}
+        :state {bluetooth_properties.powered == "true" ? bluetooth_properties.connected_device != "" ? "Connected" : "On" : "Off"}
+        :expandable true
+        :onclick "/home/${username}/.config/eww/scripts/bluetooth_util.sh toggle"
+        :onexpandclick "notify-send 'Not implemented' 'This feature does not yet exist'"
+      )
+    )
+    
+    (box :hexpand true :style "padding: 0.5rem; margin: 0; margin-top: -0.15rem;"
+      (quicksettings-button
+        :icon {do-not-disturb == "true" ? "/home/kaii/.config/eww/assets/do_not_disturb.svg" : "/home/kaii/.config/eww/assets/notifications.svg"}
+        :text "Do Not Disturb"
+        :state {do-not-disturb == "true" ? "On" : "Off"}
+        :onclick "/home/${username}/.config/eww/scripts/notifications.sh togglednd"
+      )
+      
+      (quicksettings-button
+        :icon {performance_mode == "true" ? "/home/${username}/.config/eww/assets/power_mode_performance.svg" : "/home/${username}/.config/eww/assets/power_mode_saving.svg"}
+        :text "2 Bar of Boost"
+        :state {performance_mode == "true" ? "On" : "Off"}
+        :onclick "/home/${username}/.config/eww/scripts/performance_modes.sh switch & disown"
+      )
+    )
+  )
+)
+
+(defwidget music-controls []
+  (box :orientation "h" :space-evenly false :halign "center" :class "music-controls"
+    (button
+      :class ""
+      :onclick "playerctl previous"
+      
+      (image :path "/home/${username}/.config/eww/assets/skip_backwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
+    )
+    
+    (button
+      :class ""
+      :onclick "playerctl play-pause"
+      
+      (image
+        :path {media_properties.status == "Playing" ? "/home/${username}/.config/eww/assets/pause.svg" : "/home/${username}/.config/eww/assets/play.svg"}
+        :image-width 24
+        :image-height 24
+        :fill-svg "#0F1417"
+      )
+    )
+    
+    (button
+      :class ""
+      :onclick "playerctl next"
+      
+      (image :path "/home/${username}/.config/eww/assets/skip_forwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
+    )
+  )
+)
+
+(defwidget music-player []
+  (revealer :reveal {media_properties != "{}" ? media_properties.player != "" ? true : false : false} :duration "350ms" :valign "start" :style "padding: 1rem"
+    (box :orientation "v" :space-evenly false :class "music-player"
+      (box :space-evenly false :hexpand true :style "padding: 0.5rem;"
+        (box
+          :orientation "h"
+          :space-evenly false
+          :class "rounded-image"
+          :style "background-image: url('${media_properties.art}'); min-width: 9rem; min-height: 9rem"
+        )
+        
+        (box :orientation "v" :valign "center" :space-evenly false :hexpand true
+          (label :text {media_properties.title} :style "font-size: 1.25rem; font-weight: 600;" :halign "start" :wrap true :wrap-mode "char" )
+          (label :text {media_properties.artist} :style "font-size: 1.25rem; font-weight: 400;" :halign "start")
+        )
+        
+        (box :halign "end" :style "padding: 1rem;" 
+          (label 
+            :text {media_properties.player} 
+            :style "font-size: 1rem; font-weight: 600; border-radius: 2rem; background-color: #ACC7FF; padding: 0.25rem 0.75rem; color: #0F1417;"  
+            :valign "start"
+          )
+        )
+      )
+      
+      (box :space-evenly false :class "music-seekbar"
+        (label :text {media_positions[media_properties.player].positionStr} :xalign 0 :halign "start" :valign "center" :yalign 0.5 )
+        (scale 
+          :min 0 :max {media_properties.length / 1000000} 
+          :active true :value {media_positions[media_properties.player].position} 
+          :onchange "playerctl position {}" :class "music-scale"
+          :hexpand true
+          :vexpand true
+          :valign "center"
+        )
+        (label :text {media_properties.length_str} :halign "end")
+      )
+
+      (music-controls)
+    )
+  )
+)
+
+(defwidget quicksettings-menu-widget []
+  (box :orientation "v" :style "margin: 0; padding: 2rem;" :space-evenly false
+    (box :orientation "v" :space-evenly false :class "quicksettings-menu-widget"
+      (quicksettings-menu-header)
+      
+      (quicksettings-menu-buttons)
+      
+      (music-player)
+    )
+  )
+)
+
+(defwindow quicksettings-menu-closer
+  :monitor 0
+  :geometry (geometry
+    :x "0%"
+    :y "0%"
+    :width "100%"
+    :height "95%"
+  :anchor "center center")
+  :stacking "fg"
+  :exclusive false
+  :focusable false
+  :namespace "eww-quicksettings-menu-closer"
+  
+  (closer :window "quicksettings-menu")
+)
+
+(defwindow quicksettings-menu
+  :monitor 0
+  :geometry (geometry :x "-0.5%"
+    :y "-1%"
+    :width "0%"
+    :height "0%"
+    :anchor "top right"
+  )
+  :stacking "overlay"
+  :exclusive false
+  :focusable false
+  :namespace "eww-overlay"
+  
+  (quicksettings-menu-widget)
+)

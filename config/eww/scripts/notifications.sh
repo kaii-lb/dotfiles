@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# stolen from https://github.com/arfan-on-clouds/hyprclouds/blob/dc56aa5563da58ba1fd757c607a8630493686647/config/eww/scripts/notifications.sh
+
 dismiss() {
     dbus-send --session --type=method_call \
         --dest=org.freedesktop.Notifications \

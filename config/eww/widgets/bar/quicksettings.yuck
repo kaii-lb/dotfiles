@@ -1,14 +1,21 @@
 (deflisten brightnessicon :initial "/home/kaii/.config/eww/assets/brightness_2.svg" `tail -F /tmp/current_brightness_icon`)
 (deflisten volumeicon :initial "/home/kaii/.config/eww/assets/volume_mute.svg" `tail -F /tmp/current_volume_icon`)
-(defpoll networkicon :initial "/home/kaii/.config/eww/assets/wifi_off.svg" :interval "1s" `/home/kaii/.config/eww/scripts/get_network_icon.sh`)
+(deflisten network_properties :initial '{"essid": "None", "icon": "/home/kaii/.config/eww/assets/wifi_connected.svg"}' `/home/kaii/.config/eww/scripts/network_state.sh`)
+(defpoll bluetooth_properties :interval "1s" :initial '{"powered": "true", "connected_device": "", "battery": ""}' `/home/kaii/.config/eww/scripts/bluetooth_state.sh`)
 
 (defwidget quicksettings []
-    (eventbox :cursor "pointer"
+    (eventbox :cursor "pointer" :onclick "if eww active-windows | grep \"quicksettings-menu\"; then eww close quicksettings-menu && eww close quicksettings-menu-closer; else eww open quicksettings-menu && eww open quicksettings-menu-closer; fi"
         (box 
             :class "quicksettings-widget"
             :orientation "h" :space-evenly true
 
-            (image :path networkicon :fill-svg "#FFFFFF" :image-width "24")
+            (image :path {network_properties.icon} :fill-svg "#FFFFFF" :image-width "24")
+
+            (image
+                :path {bluetooth_properties.icon}
+                :visible {bluetooth_properties.powered == "true"}
+            )
+            
             (image :path volumeicon :fill-svg "#FFFFFF" :image-width "32")
             (image :path brightnessicon :fill-svg "#FFFFFF" :image-width "24")
         )

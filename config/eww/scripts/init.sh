@@ -1,10 +1,19 @@
 #!/bin/sh
 
-/home/kaii/.config/eww/scripts/get_battery_icon.sh
 /home/kaii/.config/eww/scripts/get_brightness_icon.sh
 /home/kaii/.config/eww/scripts/get_network_icon.sh
 /home/kaii/.config/eww/scripts/get_volume_icon.sh
 /home/kaii/.config/eww/scripts/set_current_language.sh
+
+perf_state=$(/home/kaii/.config/eww/scripts/performance_modes.sh state)
+
+if [[ $perf_state == "on" ]]; then
+	eww update performance_mode=true
+else
+	eww update performance_mode=false
+fi
+
+/home/kaii/.config/eww/scripts/notifications.sh getdnd
 
 eww daemon
 
