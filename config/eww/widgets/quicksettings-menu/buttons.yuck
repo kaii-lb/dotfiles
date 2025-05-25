@@ -12,7 +12,7 @@
         )
       )
       
-      (eventbox :cursor "pointer" :onclick onexpandclick
+      (eventbox :cursor "pointer" :onclick onexpandclick :visible expandable
         (image
           :path "/home/${username}/.config/eww/assets/arrow_right.svg"
           :fill-svg "#0F1417" :halign "end" :image-width 32

@@ -1,0 +1,58 @@
+(deflisten networks_available :initial "{}" `/home/kaii/.config/eww/scripts/network_list.sh`)
+
+(defwidget network-item [name icon selected]
+  (eventbox :cursor "pointer" :class "network-list-item" :onclick "/home/${username}/.config/eww/scripts/toggle_network.sh ${name} & disown"
+    (box :space-evenly false :style "min-height: 3.5rem"
+      (image :path icon :image-width 24 :image-height 24 :fill-svg "white" :valign "center")
+      
+      (label :text name :valign "center")
+      
+      (image
+        :path "/home/kaii/.config/eww/assets/plug_connected.svg"
+        :image-width 20 :image-height 20
+        :fill-svg "white" :hexpand true
+        :halign "end" :valign "center"
+        :visible {selected}
+        :style "margin-right: 1rem;"
+      )
+    )
+  )
+)
+
+(defwidget network-button [name icon onclick]
+  (eventbox :cursor "pointer" :class "network-list-button" :hexpand true :onclick onclick
+    (box :space-evenly false :valign "center" :hexpand true
+      (image :path icon :image-width 24 :image-height 24 :fill-svg "white" :valign "center" :hexpand true)
+      
+      (label :text name :valign "center" :halign "start" :hexpand true)
+    )
+  )
+)
+
+(defwidget network-list []
+  (box :class "network-list" :orientation "v" :space-evenly false
+    (label :text "Network List" :style "font-size: 1.25rem; font-weight: 500; min-height: 4rem;")
+    
+    (scroll :vscroll true :hscroll false :vexpand true :style {networks_available.items[0] == "null" ? "min-height: 5rem;" : "min-height: 10rem;"}
+      (box :orientation "v" :space-evenly false
+        (label :text "No Networks Found" :style "font-size: 1.25rem; font-weight: 500; min-height: 4rem;" :visible {networks_available.items[0] == "null"})
+        
+        (for i in {networks_available.count}
+          (network-item
+            :name {networks_available.items[i].name}
+            :icon {networks_available.items[i].type == "wireless" ? "/home/kaii/.config/eww/assets/wifi_connected.svg" : "/home/kaii/.config/eww/assets/ethernet.svg"}
+            :selected {networks_available.items[i].state == "activated"}
+          )
+        )
+      )
+    )
+    
+    (box :space-evenly false :halign "center" :hexpand true :style "min-width: 32rem; min-height: 3rem; margin-top: 1rem; padding: 1rem 0rem;"
+      (network-button :name "Details" :icon "/home/${username}/.config/eww/assets/settings.svg" :onclick "")
+      
+      (box :style "background-color: white; min-width: 0.05rem; margin: 0.6rem 1rem;")
+      
+      (network-button :name "Done" :icon "/home/${username}/.config/eww/assets/checkmark.svg" :onclick "eww update show_network_options=false")
+    )
+  )
+)

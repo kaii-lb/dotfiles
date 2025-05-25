@@ -3,27 +3,33 @@
 
 (defwidget music-controls []
   (box :orientation "h" :space-evenly false :halign "center" :class "music-controls"
-    (button
-      :onclick "playerctl previous"
-      
-      (image :path "/home/${username}/.config/eww/assets/skip_backwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
-    )
-    
-    (button
-      :onclick "playerctl play-pause"
-      
-      (image
-        :path {media_positions[media_properties.player].state == "Playing" ? "/home/${username}/.config/eww/assets/pause.svg" : "/home/${username}/.config/eww/assets/play.svg"}
-        :image-width 24
-        :image-height 24
-        :fill-svg "#0F1417"
+    (eventbox :cursor "pointer"
+      (button
+        :onclick "playerctl previous"
+        
+        (image :path "/home/${username}/.config/eww/assets/skip_backwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
       )
     )
     
-    (button
-      :onclick "playerctl next"
-      
-      (image :path "/home/${username}/.config/eww/assets/skip_forwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
+    (eventbox :cursor "pointer"
+      (button
+        :onclick "playerctl play-pause"
+        
+        (image
+          :path {media_positions[media_properties.player].state == "Playing" ? "/home/${username}/.config/eww/assets/pause.svg" : "/home/${username}/.config/eww/assets/play.svg"}
+          :image-width 24
+          :image-height 24
+          :fill-svg "#0F1417"
+        )
+      )
+    )
+    
+    (eventbox :cursor "pointer"
+      (button
+        :onclick "playerctl next"
+        
+        (image :path "/home/${username}/.config/eww/assets/skip_forwards.svg" :image-width 24 :image-height 24 :fill-svg "#0F1417")
+      )
     )
   )
 )
@@ -34,7 +40,7 @@
     (scale
       :min 0 :max {media_properties.length / 1000000}
       :active true :value {media_positions[media_properties.player].position}
-      :onchange "playerctl position {}" :class "music-scale"
+      :onchange "# playerctl position {}" :class "music-scale" ; TODO: find a way to make this not jump songs
       :hexpand true
       :vexpand true
       :valign "center"

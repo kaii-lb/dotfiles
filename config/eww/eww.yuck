@@ -10,6 +10,7 @@
 (include "widgets/quicksettings-menu/buttons.yuck")
 (include "widgets/quicksettings-menu/music-player.yuck")
 (include "widgets/quicksettings-menu/sliders.yuck")
+(include "widgets/quicksettings-menu/network-list.yuck")
 
 (defwindow topbar
            :monitor 0

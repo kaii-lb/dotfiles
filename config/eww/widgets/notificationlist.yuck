@@ -4,7 +4,7 @@
   (box :orientation "v" :style "margin: 0; padding: 2rem;" :space-evenly false
     (box :orientation "v" :space-evenly false :class "notification-list-widget"
       (box :orientation "h" :space-evenly true :class "notification-list-header" :hexpand true
-        (label :text "Notifications" :valign "center" :class "notification-list-title")
+        (label :text "Notifications" :valign "center" :style "font-size: 1.5rem; font-weight: 600; margin-left: -5rem;")
         
         (box :orientation "h" :space-evenly false :halign "end" :valign "center"
           (eventbox :cursor "pointer"
