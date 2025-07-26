@@ -1,8 +1,0 @@
-(defpoll weather :interval "3600s" :initial-value "Fetching..." `./scripts/weather.py`)
-
-(defwidget weather []
-    (box :class "weather-widget" :orientation "h"
-        (label :text {weather.icon})
-        (label :text {weather.text})
-    )
-)

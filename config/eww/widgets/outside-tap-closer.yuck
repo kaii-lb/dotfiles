@@ -1,3 +1,0 @@
-(defwidget closer [window]
-  (eventbox :onclick {"eww close ${window}-closer && eww close ${window}"} :hexpand true :vexpand true)
-)

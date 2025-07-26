@@ -1,7 +1,0 @@
-(deflisten language :initial "en" `tail -F /tmp/current_language`)
-
-(defwidget languageindicator []
-    (box :class "languageindicator-widget"
-        (label :text language)
-    ) 
-)

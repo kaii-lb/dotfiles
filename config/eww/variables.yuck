@@ -1,2 +1,0 @@
-(defvar open_volume_osd false)
-(defvar open_brightness_osd false)
