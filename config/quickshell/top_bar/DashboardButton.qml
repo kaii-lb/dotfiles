@@ -1,7 +1,8 @@
 import Quickshell
+import Quickshell.Widgets
+import Quickshell.Io
 import QtQuick
 import QtQuick.Controls
-import Quickshell.Widgets
 import "root:/config"
 
 Button {
@@ -19,9 +20,17 @@ Button {
         radius: Appearance.radii.large
     }
 
+    Process {
+        id: dashboardProc
+        command: ["sh", "/home/kaii/.config/rofi/bin/launcher"]
+
+        running: false
+    }
+
     MouseArea {
         cursorShape: Qt.PointingHandCursor
         anchors.fill: parent
-        acceptedButtons: Qt.NoButton 
+        
+        onClicked: dashboardProc.running = true
     }
 }

@@ -1,6 +1,7 @@
 import Quickshell
-import QtQuick
 import Quickshell.Widgets
+import Quickshell.Io
+import QtQuick
 import QtQuick.Controls
 import "root:/config"
 
@@ -19,9 +20,18 @@ Button {
         radius: Appearance.radii.large
     }
 
+    Process {
+        id: powerMenuProc
+        command: ["sh", "/home/kaii/.config/rofi/bin/powermenu"]
+
+        running: false
+    }
+
     MouseArea {
         cursorShape: Qt.PointingHandCursor
-        anchors.fill: parent
-        acceptedButtons: Qt.NoButton 
+        anchors.fill: parent 
+        acceptedButtons: Qt.NoButton
     }
+
+    onClicked: powerMenuProc.running = true
 }

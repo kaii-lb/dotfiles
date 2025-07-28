@@ -1,15 +1,17 @@
 import Quickshell
 import Quickshell.Io
+import Quickshell.Services.Pipewire
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell.Widgets 
 import "root:/config"
+import "root:/utils"
+import "root:/widgets"
 
 Item {
     id: root
     property bool isPowered: false
-    property int marginBottom: 0
     clip: true
 
     implicitHeight: Appearance.sizes.height
@@ -29,27 +31,24 @@ Item {
             iconSize: 25
             isBluetooth: false
             marginLeft: 0
-            marginRight: 0
         }
         ListElement {
             iconSource: "/home/kaii/.config/quickshell/assets/volume_mute.svg"
             iconSize: 35
             isBluetooth: false
             marginLeft: -4
-            marginRight: 0
         }
         ListElement {
             iconSource: "/home/kaii/.config/quickshell/assets/brightness_2.svg"
             iconSize: 25
             isBluetooth: false
             marginLeft: 0
-            marginRight: 0
         }
     }
 
     RowLayout {
         id: quicksettingsRow
-        spacing: 2
+        spacing: 4
         anchors.centerIn: parent
 
         Repeater {
@@ -57,9 +56,7 @@ Item {
 
             WrapperItem {
                 leftMargin: marginLeft
-                rightMargin: marginRight
-                bottomMargin: root.marginBottom
-
+                
                 IconImage {
                     width: 20
                     source: Qt.resolvedUrl(iconSource)
@@ -69,53 +66,77 @@ Item {
         }
     }
 
-    Process {
-        id: bluetoothProc
-        command: ["/home/kaii/.config/eww/scripts/bluetooth_state.sh"]
+	PwObjectTracker {
+		objects: [ Pipewire.defaultAudioSink ]
+	}
 
-        running: true
+    // here so we can call it on startup
+    function onVolumeChange() {
+        if (!Pipewire.defaultAudioSink.ready) return
 
-        stdout: StdioCollector {
-            onStreamFinished: {
-                var jsonData = JSON.parse(this.text)
-                root.isPowered = jsonData.powered === "true"
+        var volume = (Pipewire.defaultAudioSink?.audio.volume * 100) ?? 0
+        var icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
+        
+        if (volume == 0) {
+            icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
+        } else if (volume < 33) {
+            icon = "/home/kaii/.config/quickshell/assets/volume_low.svg"
+        } else if (volume < 67) {
+            icon = "/home/kaii/.config/quickshell/assets/volume_mid.svg"
+        } else {
+            icon = "/home/kaii/.config/quickshell/assets/volume_high.svg"
+        }
 
-                if (isPowered) {
-                    elementModel.get(1).isBluetooth ? elementModel.setProperty(1, "iconSource", jsonData.icon) : elementModel.insert(1, { iconSource: jsonData.icon, iconSize: 25, isBluetooth: true, marginLeft: 0, marginRight: 0 })
-                } else {
-                    elementModel.get(1).isBluetooth ? elementModel.remove(1, 1) : elementModel.get(1)
-                }
-            }
+        var index = elementModel.get(1).isBluetooth ? 2 : 1
+
+        elementModel.setProperty(index, "iconSource", icon)
+    }
+
+    Connections {
+        target: Pipewire.defaultAudioSink?.audio ?? null
+
+        function onVolumeChanged() {
+            root.onVolumeChange()
         }
     }
 
-    Timer {
-        interval: 1000
-        running: true
-        repeat: true
-        onTriggered: bluetoothProc.running = true
+    Connections {
+        target: NetworkState
+
+        function onStateChanged() {
+            var jsonData = JSON.parse(NetworkState.state)
+
+            elementModel.setProperty(0, "iconSource", jsonData.icon)
+        }
+    }
+    
+    Connections {
+        target: BrightnessState
+
+        function onStateChanged() {
+            root.onVolumeChange()
+            var jsonData = JSON.parse(BrightnessState.state)
+            var index = elementModel.get(1).isBluetooth ? 3 : 2
+
+            elementModel.setProperty(index, "iconSource", jsonData.icon)
+        }
     }
 
-    Process {
-        id: volumeProc
-        command: ["tail", "-F", "/tmp/current_volume"]
+    Connections {
+        target: BluetoothState
 
-        running: true
+        function onStateChanged() {
+            var jsonData = JSON.parse(BluetoothState.state)
+            root.isPowered = jsonData.powered === "true"
+            
+            var index = elementModel.get(1).isBluetooth ? 2 : 1
+            var marginLeft = root.isPowered ? -4 : 0
+            elementModel.setProperty(index, "marginLeft", marginLeft)
 
-        stdout: SplitParser {
-            onRead: data => {
-                var jsonData = JSON.parse(data)
-                var iconSize = jsonData.level > 67 ? 30 : 35
-                var marginLeft = jsonData.level > 67 ? 0 : -3
-                var marginRight = jsonData.level > 67 ? 2 : 0
-                var index = elementModel.get(1).isBluetooth ? 2 : 1
-
-                root.marginBottom = jsonData.level > 67 ? 2 : 0
-
-                elementModel.setProperty(index, "iconSource", jsonData.icon)
-                elementModel.setProperty(index, "iconSize", iconSize)
-                elementModel.setProperty(index, "marginLeft", root.isPowered ? marginLeft : (jsonData.level > 67 ? 3 : 0))
-                elementModel.setProperty(index, "marginRight", marginRight)
+            if (isPowered) {
+                elementModel.get(1).isBluetooth ? elementModel.setProperty(1, "iconSource", jsonData.icon) : elementModel.insert(1, { iconSource: jsonData.icon, iconSize: 25, isBluetooth: true, marginLeft: 0, marginRight: 0 })
+            } else {
+                elementModel.get(1).isBluetooth ? elementModel.remove(1, 1) : elementModel.get(1)
             }
         }
     }
@@ -125,5 +146,12 @@ Item {
         acceptedButtons: Qt.LeftButton
         anchors.fill: parent
         id: quicksettingsMouseArea
+
+        onClicked: quicksettingsMenu.shouldShowQuicksettings = !quicksettingsMenu.shouldShowQuicksettings
+    }
+
+
+    Quicksettings {
+        id: quicksettingsMenu
     }
 }

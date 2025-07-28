@@ -1,6 +1,8 @@
 //@ pragma UseQApplication
 
 import "root:/config"
+import "root:/osds"
+import "root:/widgets"
 import Quickshell
 import QtQuick
 import QtQuick.Layouts
@@ -8,6 +10,8 @@ import Quickshell.Io
 
 Scope {
   id: root
+
+  VolumeBrightnessOSD {}
 
   PanelWindow {
   	id: barRoot

@@ -7,7 +7,7 @@ Item {
 
     readonly property Repeater items: items
 
-    clip: true
+    clip: false
     visible: width > 0 && height > 0 // To avoid warnings about being visible with no size
 
     implicitWidth: layout.implicitWidth
@@ -18,29 +18,9 @@ Item {
 
         spacing: Appearance.spacing.normal
 
-        add: Transition {
-            NumberAnimation {
-                properties: "scale"
-                from: 0
-                to: 1
-                duration: Appearance.animations.durationNormal
-                easing.type: Easing.BezierSpline
-            }
-        }
+        add: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
 
-        move: Transition {
-            NumberAnimation {
-                properties: "scale"
-                to: 1
-                duration: Appearance.animations.durationNormal
-                easing.type: Easing.BezierSpline
-            }
-            NumberAnimation {
-                properties: "x,y"
-                duration: Appearance.animations.durationNormal
-                easing.type: Easing.BezierSpline
-            }
-        }
+        move: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
 
         Repeater {
             id: items
@@ -53,15 +33,17 @@ Item {
 
     Behavior on implicitWidth {
         NumberAnimation {
-            duration: Appearance.animations.durationNormal
+            duration: 400
             easing.type: Easing.BezierSpline
+            easing.bezierCurve: [.38,.51,.34,1.45, 1, 1]
         }
     }
 
     Behavior on implicitHeight {
         NumberAnimation {
-            duration: Appearance.animations.durationNormal
+            duration: 400
             easing.type: Easing.BezierSpline
+            easing.bezierCurve: [.38,.51,.34,1.45, 1, 1]
         }
     }
 }

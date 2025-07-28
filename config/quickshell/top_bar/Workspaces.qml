@@ -11,7 +11,7 @@ Item {
     Rectangle {
     	radius: Appearance.radii.normal
     	color: Appearance.colors.surface
-    	width: workspacesRow.width * 1.2
+    	width: workspacesRow.width
     	height: Appearance.sizes.height // or 0 maybe? it also looks good
     	anchors.centerIn: workspacesRow
     }
@@ -23,6 +23,8 @@ Item {
 		    horizontalCenter: parent.horizontalCenter
 		    verticalCenter: parent.verticalCenter
 		}
+		leftPadding: 12
+		rightPadding: 12
 
         Repeater {
         	id: workspacesRepeater

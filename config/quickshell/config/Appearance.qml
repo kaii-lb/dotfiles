@@ -17,13 +17,15 @@ Singleton {
         readonly property color primaryPressed: "#ccddff"
         readonly property color primaryText: "#0F1417"
         readonly property color surface: "#1E333C"
+        readonly property color surfaceDark: "#16262c"
         readonly property color surfacePressed: "#30515f"
         readonly property color text: "#ffffff"
     }
 
     component Radii: QtObject {
         readonly property int normal: 16
-        readonly property int large: 100
+        readonly property int large: 32
+        readonly property int full: 100
     }
 
     component Sizes: QtObject {

@@ -23,7 +23,7 @@ Rectangle {
             source: Qt.resolvedUrl("/home/kaii/.config/quickshell/assets/temp.svg")
         }
 
-        Rectangle { 
+        Rectangle {
             width: 2
             height: Appearance.sizes.icon
             color: "transparent"
@@ -31,9 +31,9 @@ Rectangle {
 
 
         WrapperItem {
-            implicitHeight: Appearance.sizes.icon
+            implicitHeight: parent.height
             topMargin: 2
-            
+
             Text {
                 id: temp
                 color: Appearance.colors.text
@@ -63,7 +63,7 @@ Rectangle {
 
         WrapperItem {
             implicitHeight: Appearance.sizes.icon
-            topMargin: 4
+            topMargin: 3
         
             Text {
                 text: "°C"

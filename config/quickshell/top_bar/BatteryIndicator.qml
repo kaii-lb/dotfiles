@@ -4,6 +4,7 @@ import QtQuick
 import QtQuick.Controls
 import Quickshell.Widgets
 import "root:/config"
+import "root:/utils"
 
 Rectangle {
     implicitWidth: batteryRow.width
@@ -14,7 +15,7 @@ Rectangle {
     Row {
         id: batteryRow
         anchors.centerIn: parent
-        spacing: 0
+        spacing: -2
 
         leftPadding: 8
         rightPadding: 8
@@ -51,7 +52,7 @@ Rectangle {
 
         Process {
             id: batteryProc
-            command: ["/home/kaii/.config/eww/scripts/get_battery_state.sh"]
+            command: ["/home/kaii/.config/quickshell/scripts/get_battery_state.sh"]
 
             running: true
 

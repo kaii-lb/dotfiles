@@ -7,7 +7,7 @@ import "root:/config"
 Button {
     id: notificationButton
 
-    icon.source: "/home/kaii/.config/eww/assets/notifications_filled.svg"
+    icon.source: "/home/kaii/.config/quickshell/assets/notifications_filled.svg"
     icon.color: Appearance.colors.text
     icon.width: 25
     icon.height: 25
