@@ -10,8 +10,13 @@ import Quickshell.Io
 
 Scope {
   id: root
-
-  VolumeBrightnessOSD {}
+  
+  Quicksettings {
+      id: quicksettingsMenu
+  }
+  VolumeBrightnessOSD {
+    quicksettingsMenu: quicksettingsMenu
+  }
 
   PanelWindow {
   	id: barRoot
@@ -50,7 +55,9 @@ Scope {
           SystemTray {}
           ClockWidget {}
           NotificationButton {}
-          QuickSettingsButton {}
+          QuickSettingsButton {
+            quicksettingsMenu: quicksettingsMenu
+          }
           BatteryIndicator {}
           PowerButton {}
         }

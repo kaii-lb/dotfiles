@@ -29,10 +29,11 @@ WrapperRectangle {
         }
 
         Text {
-            text: "kaii | Hyprland"
+            text: "kaii - existing"
             color: Appearance.colors.text
             font.pointSize: 18
             font.weight: Font.Bold
+            Layout.alignment: Qt.AlignLeft
             Layout.fillWidth: true
         }
 

@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if [[ $1 == "set" ]]; then
+	brightnessctl s "${2}%"
+fi
+
 brightness=$(brightnessctl i | grep Current | cut -f4 -d' ' | sed -e "s/(//g" -e "s/%)//g")
 icon="/home/kaii/.config/quickshell/assets/brightness_1.svg"
 

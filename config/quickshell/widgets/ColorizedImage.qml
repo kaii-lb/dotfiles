@@ -11,8 +11,8 @@ Item {
     required property var color
     required property int size
 
-    height: 36
-    width: 36
+    height: size
+    width: size
 
     ColorOverlay {
         anchors.fill: image

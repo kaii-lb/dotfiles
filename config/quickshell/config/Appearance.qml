@@ -20,6 +20,7 @@ Singleton {
         readonly property color surfaceDark: "#16262c"
         readonly property color surfacePressed: "#30515f"
         readonly property color text: "#ffffff"
+        readonly property color textDim: "#cccccc"
     }
 
     component Radii: QtObject {
@@ -41,6 +42,7 @@ Singleton {
         readonly property int durationNormal: 400
 
         readonly property list<real> expressive: [.38,.51,.34,1.45, 1, 1]
+        readonly property list<real> expressiveEffects: [0.34, 0.80, 0.34, 1.00, 1, 1]
 
         property QtObject elementMoveEnter: QtObject {
             property int duration: 400
@@ -55,6 +57,23 @@ Singleton {
                     easing.bezierCurve: root.animations.elementMoveEnter.bezierCurve
                 }
             }
+        }
+
+        property QtObject elementMoveFast: QtObject {
+            property int duration: 400
+            property int type: Easing.BezierSpline
+            property list<real> bezierCurve: root.animations.expressiveEffects
+            property int velocity: 850
+            property Component colorAnimation: Component { ColorAnimation {
+                duration: root.animations.elementMoveFast.duration
+                easing.type: root.animations.elementMoveFast.type
+                easing.bezierCurve: root.animations.elementMoveFast.bezierCurve
+            }}
+            property Component numberAnimation: Component { NumberAnimation {
+                    duration: root.animations.elementMoveFast.duration
+                    easing.type: root.animations.elementMoveFast.type
+                    easing.bezierCurve: root.animations.elementMoveFast.bezierCurve
+            }}
         }
     }
 }

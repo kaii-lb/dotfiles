@@ -4,12 +4,14 @@ import QtQuick.Layouts
 import Quickshell
 import Quickshell.Io
 import Quickshell.Widgets
+import Quickshell.Hyprland
 pragma Singleton
 pragma ComponentBehavior: Bound
 
 Singleton {
     id: root
     property string state: ""
+    property int percent: 0
 
     Process {
         id: brightnessProc
@@ -22,5 +24,17 @@ Singleton {
                 root.state = data
             }
         }
+    }
+
+    function setBrightness(value: int) {
+        root.percent = Math.max(1, value)
+        brightnessSetProc.running = true
+    }
+
+    Process {
+        id: brightnessSetProc
+        command: ["/home/kaii/.config/quickshell/scripts/get_brightness_icon.sh", "set", root.percent.toString() + "%"]
+
+        running: false
     }
 }

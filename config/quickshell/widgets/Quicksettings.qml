@@ -1,10 +1,14 @@
 import "root:/config"
 import "root:/utils"
 import QtQuick
+import QtQuick.Controls
 import QtQuick.Layouts
 import Quickshell
-import Quickshell.Io
+import Quickshell.Services.Pipewire
 import Quickshell.Widgets
+import Quickshell.Io
+import Quickshell.Wayland
+import Quickshell.Hyprland
 
 Scope {
 	id: root
@@ -18,13 +22,19 @@ Scope {
             id: rootWindow
             exclusionMode: ExclusionMode.Ignore
 
+            Component.onCompleted: {
+				if (this.WlrLayershell != null) {
+					this.WlrLayershell.layer = WlrLayer.Overlay;
+				}
+			}
+
             anchors.top: true
             anchors.right: true
             margins.right: screen.width * 0.005
             margins.top: screen.height / 15
 
             implicitWidth: 500
-            implicitHeight: columnLayout.height * 1.14
+            implicitHeight: columnLayout.height + 32
             color: "transparent"
 
             Rectangle {
@@ -38,6 +48,10 @@ Scope {
                     ColumnLayout {
                         id: columnLayout
                         spacing: 10
+
+                        Behavior on implicitHeight {
+                            animation: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
+                        }
 
                         QuicksettingsHeaderBar {
                             Layout.minimumWidth: rootWindow.width - 16*2
@@ -139,20 +153,39 @@ Scope {
                             spacing: 10
 
                             Process {
-                                id: caffieneProc
-                                command: ["python3", "/home/kaii/.config/eww/scripts/idleinhibit.py"]
+                                id: caffieneCheckProc
+                                command: ["/home/kaii/.config/quickshell/scripts/caffiene.sh", "check"]
+
+                                running: true
+
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        caffieneTile.summary = this.text === "true\n" ? "Active" : "Inactive"
+                                    }
+                                }
+                            }
+
+                            Process {
+                                id: caffieneToggleProc
+                                command: ["/home/kaii/.config/quickshell/scripts/caffiene.sh", "toggle"]
 
                                 running: false
+
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        caffieneCheckProc.running = true
+                                    }
+                                }
                             }
 
                             QsTile {
                                 id: caffieneTile
                                 title: "Caffiene"
-                                summary: caffieneProc.running ? "Active" : "Inactive"
+                                summary: "Inactive"
                                 iconPath: "/home/kaii/.config/quickshell/assets/caffiene.svg"
-                                active: caffieneProc.running
+                                active: caffieneTile.summary == "Active"
                                 command: function() {
-                                    caffieneProc.running = !caffieneProc.running
+                                    caffieneToggleProc.running = true
                                 }
                             }
 
@@ -166,6 +199,105 @@ Scope {
                                     // TODO: complete this
                                 }
                             }
+                        }
+
+                        WrapperItem {
+                            topMargin: 16
+                            Layout.fillWidth: true
+                            Layout.horizontalStretchFactor: 1
+
+                            ColumnLayout {
+                                spacing: 16
+
+                                PwObjectTracker {
+                                    objects: [ Pipewire.defaultAudioSink ]
+                                }
+
+                                Process {
+                                    command: ["echo", "hi"]
+                                    running: true
+
+                                    stdout: StdioCollector {
+                                        onStreamFinished: {
+                                            volumeConnection.onVolumeChanged()
+                                            brightnessConnection.onStateChanged()
+                                        }
+                                    }
+                                }
+
+                                Connections {
+                                    id: volumeConnection
+                                    target: Pipewire.defaultAudioSink?.audio ?? null
+
+                                    function onVolumeChanged() {
+                                        if (!Pipewire.defaultAudioSink.ready) return
+
+                                        var volume = (Pipewire.defaultAudioSink?.audio.volume * 100) ?? 0
+                                        var icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
+                                        
+                                        if (volume == 0) {
+                                            icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
+                                        } else if (volume < 33) {
+                                            icon = "/home/kaii/.config/quickshell/assets/volume_low.svg"
+                                        } else if (volume < 67) {
+                                            icon = "/home/kaii/.config/quickshell/assets/volume_mid.svg"
+                                        } else {
+                                            icon = "/home/kaii/.config/quickshell/assets/volume_high.svg"
+                                        }
+
+                                        volumeSlider.value = volume
+                                        volumeSlider.icon = icon
+                                    }
+                                }
+
+                                MaterialSlider {
+                                    id: volumeSlider
+
+                                    icon: "/home/kaii/.config/quickshell/assets/volume_mid.svg"
+                                    iconSize: 34
+                                    paddingLeft: 0.5
+                                    paddingTop: 1
+                                    value: 0
+
+                                    onSlide: function(value) {
+                                        if (Pipewire.defaultAudioSink?.audio) {
+                                            Pipewire.defaultAudioSink.audio.volume = value / 100
+                                        }
+                                    }
+                                }
+
+                                Connections {
+                                    id: brightnessConnection
+                                    target: BrightnessState
+
+                                    function onStateChanged() {
+                                        var jsonData = JSON.parse(BrightnessState.state)
+                                        brightnessSlider.value = jsonData.level
+                                        brightnessSlider.icon = jsonData.icon
+                                    }
+                                }
+
+                                MaterialSlider {
+                                    id: brightnessSlider
+
+                                    icon: "/home/kaii/.config/quickshell/assets/brightness_2.svg"
+                                    iconSize: 24
+                                    paddingLeft: 5.5
+                                    paddingTop: 9.5
+                                    value: 0
+
+                                    onSlide: function(value) {
+                                        BrightnessState.setBrightness(value)
+                                    }
+                                }
+                            }
+                        }
+
+                        WrapperItem {
+                            topMargin: 16
+                            Layout.fillWidth: true
+                            
+                            MediaPlayer {}
                         }
                     }
                 }

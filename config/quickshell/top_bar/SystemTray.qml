@@ -32,18 +32,10 @@ Item {
     }
 
     Behavior on implicitWidth {
-        NumberAnimation {
-            duration: 400
-            easing.type: Easing.BezierSpline
-            easing.bezierCurve: [.38,.51,.34,1.45, 1, 1]
-        }
+        animation: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
     }
 
     Behavior on implicitHeight {
-        NumberAnimation {
-            duration: 400
-            easing.type: Easing.BezierSpline
-            easing.bezierCurve: [.38,.51,.34,1.45, 1, 1]
-        }
+        animation: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
     }
 }

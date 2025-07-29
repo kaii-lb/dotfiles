@@ -11,6 +11,7 @@ import Quickshell.Hyprland
 Scope {
 	id: root
 
+	required property var quicksettingsMenu
     property string icon: "/home/kaii/.config/quickshell/assets/volume_mid.svg"
     property bool shouldShowOsd: false
     property double percent: 0.0
@@ -85,10 +86,16 @@ Scope {
     }
 
 	LazyLoader {
-		active: root.shouldShowOsd
+		active: root.shouldShowOsd && !quicksettingsMenu.shouldShowQuicksettings
 
 		PanelWindow {
 			exclusionMode: ExclusionMode.Ignore
+
+			Component.onCompleted: {
+				if (this.WlrLayershell != null) {
+					this.WlrLayershell.layer = WlrLayer.Overlay;
+				}
+			}
 
 			anchors.bottom: true
 			margins.bottom: screen.height / 5

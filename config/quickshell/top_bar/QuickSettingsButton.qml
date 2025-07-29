@@ -11,11 +11,17 @@ import "root:/widgets"
 
 Item {
     id: root
-    property bool isPowered: false
-    clip: true
 
+    required property var quicksettingsMenu
+    property bool isPowered: false
+
+    clip: true
     implicitHeight: Appearance.sizes.height
     implicitWidth: quicksettingsRow.width * 1.2
+
+    Behavior on implicitWidth {
+        animation: Appearance.animations.elementMoveEnter.numberAnimation.createObject(this)
+    }
 
     Rectangle {
         color: quicksettingsMouseArea.pressedButtons & Qt.LeftButton ? Appearance.colors.surfacePressed : Appearance.colors.surface
@@ -148,10 +154,5 @@ Item {
         id: quicksettingsMouseArea
 
         onClicked: quicksettingsMenu.shouldShowQuicksettings = !quicksettingsMenu.shouldShowQuicksettings
-    }
-
-
-    Quicksettings {
-        id: quicksettingsMenu
     }
 }

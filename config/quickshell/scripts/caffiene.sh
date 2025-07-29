@@ -13,10 +13,8 @@ check() {
 toggle() {
 	if [[ $pid != "" ]]; then
 		kill $pid
-		# eww update caffiene=false
 	else
-		python3 ~/.config/eww/scripts/idleinhibit.py & disown
-		# eww update caffiene=true
+		python3 ~/.config/quickshell/scripts/idleinhibit.py & disown
 	fi
 }
 

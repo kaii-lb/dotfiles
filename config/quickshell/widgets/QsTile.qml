@@ -24,6 +24,10 @@ WrapperRectangle {
     radius: Appearance.radii.full
     margin: 16
 
+    Behavior on color {
+        animation: Appearance.animations.elementMoveFast.colorAnimation.createObject(this)
+    }
+
     WrapperMouseArea {
         cursorShape: Qt.PointingHandCursor
         acceptedButtons: Qt.LeftButton
