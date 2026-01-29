@@ -38,7 +38,7 @@ elif [[ $1 -eq 4 ]]; then
 		playerctl pause
 		pamixer --mute
 		sh /home/$USER/.config/hypr/scripts/lock.sh &
-		systemctl suspend
+		systemctl sleep
 	elif [[ $ans == "" ]]; then
 		exit
     else

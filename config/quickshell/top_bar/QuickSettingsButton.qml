@@ -62,7 +62,7 @@ Item {
 
             WrapperItem {
                 leftMargin: marginLeft
-                
+
                 IconImage {
                     width: 20
                     source: Qt.resolvedUrl(iconSource)
@@ -82,7 +82,7 @@ Item {
 
         var volume = (Pipewire.defaultAudioSink?.audio.volume * 100) ?? 0
         var icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
-        
+
         if (volume == 0) {
             icon = "/home/kaii/.config/quickshell/assets/volume_mute.svg"
         } else if (volume < 33) {

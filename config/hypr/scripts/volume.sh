@@ -12,7 +12,7 @@ if [[ $1 == "increase" ]]; then
 	else
 		pamixer -i $2
 	fi
-	
+
 	canberra-gtk-play -i audio-volume-change -d "changeVolume"
 
 	echo increased
@@ -26,10 +26,10 @@ elif [[ $1 == "decrease" ]]; then
 
 	if [[ -z $2 ]]; then
 		pamixer -d 5
-	else	
+	else
 		pamixer -d $2
 	fi
-	
+
 	canberra-gtk-play -i audio-volume-change -d "changeVolume"
 
 	echo decreased
@@ -38,10 +38,9 @@ elif [[ $1 == "toggle-mute" ]]; then
 	ismuted=$(pamixer --get-mute)
 
 	if [ "$ismuted" = false ]; then
-		rm $HOME/.config/hypr/scripts/current_volume.txt
 		echo $(pamixer --get-volume > $HOME/.config/hypr/scripts/current_volume.txt)
 		pamixer -t
-		pamixer pamixer --set-volume 0 
+		pamixer pamixer --set-volume 0
 	else
 		current_volume=$(cat $HOME/.config/hypr/scripts/current_volume.txt)
 		pamixer --set-volume $current_volume

@@ -8,9 +8,10 @@ import Quickshell.Services.Mpris
 
 WrapperRectangle {
     id: root
-    property var activePlayer: Mpris.players.values[0]
+    required property var activePlayer
     property double length: activePlayer.length
     property double position: activePlayer.position
+    property list<string> longTitle: activePlayer.desktopEntry.split('.')
 
     implicitHeight: activePlayer != null ? 230 : -40
     visible: activePlayer != null
@@ -36,8 +37,8 @@ WrapperRectangle {
                         source: activePlayer.trackArtUrl
                         width: parent.width
                         height: parent.width
-                        sourceSize.width: 1024
-                        sourceSize.height: 1024
+                        sourceSize.width: 256
+                        sourceSize.height: 256
                         fillMode: Image.PreserveAspectCrop
                     }
                 }
@@ -49,22 +50,37 @@ WrapperRectangle {
                     
                     ColumnLayout {
                         spacing: 1
+                        implicitWidth: 150
 
-                        Text {
-                            text: activePlayer.trackTitle
-                            color: Appearance.colors.text
+                        Item {
+                            height: titleText.height
+                            width: titleText.width
 
-                            font.pointSize: 16
-                            font.weight: Font.Bold
+                            Text {
+                                id: titleText
+                                text: activePlayer.trackTitle
+                                color: Appearance.colors.text
 
-                            elide: Text.ElideRight
+                                font.pointSize: 16
+                                font.weight: Font.Bold
+
+                                width: 200
+                                elide: Text.ElideRight
+                            }
                         }
 
-                        Text {
-                            text: activePlayer.trackArtist
-                            color: Appearance.colors.textDim
-                            
-                            font.pointSize: 13
+                        Item {
+                            height: titleText.height
+                            width: titleText.width
+                        
+                            Text {
+                                text: activePlayer.trackArtist
+                                color: Appearance.colors.textDim
+                                
+                                font.pointSize: 13
+                                width: 200
+                                elide: Text.ElideRight
+                            }
                         }
                     }
                 }
@@ -80,7 +96,7 @@ WrapperRectangle {
 
                     Text {
                         id: mediaPlayerTitle
-                        text: activePlayer.desktopEntry
+                        text: longTitle[longTitle.length - 1]
                         color: Appearance.colors.primaryText
                         
                         font.pointSize: 12

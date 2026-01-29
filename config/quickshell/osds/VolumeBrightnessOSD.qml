@@ -1,4 +1,3 @@
-import "root:/config"
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -7,6 +6,8 @@ import Quickshell.Widgets
 import Quickshell.Io
 import Quickshell.Wayland
 import Quickshell.Hyprland
+import "root:/config"
+import "root:/utils"
 
 Scope {
 	id: root
@@ -53,35 +54,17 @@ Scope {
 		onTriggered: root.shouldShowOsd = false
 	}
 
-    Process {
-        id: brightnessProc
-        command: ["tail", "-F", "/tmp/current_brightness"]
+	Connections {
+        target: BrightnessState
 
-        running: true
+        function onStateChanged() {
+            var jsonData = JSON.parse(BrightnessState.state)
 
-        stdout: SplitParser {
-            onRead: data => {
-                var jsonData = JSON.parse(data)
-                var brightness = jsonData.level
-                var icon = "/home/kaii/.config/quickshell/assets/brightness_1.svg"
-
-                if (brightness < 20) {
-                    icon = "/home/kaii/.config/quickshell/assets/brightness_1.svg"
-                } else if (brightness < 40) {
-                    icon = "/home/kaii/.config/quickshell/assets/brightness_2.svg"
-                } else if (brightness < 60) {
-                    icon = "/home/kaii/.config/quickshell/assets/brightness_3.svg"
-                } else if (brightness < 80) {
-                    icon = "/home/kaii/.config/quickshell/assets/brightness_4.svg"
-                } else {
-                    icon = "/home/kaii/.config/quickshell/assets/brightness_5.svg"
-                }
-
-                root.icon = icon
-                root.percent = (brightness / 100)
-                root.shouldShowOsd = true;
-                hideTimer.restart();
-            }
+			root.percent = jsonData.level / 100;
+			root.icon = jsonData.icon
+			
+			root.shouldShowOsd = true;
+			hideTimer.restart();
         }
     }
 

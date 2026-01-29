@@ -16,7 +16,7 @@ Rectangle {
         color: Appearance.colors.text
 
         font.bold: true
-        font.pixelSize: 18
+        font.pixelSize: Appearance.sizes.barFontSize
 
         anchors.centerIn: parent
 

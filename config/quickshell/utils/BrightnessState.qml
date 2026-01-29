@@ -26,15 +26,15 @@ Singleton {
         }
     }
 
-    function setBrightness(value: int) {
-        root.percent = Math.max(1, value)
-        brightnessSetProc.running = true
-    }
-
     Process {
         id: brightnessSetProc
         command: ["/home/kaii/.config/quickshell/scripts/get_brightness_icon.sh", "set", root.percent.toString() + "%"]
 
         running: false
+    }
+
+    function setBrightness(value: int) {
+        root.percent = Math.max(1, value)
+        brightnessSetProc.running = true
     }
 }

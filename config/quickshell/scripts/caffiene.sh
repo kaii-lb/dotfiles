@@ -3,6 +3,7 @@
 pid=$(ps aux | grep "[i]dleinhibit.py" | awk '{print $2}')
 
 check() {
+	sleep 0.1
 	if [[ $pid != "" ]]; then
 		echo true
 	else

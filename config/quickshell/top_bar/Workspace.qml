@@ -10,16 +10,16 @@ Item {
     required property var modelData
     property bool active: Hyprland.focusedMonitor.activeWorkspace.id === workspaceRoot.modelData.id
 
-	width: active ? 42 : 22
-    height: 22
+	width: active ? Appearance.sizes.workspaceIndicatorSizeFocused : Appearance.sizes.workspaceIndicatorSizeUnfocused
+    height: Appearance.sizes.workspaceIndicatorSizeUnfocused
 
     Rectangle {
         id: indicator
 
         color: active ? Appearance.colors.primary : Appearance.colors.surfacePressed
 
-        width: active ? 42 : 22
-        height: 22
+        width: active ? Appearance.sizes.workspaceIndicatorSizeFocused : Appearance.sizes.workspaceIndicatorSizeUnfocused
+        height: Appearance.sizes.workspaceIndicatorSizeUnfocused
         radius: Appearance.radii.large
 
         anchors.centerIn: parent
@@ -30,5 +30,13 @@ Item {
             anchors.fill: parent
             onClicked: Hyprland.dispatch("workspace " + workspaceRoot.modelData.id)
         }
+
+        Behavior on width {
+            animation: Appearance.animations.elementMoveEnterFast.numberAnimation.createObject(this)
+        }
+    }
+
+    Behavior on width {
+        animation: Appearance.animations.elementMoveEnterFast.numberAnimation.createObject(this)
     }
 }

@@ -7,13 +7,52 @@ import Quickshell
 import QtQuick
 import QtQuick.Layouts
 import Quickshell.Io
+import Quickshell.Services.Mpris
+import Quickshell.Wayland
 
 Scope {
   id: root
   
   Quicksettings {
       id: quicksettingsMenu
+      activePlayer: Mpris.players.values[1]
   }
+
+  // stolen from https://github.com/end-4/dots-hyprland/blob/968e8195efacc916b85bd766fe878229d8859af2/.config/quickshell/ii/services/MprisController.qml#L27
+  Instantiator {
+		model: Mpris.players;
+
+		Connections {
+			required property MprisPlayer modelData;
+			target: modelData;
+
+			Component.onCompleted: {
+				if (quicksettingsMenu.activePlayer == null || modelData.isPlaying) {
+					quicksettingsMenu.activePlayer = modelData;
+				}
+			}
+
+			Component.onDestruction: {
+				if (quicksettingsMenu.activePlayer == null || !quicksettingsMenu.activePlayer.isPlaying) {
+					for (const player of Mpris.players.values) {
+						if (player.playbackState.isPlaying) {
+							quicksettingsMenu.activePlayer = player;
+							break;
+						}
+					}
+
+					if (activePlayer == null && Mpris.players.values.length != 0) {
+						activePlayer = Mpris.players.values[0];
+					}
+				}
+			}
+
+			function onPlaybackStateChanged() {
+				if (quicksettingsMenu.activePlayer !== modelData) quicksettingsMenu.activePlayer = modelData;
+			}
+		}
+	}
+
   VolumeBrightnessOSD {
     quicksettingsMenu: quicksettingsMenu
   }
@@ -26,8 +65,10 @@ Scope {
       right: true
     }
 
-    implicitHeight: 60
-    color: "#0F1417"
+    WlrLayershell.layer: WlrLayer.Top
+
+    implicitHeight: Appearance.sizes.barHeight
+    color: Appearance.colors.primaryText
 
       RowLayout {
       	anchors.fill: parent
@@ -38,7 +79,7 @@ Scope {
         }
 
         RowLayout {
-          spacing: 10
+          spacing: Appearance.spacing.large
 
           DashboardButton {}
           CpuTemp {}
@@ -50,7 +91,7 @@ Scope {
         }
 
         RowLayout {
-          spacing: 10
+          spacing: Appearance.spacing.large
 
           SystemTray {}
           ClockWidget {}

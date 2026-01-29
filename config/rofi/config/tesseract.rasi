@@ -88,7 +88,7 @@ textbox {
 listview {
     enabled:                     true;
     columns:                     6;
-    lines:                       2;
+    lines:                       3;
     cycle:                       true;
     scrollbar:                   false;
     layout:                      vertical;

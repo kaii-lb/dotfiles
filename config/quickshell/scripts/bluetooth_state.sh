@@ -5,7 +5,7 @@ props=$(bluetoothctl show)
 powered=$(echo "${props}" | grep Powered | sed 's/Powered: //' | tr -d '["\t", " "]')
 
 info=$(bluetoothctl info)
-connected_device=$(echo "${info}" | grep Name | sed 's/Name: //' | tr -d '\t')
+connected_device=$(echo "${info}" | grep Alias | sed 's/Alias: //' | tr -d '\t')
 battery=$(echo "${info}" | grep Battery | sed 's/Battery Percentage://' | tr -d "['\t', ')']" | cut -f2 -d'(')
 
 icon="/home/kaii/.config/quickshell/assets/bluetooth_off.svg"

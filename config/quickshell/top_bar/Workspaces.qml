@@ -18,7 +18,7 @@ Item {
 
     Row {
     	id: workspacesRow
-        spacing: 8
+        spacing: 6
         anchors {
 		    horizontalCenter: parent.horizontalCenter
 		    verticalCenter: parent.verticalCenter

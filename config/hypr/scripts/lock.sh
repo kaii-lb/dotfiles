@@ -6,11 +6,6 @@
 
 # sleep 1
 
-# pulse keyboard LEDs, fixes led lights on after sleep (even tho caps/num/fn lock isn't on)
-brightnessctl -d platform::fnlock set 0
-brightnessctl -d input4::capslock set 1
-brightnessctl -d input4::numlock set 1
-
 pidof /usr/bin/hyprlock || /usr/bin/hyprlock
 
 #

@@ -4,11 +4,9 @@ export DISPLAY=:0
 export WAYLAND_DISPLAY=wayland-1
 export XDG_RUNTIME_DIR=/run/user/1000
 
-# echo "hello" > /home/kaii/TESTING.log
-
 is_ac=$(systemd-ac-power -v)
 
-echo Is on AC? $is_ac
+# echo Is on AC? $is_ac
 
 if [[ $is_ac == "yes" ]]; then
 	notify-send "On AC power" "Switching to performance mode"

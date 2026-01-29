@@ -9,7 +9,7 @@ if [ $connectivity == "limited" ] || [ $connectivity == "unknown" ]; then
 	exit 0
 fi
 
-if [[ "${active_network_type}" == "wifi" ]]; then
+if [[ "${active_network_type}" == "wifi" ]] || [[ "${active_network_type}" == "bridge" ]]; then
 	echo "/home/kaii/.config/quickshell/assets/wifi_connected.svg"
 elif [[ "${active_network_type}" == "ethernet" ]]; then
 	echo "/home/kaii/.config/quickshell/assets/ethernet.svg"

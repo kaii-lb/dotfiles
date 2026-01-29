@@ -1,12 +1,12 @@
-import Quickshell
-import QtQuick
-import Quickshell.Io
 import "root:/config"
+import QtQuick
+import Quickshell
+import Quickshell.Io
 
 Rectangle {
     radius: Appearance.radii.normal
     color: Appearance.colors.surface
-    width: 180
+    width: 172
     height: Appearance.sizes.height
 
     Text {
@@ -15,7 +15,7 @@ Rectangle {
         color: Appearance.colors.text
 
         font.bold: true
-        font.pixelSize: 18
+        font.pixelSize: Appearance.sizes.barFontSize
 
         Process {
             id: dateProc

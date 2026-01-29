@@ -48,11 +48,21 @@ WrapperRectangle {
                 spacing: 0
                 Layout.maximumWidth: 10 // hack
                 
-                Text {
-                    text: title
-                    color: Appearance.colors.primaryText
-                    font.pointSize: 16
-                    font.weight: Font.Bold
+                Item {
+                    height: titleText.height
+                    width: titleText.width
+                
+                    Text {
+                        id: titleText
+                        text: title
+                        color: Appearance.colors.primaryText
+
+                        font.pointSize: 16
+                        font.weight: Font.Bold
+
+                        width: root.hasExtra ? 120 : 140
+                        elide: Text.ElideRight
+                    }
                 }
 
                 Text {

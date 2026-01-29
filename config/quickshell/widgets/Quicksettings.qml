@@ -13,6 +13,7 @@ import Quickshell.Hyprland
 Scope {
 	id: root
 
+    required property var activePlayer
     property bool shouldShowQuicksettings: false
 
     LazyLoader {
@@ -123,8 +124,14 @@ Scope {
                                     }
 
                                     var powered = jsonData.powered === "true"
-                                    
-                                    bluetoothTile.summary = powered ? (jsonData.connected_device + batteryLevel) : "Powered Off"
+
+                                    var deviceName = jsonData.connected_device;
+
+                                    if (deviceName.length > 6 && deviceName != "Disconnected") {
+                                    	deviceName = deviceName.substring(0, 6) + "..."
+                                    }
+
+                                    bluetoothTile.summary = powered ? (deviceName + batteryLevel) : "Powered Off"
                                 }
                             }
 
@@ -189,14 +196,40 @@ Scope {
                                 }
                             }
 
+                            Process {
+                                id: powerCheckProc
+                                command: ["/home/kaii/.config/hypr/scripts/power_saving.sh", "check"]
+
+                                running: true
+
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        powerTile.summary = this.text === "on\n" ? "Enabled" : "Disabled"
+                                    }
+                                }
+                            }
+
+                            Process {
+                                id: powerToggleProc
+                                command: ["/home/kaii/.config/hypr/scripts/power_saving.sh", "toggle"]
+
+                                running: false
+
+                                stdout: StdioCollector {
+                                    onStreamFinished: {
+                                        powerCheckProc.running = true
+                                    }
+                                }
+                            }
+
                             QsTile {
-                                id: dndTile
-                                title: "Notifications"
-                                summary: "Hidden"
-                                active: false
-                                iconPath: "/home/kaii/.config/quickshell/assets/notifications_filled_off.svg"
+                                id: powerTile
+                                title: "Power Saving"
+                                summary: "Disabled"
+                                active: powerTile.summary != "Disabled"
+                                iconPath: "/home/kaii/.config/quickshell/assets/energy_saving.svg"
                                 command: function() {
-                                    // TODO: complete this
+                                	powerToggleProc.running = true
                                 }
                             }
                         }
@@ -297,7 +330,9 @@ Scope {
                             topMargin: 16
                             Layout.fillWidth: true
                             
-                            MediaPlayer {}
+                            MediaPlayer {
+                                activePlayer: root.activePlayer
+                            }
                         }
                     }
                 }

@@ -32,10 +32,18 @@ Singleton {
     component Sizes: QtObject {
         readonly property int icon: 25
         readonly property int height: 40
+
+        readonly property int workspaceIndicatorSizeUnfocused: 22
+        readonly property int workspaceIndicatorSizeFocused: 42
+
+        readonly property int barHeight: 60
+
+        readonly property int barFontSize: 18
     }
 
     component Spacing: QtObject {
         readonly property int normal: 5
+        readonly property int large: 10
     }
 
     component Animations: QtObject {
@@ -74,6 +82,21 @@ Singleton {
                     easing.type: root.animations.elementMoveFast.type
                     easing.bezierCurve: root.animations.elementMoveFast.bezierCurve
             }}
+        }
+
+        property QtObject elementMoveEnterFast: QtObject {
+            property int duration: 180
+            property int type: Easing.BezierSpline
+            property list<real> bezierCurve: root.animations.expressive
+            property int velocity: 850
+            
+            property Component numberAnimation: Component {
+                NumberAnimation {
+                    duration: root.animations.elementMoveEnterFast.duration
+                    easing.type: root.animations.elementMoveEnterFast.type
+                    easing.bezierCurve: root.animations.elementMoveEnterFast.bezierCurve
+                }
+            }
         }
     }
 }

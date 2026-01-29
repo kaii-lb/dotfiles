@@ -6,6 +6,7 @@ datetime=$(date +"%Y-%m-%d %I-%M-%S")
 
 english="  English"
 arabic="  Arabic"
+french="  French"
 
 dir="/home/$USER/.cache/tesseract-ocr"
 if [[ ! -d $dir ]]; then
@@ -18,20 +19,23 @@ shotarea () {
 	sleep 1 && grimblast --freeze copysave area $dir/"Screenshot from ${datetime}".png
 }
 
-options="$english\n$arabic"
+options="$english\n$arabic\n$french"
 
 chosen="$(echo -e "$options"| $rofi_command -p 'Screen To Text' -dmenu -selected-row 0)"
 case $chosen in
     $arabic)
 		shotarea
 		tesseract -l ara $dir/"Screenshot from ${datetime}".png $dir/"Text from ${datetime}"
-		wl-copy < $dir/"Text from ${datetime}".txt
-		notify-send -u low -i $icon1 "Text copied to clipboard."
+		wl-copy < $dir/"Text from ${datetime}".txt && notify-send -u low -i $icon1 "Text copied to clipboard."
         ;;
     $english)
 		shotarea
 		tesseract -l eng $dir/"Screenshot from ${datetime}".png $dir/"Text from ${datetime}"
-		wl-copy < $dir/"Text from ${datetime}".txt
-		notify-send -u low -i $icon1 "Text copied to clipboard."
+		wl-copy < $dir/"Text from ${datetime}".txt && notify-send -u low -i $icon1 "Text copied to clipboard."
         ;;
+    $french)
+   		shotarea
+   		tesseract -l fra $dir/"Screenshot from ${datetime}".png $dir/"Text from ${datetime}"
+   		wl-copy < $dir/"Text from ${datetime}".txt && notify-send -u low -i $icon1 "Text copied to clipboard."
+           ;;
 esac
