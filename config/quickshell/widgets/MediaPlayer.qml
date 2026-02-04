@@ -25,7 +25,7 @@ WrapperRectangle {
         
         ColumnLayout {
             RowLayout {
-                spacing: 16
+                spacing: Appearance.spacing.xLarge
                 Layout.alignment: Qt.AlignTop
                 
                 ClippingRectangle {

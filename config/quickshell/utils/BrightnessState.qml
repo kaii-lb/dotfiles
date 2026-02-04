@@ -15,7 +15,7 @@ Singleton {
 
     Process {
         id: brightnessProc
-        command: ["tail", "-F", "/tmp/current_brightness"]
+        command: ["tail", "-s", "0.5", "-F", "/tmp/current_brightness"]
 
         running: true
 

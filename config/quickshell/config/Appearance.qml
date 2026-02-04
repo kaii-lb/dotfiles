@@ -16,7 +16,9 @@ Singleton {
         readonly property color primary: "#ACC7FF"
         readonly property color primaryPressed: "#ccddff"
         readonly property color primaryText: "#0F1417"
+        readonly property color secondary: '#dad0ce'
         readonly property color surface: "#1E333C"
+        readonly property color surfaceLight: '#46626e'
         readonly property color surfaceDark: "#16262c"
         readonly property color surfacePressed: "#30515f"
         readonly property color text: "#ffffff"
@@ -44,6 +46,7 @@ Singleton {
     component Spacing: QtObject {
         readonly property int normal: 5
         readonly property int large: 10
+        readonly property int xLarge: 16
     }
 
     component Animations: QtObject {

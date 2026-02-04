@@ -18,7 +18,7 @@ infive="  Record in 5s"
 # Notify and view screenshot
 notify_view () {
 	notify-send -u low --replace-id=699 -i $icon1 "Copied to clipboard."
-	if [[ -e "$dir/Screen Recording from ${datetime}.webm" ]]; then
+	if [[ -e "$dir/Screen Recording from ${datetime}.mp4" ]]; then
 		notify-send -u low --replace-id=699 -i $icon1 "Screen Recording Saved."
 	else
 		notify-send -u low --replace-id=699 -i $icon1 "Screen Recording Deleted."
@@ -35,34 +35,34 @@ countdown () {
 
 # take shots
 recordnow () {
-	sleep 0.5 && gpu-screen-recorder -k vp9 -q high -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".webm
-	wl-copy < $dir/"Screen Recording from ${datetime}".webm
+	sleep 0.5 && gpu-screen-recorder -k h264 -q high -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".mp4
+	wl-copy < $dir/"Screen Recording from ${datetime}".mp4
 	notify_view
 }
 
 record5 () {
 	countdown '5'
-	sleep 1 &&  gpu-screen-recorder -k vp9 -q high -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".webm
-	wl-copy < $dir/"Screen Recording from ${datetime}".webm
+	sleep 1 &&  gpu-screen-recorder -k h264 -q high -w screen -f 60 -a default_output -o $dir/"Screen Recording from ${datetime}".mp4
+	wl-copy < $dir/"Screen Recording from ${datetime}".mp4
 	notify_view
 }
 
 record5area () {
 	countdown '5'
-	sleep 1 &&  gpu-screen-recorder -k vp9 -q high -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".webm
-	wl-copy < $dir/"Screen Recording from ${datetime}".webm
+	sleep 1 &&  gpu-screen-recorder -k h264 -q high -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".mp4
+	wl-copy < $dir/"Screen Recording from ${datetime}".mp4
 	notify_view
 }
 
 recordwin () {
-	gpu-screen-recorder -k vp9 -q high -w region -f 60 -a default_output -region "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[2])x\(.[3])+\(.[0])+\(.[1])"')" -o $dir/"Screen Recording from ${datetime}".webm
-	wl-copy < $dir/"Screen Recording from ${datetime}".webm
+	gpu-screen-recorder -k h264 -q high -w region -f 60 -a default_output -region "$(hyprctl activewindow -j | jq -r ".at,.size" | jq -s "add" | jq '_nwise(4)' | jq -r '"\(.[2])x\(.[3])+\(.[0])+\(.[1])"')" -o $dir/"Screen Recording from ${datetime}".mp4
+	wl-copy < $dir/"Screen Recording from ${datetime}".mp4
 	notify_view
 }
 
 recordarea () {
-	gpu-screen-recorder -k vp9 -q high -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".webm
-	wl-copy < $dir/"Screen Recording from ${datetime}".webm
+	gpu-screen-recorder -k h264 -q high -w region -f 60 -a default_output -region "$(slurp -b#1e1e1e55 -c#b4befe -w4 -f %Wx%H+%X+%Y)" -o $dir/"Screen Recording from ${datetime}".mp4
+	wl-copy < $dir/"Screen Recording from ${datetime}".mp4
 	notify_view
 }
 

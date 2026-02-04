@@ -7,12 +7,14 @@ function toggle() {
 	if [[ $state == "on" ]]; then
 		hyprctl keyword monitor eDP-1,1920x1080@144.00Hz,0x0,1,vrr,1 &>/dev/null
 		power-daemon-mgr set-profile-override Performance++ &>/dev/null
-		pkexec sh -c "ip link set enp7s0 up"
+		nmcli radio all on
+		pkexec sh -c "ip link set enp7s0 up && ip link set wlan0 up"
 		echo off > $path
 	else
 		hyprctl keyword monitor eDP-1,1920x1080@60.00Hz,0x0,1,vrr,1 &>/dev/null
 		power-daemon-mgr set-profile-override Powersave++ &>/dev/null
-		pkexec sh -c "ip link set enp7s0 down"
+		nmcli radio all off
+		pkexec sh -c "ip link set enp7s0 down && ip link set wlan0 down"
 		echo on > $path
 	fi
 }

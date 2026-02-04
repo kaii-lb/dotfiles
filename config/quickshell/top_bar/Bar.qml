@@ -9,6 +9,7 @@ import QtQuick.Layouts
 import Quickshell.Io
 import Quickshell.Services.Mpris
 import Quickshell.Wayland
+import Quickshell.Hyprland 
 
 Scope {
   id: root
@@ -16,6 +17,10 @@ Scope {
   Quicksettings {
       id: quicksettingsMenu
       activePlayer: Mpris.players.values[1]
+  }
+
+  NotificationShade {
+    id: notificationShade
   }
 
   // stolen from https://github.com/end-4/dots-hyprland/blob/968e8195efacc916b85bd766fe878229d8859af2/.config/quickshell/ii/services/MprisController.qml#L27
@@ -95,9 +100,13 @@ Scope {
 
           SystemTray {}
           ClockWidget {}
-          NotificationButton {}
+          NotificationButton {
+            notificationShade: notificationShade
+            quicksettingsMenu: quicksettingsMenu
+          }
           QuickSettingsButton {
             quicksettingsMenu: quicksettingsMenu
+            notificationShade: notificationShade
           }
           BatteryIndicator {}
           PowerButton {}

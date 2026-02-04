@@ -13,6 +13,7 @@ Item {
     id: root
 
     required property var quicksettingsMenu
+    required property var notificationShade
     property bool isPowered: false
 
     clip: true
@@ -153,6 +154,9 @@ Item {
         anchors.fill: parent
         id: quicksettingsMouseArea
 
-        onClicked: quicksettingsMenu.shouldShowQuicksettings = !quicksettingsMenu.shouldShowQuicksettings
+        onClicked: function() {
+            quicksettingsMenu.shouldShowQuicksettings = !quicksettingsMenu.shouldShowQuicksettings
+            notificationShade.showNotificationShade = false
+        }
     }
 }
