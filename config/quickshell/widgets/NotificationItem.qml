@@ -45,8 +45,8 @@ WrapperRectangle {
 
             ClippingRectangle {
                 radius: Appearance.radii.full
-                Layout.preferredWidth: 64
-                Layout.preferredHeight: 64
+                Layout.preferredWidth: 56
+                Layout.preferredHeight: 56
 
                 Layout.alignment: Qt.AlignLeft
 
@@ -57,7 +57,7 @@ WrapperRectangle {
                         if (root.icon_path.data == "") {
                             Qt.resolvedUrl("/home/kaii/.config/quickshell/assets/notifications_filled.svg")
                         } else {
-                            Qt.resolvedUrl("/home/kaii/.face")
+                            Qt.resolvedUrl(root.icon_path.data)
                         }
                     
                     implicitSize: parent.height
@@ -66,7 +66,7 @@ WrapperRectangle {
 
             ColumnLayout {
                 Text {
-                    text: appname.data + " - " + timestamp.data
+                    text: (appname.data == "" ? "unknown" : appname.data) + " - " + timestamp.data
                     color: Appearance.colors.text
                     opacity: 0.8
                     font.pointSize: 12
